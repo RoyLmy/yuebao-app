@@ -238,8 +238,8 @@ body {
 
 /* 工商银行图标 */
 .bank-icon.icbc {
-    width: 36px;
-    height: 36px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     position: relative;
     display: flex;
@@ -252,8 +252,8 @@ body {
 .bank-icon.icbc::before {
     content: '';
     position: absolute;
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
     background: #ffffff;
     mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M30 35h40v10H30v-10zM30 55h40v10H30v-10zM42 30h16v40H42v-40z' fill='%23ffffff'/%3E%3C/svg%3E");
     mask-repeat: no-repeat;
@@ -604,6 +604,19 @@ body {
     font-size: 14px;
     color: #ffffff;
     cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #333;
+    user-select: none;
+}
+
+.quick-amount:active {
+    background: #2a2a2a;
+    transform: scale(0.95);
+}
+
+.quick-amount:hover {
+    border-color: #ff6b35;
+    background: rgba(255, 107, 53, 0.1);
 }
 
 .safe-tip {
