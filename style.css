@@ -237,18 +237,24 @@ body {
 }
 
 /* 工商银行图标 */
-.bank-icon.icbc::before,
-.bank-icon.boc::before {
+.bank-icon.icbc {
+    background: #C7000B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.bank-icon.icbc::before {
     content: '';
-    position: absolute;
     width: 24px;
     height: 24px;
-    background: #c7000b;
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M100 0C44.8 0 0 44.8 0 100s44.8 100 100 100 100-44.8 100-100S155.2 0 100 0zm0 180c-44.2 0-80-35.8-80-80s35.8-80 80-80 80 35.8 80 80-35.8 80-80 80zm40-120H60v80h80V60zm-20 60H80V80h40v40z'/%3E%3C/svg%3E");
+    background: #ffffff;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23fff' d='M50,5C25.2,5,5,25.2,5,50s20.2,45,45,45s45-20.2,45-45S74.8,5,50,5z M70,70H30V30h40V70z M40,60h20V40H40V60z'/%3E%3C/svg%3E");
     mask-repeat: no-repeat;
     mask-position: center;
     mask-size: contain;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M100 0C44.8 0 0 44.8 0 100s44.8 100 100 100 100-44.8 100-100S155.2 0 100 0zm0 180c-44.2 0-80-35.8-80-80s35.8-80 80-80 80 35.8 80 80-35.8 80-80 80zm40-120H60v80h80V60zm-20 60H80V80h40v40z'/%3E%3C/svg%3E");
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23fff' d='M50,5C25.2,5,5,25.2,5,50s20.2,45,45,45s45-20.2,45-45S74.8,5,50,5z M70,70H30V30h40V70z M40,60h20V40H40V60z'/%3E%3C/svg%3E");
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
     -webkit-mask-size: contain;
@@ -1415,7 +1421,7 @@ body {
 
 /* 闲置资金升级模块 */
 .money-upgrade-section {
-    background: #fff;
+    background: #1a1a1a;
     border-radius: 12px;
     padding: 20px;
     margin: 16px;
@@ -1423,7 +1429,7 @@ body {
 
 .money-upgrade-section h3 {
     font-size: 18px;
-    color: #333;
+    color: #ffffff;
     margin-bottom: 8px;
 }
 
@@ -1434,7 +1440,7 @@ body {
 }
 
 .upgrade-content {
-    background: #fff;
+    background: #2a2a2a;
     border-radius: 12px;
     padding: 16px;
 }
@@ -1458,7 +1464,7 @@ body {
 
 .product-box {
     flex: 1;
-    background: #f5f5f5;
+    background: #333333;
     padding: 12px;
     border-radius: 8px;
     text-align: center;
@@ -1510,7 +1516,7 @@ body {
 .zero-money-section {
     margin-top: 16px;
     padding: 16px;
-    background: #f5f5f5;
+    background: #2a2a2a;
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -1519,7 +1525,7 @@ body {
 
 .zero-money-title {
     font-size: 16px;
-    color: #333;
+    color: #ffffff;
 }
 
 .zero-money-desc {
