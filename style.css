@@ -786,11 +786,10 @@ body {
 }
 
 .money-tree-section {
-    background: #fff;
+    background: #1a1a1a;
     border-radius: 12px;
     padding: 20px;
     margin: 16px;
-    text-align: center;
     position: relative;
 }
 
@@ -800,7 +799,7 @@ body {
 
 .tree-header h3 {
     font-size: 18px;
-    color: #333;
+    color: #ffffff;
     margin-bottom: 8px;
 }
 
@@ -810,14 +809,14 @@ body {
 }
 
 .tree-game {
-    background: linear-gradient(135deg, #fff5f0 0%, #fff9f5 100%);
+    background: #2a2a2a;
     border-radius: 16px;
     padding: 24px;
     margin-top: 20px;
 }
 
 .reward-badge {
-    background: #fff2e8;
+    background: rgba(255, 107, 53, 0.1);
     padding: 8px 16px;
     border-radius: 20px;
     display: inline-flex;
@@ -852,7 +851,7 @@ body {
 .tree-container {
     width: 120px;
     height: 120px;
-    background: linear-gradient(135deg, #fff7f2 0%, #fff2e8 100%);
+    background: rgba(255, 107, 53, 0.05);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -864,7 +863,7 @@ body {
 .tree-circle {
     width: 100px;
     height: 100px;
-    background: #fff2e8;
+    background: rgba(255, 107, 53, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
