@@ -236,7 +236,8 @@ body {
 
 /* 工商银行图标 */
 .bank-icon.icbc {
-    background: #c7000b;
+    background: #fff;
+    border: 1px solid #e6e6e6;
 }
 
 .bank-icon.icbc::before {
@@ -244,7 +245,7 @@ body {
     position: absolute;
     width: 24px;
     height: 24px;
-    background: #fff;
+    background: #c7000b;
     mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5C25.2 5 5 25.2 5 50s20.2 45 45 45 45-20.2 45-45S74.8 5 50 5zm0 80c-19.3 0-35-15.7-35-35s15.7-35 35-35 35 15.7 35 35-15.7 35-35 35z'/%3E%3Cpath d='M65 35H35v30h30V35zm-5 25H40V40h20v20z'/%3E%3C/svg%3E");
     mask-repeat: no-repeat;
     mask-position: center;
@@ -946,10 +947,10 @@ body {
 }
 
 .experience-section {
-    background: #1a1a1a;
+    background: #fff;
     border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 16px;
+    padding: 20px;
+    margin: 16px;
 }
 
 .experience-header {
@@ -973,185 +974,223 @@ body {
 }
 
 .main-reward {
-    flex: 1;
-    background: #2a2a2a;
-    border-radius: 12px;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-}
-
-.reward-amount {
-    font-size: 24px;
-    font-weight: 600;
-    color: #ff6b35;
-}
-
-.coin-large {
-    width: 48px;
-    height: 48px;
-    background: linear-gradient(135deg, #ffd700 0%, #ffb700 50%, #ffd700 100%);
-    border-radius: 50%;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 
-        inset 0 0 10px rgba(255, 255, 255, 0.8),
-        inset 0 0 20px rgba(255, 183, 0, 0.5),
-        0 2px 4px rgba(0, 0, 0, 0.2);
-    transform-style: preserve-3d;
-    transition: transform 0.3s ease;
+    text-align: center;
 }
 
-.coin-large::before {
-    content: '¥';
-    color: #8B4513;
-    font-size: 28px;
-    font-weight: 600;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
-    transform: translateZ(1px);
-}
-
-.coin-large::after {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    right: 2px;
-    bottom: 2px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-}
-
-.daily-rewards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-}
-
-.daily-item {
-    background: #2a2a2a;
-    border-radius: 8px;
-    padding: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-}
-
-.daily-amount {
-    font-size: 14px;
+.reward-status {
     color: #ff6b35;
-}
-
-.coin-small {
-    width: 24px;
-    height: 24px;
-    background: linear-gradient(135deg, #ffd700 0%, #ffb700 50%, #ffd700 100%);
-    border-radius: 50%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 
-        inset 0 0 5px rgba(255, 255, 255, 0.8),
-        inset 0 0 10px rgba(255, 183, 0, 0.5),
-        0 1px 2px rgba(0, 0, 0, 0.2);
-    transform-style: preserve-3d;
-    transition: transform 0.3s ease;
-}
-
-.coin-small::before {
-    content: '¥';
-    color: #8B4513;
     font-size: 14px;
-    font-weight: 600;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
-    transform: translateZ(1px);
-}
-
-.coin-small::after {
-    content: '';
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    right: 1px;
-    bottom: 1px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-}
-
-.experience-progress {
-    margin-top: 16px;
-    padding: 0 8px;
-}
-
-.progress-bar {
-    height: 3px;
-    background: rgba(255, 107, 53, 0.1);
-    border-radius: 1.5px;
     margin-bottom: 12px;
-    position: relative;
-    overflow: hidden;
 }
 
-.progress-fill {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 0;
+.more-tasks-btn {
     background: #ff6b35;
-    border-radius: 1.5px;
-    transition: width 0.5s ease;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-top: 12px;
 }
 
-.progress-fill.active {
-    width: 20%;
-}
-
-.progress-labels {
-    display: flex;
-    justify-content: space-between;
+.day-label {
     font-size: 12px;
     color: #999;
-    position: relative;
+    margin-top: 8px;
 }
 
-.progress-labels span {
-    position: relative;
-    padding-top: 16px;
-    cursor: pointer;
-}
-
-.progress-labels span::before {
-    content: '';
+.tomorrow-tag {
     position: absolute;
-    width: 6px;
-    height: 6px;
-    background: rgba(255, 107, 53, 0.1);
-    border-radius: 50%;
-    top: -3px;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: all 0.3s ease;
-}
-
-.progress-labels span.active::before {
+    top: -8px;
+    right: -8px;
     background: #ff6b35;
-    transform: translateX(-50%) scale(1.5);
+    color: #fff;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 10px;
 }
 
-.progress-labels span:first-child {
+.experience-footer {
+    display: flex;
+    align-items: center;
+    padding-top: 16px;
+    margin-top: 16px;
+    border-top: 1px solid #f5f5f5;
+}
+
+.experience-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 8px;
+}
+
+.experience-desc {
+    font-size: 12px;
+    color: #999;
+    flex: 1;
+}
+
+/* 响应式调整 */
+@media (max-width: 375px) {
+    .product-box {
+        width: 100px;
+        height: 70px;
+        padding: 8px;
+    }
+    
+    .product-name {
+        font-size: 14px;
+    }
+    
+    .risk-level {
+        font-size: 10px;
+    }
+    
+    .upgrade-arrow {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 320px) {
+    .product-box {
+        width: 90px;
+        height: 60px;
+        padding: 6px;
+    }
+    
+    .zero-money-section {
+        padding: 12px;
+    }
+    
+    .check-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+
+/* 余钱升级模块样式 */
+.money-upgrade-section {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px;
+}
+
+.upgrade-header {
+    margin-bottom: 20px;
+}
+
+.upgrade-header h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.upgrade-header p {
+    font-size: 14px;
+    color: #999;
+}
+
+.upgrade-content {
+    background: #fff5f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.upgrade-tip {
     color: #ff6b35;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.product-comparison {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.product-box {
+    width: 120px;
+    height: 80px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-box.yuebao {
+    background: #f5f5f5;
+}
+
+.product-box.active-money {
+    background: #ff6b35;
+    color: #fff;
+}
+
+.product-name {
+    font-size: 16px;
     font-weight: 500;
 }
 
-.progress-labels span:first-child::before {
+.risk-level {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.upgrade-arrow {
+    width: 40px;
+    height: 40px;
     background: #ff6b35;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M16.01 11H4v2h12.01v3L20 12l-3.99-4z'/%3E%3C/svg%3E");
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M16.01 11H4v2h12.01v3L20 12l-3.99-4z'/%3E%3C/svg%3E");
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+}
+
+.product-desc {
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+}
+
+.zero-money-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f5f5f5;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.zero-money-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+.zero-money-desc {
+    font-size: 12px;
+    color: #999;
+}
+
+.check-btn {
+    background: #ff6b35;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 16px;
+    font-size: 14px;
 }
 
 /* 签到动画效果 */
