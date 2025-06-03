@@ -225,7 +225,6 @@ body {
     width: 32px;
     height: 32px;
     margin-right: 12px;
-    background: linear-gradient(135deg, #d4237a 0%, #ff6b6b 100%);
     border-radius: 4px;
     position: relative;
     display: flex;
@@ -235,46 +234,50 @@ body {
     overflow: hidden;
 }
 
-.bank-icon::before {
+/* 工商银行图标 */
+.bank-icon.icbc {
+    background: linear-gradient(135deg, #c7000b 0%, #e60012 100%);
+}
+
+.bank-icon.icbc::before {
     content: '';
     position: absolute;
     width: 24px;
     height: 16px;
     background: #ffffff;
     border-radius: 2px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.bank-icon::after {
-    content: '银行';
-    position: absolute;
-    font-size: 8px;
-    color: #d4237a;
-    font-weight: bold;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
-}
-
-/* 交通银行特殊样式 */
-.bank-info:has(.bank-name:contains("交通银行")) .bank-icon {
-    background: linear-gradient(135deg, #005baa 0%, #0080ff 100%);
-}
-
-.bank-info:has(.bank-name:contains("交通银行")) .bank-icon::after {
-    content: '交行';
-    color: #005baa;
-}
-
-/* 工商银行特殊样式 */
-.bank-info:has(.bank-name:contains("工商银行")) .bank-icon {
-    background: linear-gradient(135deg, #c7000b 0%, #ff1a1a 100%);
-}
-
-.bank-info:has(.bank-name:contains("工商银行")) .bank-icon::after {
+.bank-icon.icbc::after {
     content: '工行';
-    color: #c7000b;
+    position: absolute;
+    font-size: 10px;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* 交通银行图标 */
+.bank-icon.boc {
+    background: linear-gradient(135deg, #005baa 0%, #0066cc 100%);
+}
+
+.bank-icon.boc::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 16px;
+    background: #ffffff;
+    border-radius: 2px;
+}
+
+.bank-icon.boc::after {
+    content: '交行';
+    position: absolute;
+    font-size: 10px;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* 眼睛图标样式 */
@@ -808,23 +811,26 @@ body {
 }
 
 .money-tree-section {
-    background: #1a1a1a;
+    background: #ffffff;
     border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 16px;
+    padding: 20px;
+    margin: 16px;
+    text-align: center;
+    position: relative;
 }
 
 .tree-header {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 .tree-header h3 {
-    font-size: 16px;
-    margin-bottom: 4px;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 8px;
 }
 
 .tree-header p {
-    font-size: 12px;
+    font-size: 14px;
     color: #999;
 }
 
@@ -832,21 +838,21 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 20px;
 }
 
 .reward-badge {
+    background: #fff2e8;
+    padding: 8px 16px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     gap: 8px;
-    background: rgba(255, 107, 53, 0.1);
-    padding: 8px 16px;
-    border-radius: 20px;
 }
 
 .coin-icon {
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
     background: #ff6b35;
     border-radius: 50%;
     position: relative;
@@ -857,62 +863,21 @@ body {
 
 .coin-icon::before {
     content: '¥';
-    color: #000;
-    font-size: 12px;
-    font-weight: 500;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .reward-text {
-    font-size: 14px;
     color: #ff6b35;
-}
-
-/* 优化的树图标 */
-.tree-icon {
-    width: 32px;
-    height: 32px;
-    position: relative;
-    background: transparent;
-}
-
-.tree-icon::before {
-    content: '';
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    background: #ff6b35;
-    border-radius: 2px;
-    top: 4px;
-    left: 4px;
-    clip-path: polygon(
-        50% 0%,
-        80% 30%,
-        65% 30%,
-        85% 60%,
-        70% 60%,
-        100% 90%,
-        0% 90%,
-        30% 60%,
-        15% 60%,
-        35% 30%,
-        20% 30%
-    );
-}
-
-.tree-icon::after {
-    content: '';
-    position: absolute;
-    width: 8px;
-    height: 6px;
-    background: #ff6b35;
-    bottom: 0;
-    left: 12px;
-    border-radius: 1px;
+    font-size: 14px;
 }
 
 .tree-container {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
+    background: #fff7f2;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -920,9 +885,9 @@ body {
 }
 
 .tree-circle {
-    width: 80px;
-    height: 80px;
-    background: rgba(255, 107, 53, 0.1);
+    width: 100px;
+    height: 100px;
+    background: #fff2e8;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -935,25 +900,51 @@ body {
     background: rgba(255, 107, 53, 0.15);
 }
 
+.tree-icon {
+    width: 60px;
+    height: 60px;
+    background: #ff6b35;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2L4 9h2v13h12V9h2L12 2zm0 3l4 4h-2v13h-4V9H8l4-4z'/%3E%3C/svg%3E");
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2L4 9h2v13h12V9h2L12 2zm0 3l4 4h-2v13h-4V9H8l4-4z'/%3E%3C/svg%3E");
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+}
+
 .tree-actions {
     text-align: center;
+    margin-top: 20px;
 }
 
 .action-text {
-    font-size: 12px;
-    color: #999;
-    margin-bottom: 8px;
     display: block;
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 12px;
 }
 
 .tree-btn {
     background: #ff6b35;
     color: #ffffff;
     border: none;
-    padding: 8px 24px;
-    border-radius: 20px;
-    font-size: 14px;
+    padding: 10px 32px;
+    border-radius: 24px;
+    font-size: 16px;
+    font-weight: 500;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tree-btn:hover {
+    background: #ff5722;
+    transform: translateY(-1px);
+}
+
+.tree-btn:active {
+    transform: translateY(1px);
 }
 
 .experience-section {

@@ -1,11 +1,11 @@
 {
-    "name": "余额宝",
-    "short_name": "余额宝",
+    "name": "支付宝",
+    "short_name": "支付宝",
     "start_url": "./",
     "display": "standalone",
     "background_color": "#000000",
     "theme_color": "#000000",
-    "description": "余额宝资金管理应用",
+    "description": "支付宝资金管理应用",
     "icons": [
         {
             "src": "./icon-192.png",
