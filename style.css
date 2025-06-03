@@ -317,20 +317,20 @@ body {
 }
 
 .eye-icon.hidden::before {
-    height: 1.5px;
-    border-radius: 1px;
-    border: none;
-    background: rgba(255, 255, 255, 0.6);
+    height: 12px;
+    border-radius: 12px;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
     width: 18px;
-    transform: translate(-50%, -50%) rotate(-45deg);
+    transform: translate(-50%, -50%);
 }
 
 .eye-icon.hidden::after {
+    width: 14px;
     height: 1.5px;
-    width: 18px;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%) rotate(-45deg);
     border-radius: 1px;
-    background: rgba(255, 255, 255, 0.6);
-    transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .eye-icon:hover {
