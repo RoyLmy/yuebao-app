@@ -264,19 +264,8 @@
                             <div class="day-label">第5天</div>
                         </div>
                     </div>
-                    <div class="sign-btn-wrap"><button id="signBtn" class="sign-btn">立即签到</button></div>
-                </div>
-
-                <div class="experience-progress">
-                    <div class="progress-bar">
-                        <div class="progress-fill"></div>
-                    </div>
-                    <div class="progress-labels">
-                        <span>立即签到</span>
-                        <span>第2天</span>
-                        <span>第3天</span>
-                        <span>第4天</span>
-                        <span>第5天</span>
+                    <div class="sign-btn-wrap">
+                        <button id="signBtn" class="sign-btn">立即签到</button>
                     </div>
                 </div>
 
@@ -287,78 +276,198 @@
 
         <!-- 转入页面 -->
         <div id="transferInPage" class="page">
-            <div class="back-btn" onclick="showPage('homePage')">
-                <div class="back-arrow"></div>
-            </div>
-            <div class="title">
-                <h1>转入余额宝</h1>
-                <div class="security-badge">
-                    <div class="shield-icon"></div>
-                    <span>资金安全</span>
+            <div class="header">
+                <div class="back-btn" onclick="showPage('homePage')">
+                    <div class="back-arrow"></div>
+                </div>
+                <div class="title">
+                    <h1>转入余额宝</h1>
+                    <div class="security-badge">
+                        <div class="shield-icon"></div>
+                        <span>资金安全</span>
+                    </div>
+                </div>
+                <div class="menu-btn">
+                    <span class="rules-text">交易规则</span>
                 </div>
             </div>
 
-            <div class="bank-card">
-                <div class="bank-icon icbc"></div>
-                <div class="bank-info">
-                    <div class="bank-name">工商银行储蓄卡(4392)</div>
-                    <div class="bank-limit">单笔/日限额：5万</div>
+            <div class="deposit-content">
+                <div class="rate-info">
+                    <div class="rate-item">
+                        <span>可用</span>
+                        <div class="rate-value">七日年化1.1450%</div>
+                        <div class="rate-line"></div>
+                    </div>
+                    <div class="rate-item">
+                        <span>攒着</span>
+                        <div class="rate-value highlight">最高七日年化1.3730%</div>
+                        <div class="rate-tag">收益更高</div>
+                    </div>
                 </div>
+
+                <div class="bank-select">
+                    <div class="bank-info">
+                        <div class="bank-icon icbc"></div>
+                        <div class="bank-name">中国工商银行(1004)</div>
+                    </div>
+                    <div class="bank-tip">银行卡转入资金可免费转回银行卡</div>
+                    <div class="arrow-right"></div>
+                </div>
+
+                <div class="amount-input">
+                    <div class="amount-label">转入金额</div>
+                    <div class="amount-field">
+                        <span class="currency">¥</span>
+                        <input type="text" placeholder="转入无限额" class="amount-value" id="depositAmount" />
+                    </div>
+                </div>
+
+                <div class="quick-amounts">
+                    <div class="quick-amount">50000</div>
+                    <div class="quick-amount">100000</div>
+                    <div class="quick-amount">200000</div>
+                </div>
+
+                <div class="safe-tip">转入国寿安保货币</div>
             </div>
 
-            <div class="amount-input">
-                <span class="currency">¥</span>
-                <input type="number" placeholder="转入金额" />
-            </div>
-
-            <button class="confirm-btn" disabled>确认转入</button>
-
-            <div class="footer-text">
-                余额宝对应货币基金销售服务由蚂蚁基金提供
-                <br />
-                市场有风险，投资需谨慎
+            <div class="keypad">
+                <div class="keypad-row">
+                    <div class="key">1</div>
+                    <div class="key">2</div>
+                    <div class="key">3</div>
+                    <div class="key delete"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMjEgNEg4bC03IDggNyA4aDEzYTIgMiAwIDAgMCAyLTJWNmEyIDIgMCAwIDAtMi0yeiIvPjxsaW5lIHgxPSIxOCIgeTE9IjkiIHgyPSIxMiIgeTI9IjE1Ii8+PGxpbmUgeDE9IjEyIiB5MT0iOSIgeDI9IjE4IiB5Mj0iMTUiLz48L3N2Zz4=" /></div>
+                </div>
+                <div class="keypad-row">
+                    <div class="key">4</div>
+                    <div class="key">5</div>
+                    <div class="key">6</div>
+                    <div class="key confirm">转入</div>
+                </div>
+                <div class="keypad-row">
+                    <div class="key">7</div>
+                    <div class="key">8</div>
+                    <div class="key">9</div>
+                </div>
+                <div class="keypad-row">
+                    <div class="key">0</div>
+                    <div class="key">.</div>
+                </div>
             </div>
         </div>
 
         <!-- 转出页面 -->
         <div id="transferOutPage" class="page">
-            <div class="back-btn" onclick="showPage('homePage')">
-                <div class="back-arrow"></div>
-            </div>
-            <div class="title">
-                <h1>转出余额宝</h1>
-            </div>
-
-            <div class="bank-card">
-                <div class="bank-icon icbc"></div>
-                <div class="bank-info">
-                    <div class="bank-name">工商银行储蓄卡(4392)</div>
-                    <div class="bank-limit">单笔/日限额：5万</div>
+            <div class="header">
+                <div class="back-btn" onclick="showPage('homePage')">
+                    <div class="back-arrow"></div>
+                </div>
+                <div class="title">
+                    <h1>转出</h1>
+                    <div class="security-badge">
+                        <div class="shield-icon"></div>
+                        <span>资金安全</span>
+                    </div>
+                </div>
+                <div class="menu-btn">
+                    <span class="rules-text">交易规则</span>
                 </div>
             </div>
 
-            <div class="amount-input">
-                <span class="currency">¥</span>
-                <input type="number" placeholder="转出金额" />
+            <div class="withdraw-content">
+                <div class="tabs">
+                    <div class="tab active">可用</div>
+                    <div class="tab">攒着</div>
+                </div>
+
+                <div class="bank-select">
+                    <div class="bank-info">
+                        <div class="bank-icon icbc"></div>
+                        <div class="bank-name">中国工商银行(9080)</div>
+                        <div class="bank-tag">快捷</div>
+                    </div>
+                    <div class="arrow-right"></div>
+                </div>
+
+                <div class="amount-input">
+                    <div class="amount-label">转出金额</div>
+                    <div class="amount-field">
+                        <span class="currency">¥</span>
+                        <input type="text" placeholder="可转出到卡 4,247,586.88 元" class="amount-value" id="withdrawAmount" />
+                    </div>
+                </div>
+
+                <div class="upgrade-card">
+                    <div class="upgrade-text">
+                        <div class="upgrade-title">对当前收益不满意？试试收益升级</div>
+                        <div class="upgrade-desc">持有60天，追求收益提升103%</div>
+                    </div>
+                    <button class="upgrade-btn">去升级</button>
+                    <div class="upgrade-chart">
+                        <div class="chart-before">
+                            <div class="chart-label">你持有的</div>
+                        </div>
+                        <div class="chart-arrow"></div>
+                        <div class="chart-after">
+                            <div class="chart-label">追求提升103%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="withdraw-method">
+                    <div class="method-title">转出方式</div>
+                    <div class="method-options">
+                        <label class="method-option">
+                            <input type="radio" name="withdrawMethod" checked />
+                            <div class="option-content">
+                                <div class="option-title">快速到账</div>
+                                <div class="option-desc">预计2小时内到账，每日限额1万元</div>
+                            </div>
+                        </label>
+                        <label class="method-option">
+                            <input type="radio" name="withdrawMethod" />
+                            <div class="option-content">
+                                <div class="option-title">普通到账</div>
+                                <div class="option-desc">预计<span id="dynamicDate"></span> (1天后) 23:59前到账，无限额，<span id="dynamicToday"></span>仍有收益</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
             </div>
 
-            <div class="transfer-info">
-                <div class="info-row">
-                    <span>今日收益</span>
-                    <span class="highlight" id="todayEarnings">预计23:00后可查</span>
+            <div class="keypad">
+                <div class="keypad-row">
+                    <div class="key">1</div>
+                    <div class="key">2</div>
+                    <div class="key">3</div>
+                    <div class="key delete"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMjEgNEg4bC03IDggNyA4aDEzYTIgMiAwIDAgMCAyLTJWNmEyIDIgMCAwIDAtMi0yeiIvPjxsaW5lIHgxPSIxOCIgeTE9IjkiIHgyPSIxMiIgeTI9IjE1Ii8+PGxpbmUgeDE9IjEyIiB5MT0iOSIgeDI9IjE4IiB5Mj0iMTUiLz48L3N2Zz4=" /></div>
                 </div>
-                <div class="info-row">
-                    <span>到账时间</span>
-                    <span class="highlight" id="arrivalTime">明天(1天后)</span>
+                <div class="keypad-row">
+                    <div class="key">4</div>
+                    <div class="key">5</div>
+                    <div class="key">6</div>
+                    <div class="key confirm">转出</div>
+                </div>
+                <div class="keypad-row">
+                    <div class="key">7</div>
+                    <div class="key">8</div>
+                    <div class="key">9</div>
+                </div>
+                <div class="keypad-row">
+                    <div class="key">0</div>
+                    <div class="key">.</div>
                 </div>
             </div>
-
-            <button class="confirm-btn" disabled>确认转出</button>
 
             <div class="footer-text">
                 余额宝对应货币基金销售服务由蚂蚁基金提供
                 <br />
                 市场有风险，投资需谨慎
+            </div>
+
+            <div class="other-withdraw">
+                <a href="#" class="other-link">转出给他人</a>
             </div>
         </div>
     </div>
