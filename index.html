@@ -524,19 +524,42 @@
         const tomorrow = new Date(now);
         tomorrow.setDate(now.getDate() + 1);
         
+        // 格式化日期
+        const formatDate = (date) => {
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+            const hours = date.getHours();
+            const minutes = date.getMinutes();
+            return {
+                month,
+                day,
+                hours: hours.toString().padStart(2, '0'),
+                minutes: minutes.toString().padStart(2, '0')
+            };
+        };
+
+        const nowFormat = formatDate(now);
+        const tomorrowFormat = formatDate(tomorrow);
+
         // 更新到账时间显示
-        const arrivalTime = document.getElementById('arrivalTime');
-        if (arrivalTime) {
-            const month = tomorrow.getMonth() + 1;
-            const date = tomorrow.getDate();
-            arrivalTime.textContent = `${month}月${date}日(1天后)`;
+        const methodOptions = document.querySelector('.method-options');
+        if (methodOptions) {
+            const fastOption = methodOptions.querySelector('.method-option:first-child .option-desc');
+            const normalOption = methodOptions.querySelector('.method-option:last-child .option-desc');
+            
+            if (fastOption) {
+                fastOption.textContent = `预计${nowFormat.hours}:${nowFormat.minutes}前到账，每日限额1万元`;
+            }
+            
+            if (normalOption) {
+                normalOption.textContent = `预计${tomorrowFormat.month}月${tomorrowFormat.day}日23:59前到账，无限额，${nowFormat.month}月${nowFormat.day}日仍有收益`;
+            }
         }
         
         // 更新今日收益时间
         const todayEarnings = document.getElementById('todayEarnings');
         if (todayEarnings) {
-            const hours = now.getHours();
-            if (hours >= 23) {
+            if (nowFormat.hours >= 23) {
                 todayEarnings.textContent = '已结算';
             } else {
                 todayEarnings.textContent = '预计23:00后可查';
