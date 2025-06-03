@@ -9,7 +9,7 @@ body {
     background: #000000;
     color: #ffffff;
     min-height: 100vh;
-    max-width: 393px; /* iPhone 15 width */
+    width: 100%;
     margin: 0 auto;
     position: relative;
     overflow-x: hidden;
@@ -121,9 +121,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 16px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 16px;
     background: #000000;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .back-btn {
@@ -218,6 +220,7 @@ body {
     color: #999;
 }
 
+/* 优化后的眼睛图标 */
 .eye-icon {
     width: 24px;
     height: 24px;
@@ -230,43 +233,43 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .eye-icon::before {
     content: '';
     position: absolute;
-    width: 14px;
-    height: 7px;
+    width: 16px;
+    height: 8px;
     border: 1.5px solid #ffffff;
-    border-radius: 14px 14px 0 0;
-    top: 9px;
-    left: 5px;
+    border-radius: 16px 16px 0 0;
+    top: 8px;
+    left: 4px;
+    transform-origin: bottom;
+    transition: all 0.3s ease;
 }
 
 .eye-icon::after {
     content: '';
     position: absolute;
-    width: 3px;
-    height: 3px;
+    width: 4px;
+    height: 4px;
     background: #ffffff;
     border-radius: 50%;
-    top: 11px;
-    left: 11px;
-    box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
-}
-
-.eye-icon.hidden {
-    opacity: 0.8;
-    background: rgba(255, 255, 255, 0.05);
+    top: 10px;
+    left: 10px;
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
 }
 
 .eye-icon.hidden::before {
-    border-radius: 0 0 14px 14px;
-    top: 13px;
-    border-color: rgba(255, 255, 255, 0.6);
+    transform: scaleY(-1) translateY(1px);
+    border-radius: 0 0 16px 16px;
+    opacity: 0.6;
 }
 
 .eye-icon.hidden::after {
+    transform: scale(0.8);
     opacity: 0;
 }
 
@@ -761,119 +764,21 @@ body {
     color: #999;
 }
 
-.money-games-section {
-    background: #1a1a1a;
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 16px;
-}
-
-.game-items {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-}
-
-.game-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-}
-
-.game-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.game-icon.gold { background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%); }
-.game-icon.pink { background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%); }
-.game-icon.blue { background: linear-gradient(135deg, #00bfff 0%, #0000ff 100%); }
-
+/* 删除赚钱游戏相关样式 */
+.money-games-section,
+.game-items,
+.game-item,
+.game-icon,
+.game-icon.gold,
+.game-icon.pink,
+.game-icon.blue,
 .money-icon,
 .eye-game-icon,
-.chat-icon {
-    width: 24px;
-    height: 24px;
-    background: #ffffff;
-}
-
-.money-icon::before {
-    content: '¥';
-    color: #000;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.eye-game-icon {
-    position: relative;
-}
-
-.eye-game-icon::before {
-    content: '';
-    position: absolute;
-    width: 16px;
-    height: 8px;
-    border: 2px solid #000;
-    border-radius: 100px 100px 0 0;
-    top: 8px;
-    left: 4px;
-}
-
-.eye-game-icon::after {
-    content: '';
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: #000;
-    border-radius: 50%;
-    top: 10px;
-    left: 10px;
-}
-
-.chat-icon {
-    position: relative;
-}
-
-.chat-icon::before {
-    content: '';
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    border: 2px solid #000;
-    border-radius: 4px;
-    top: 4px;
-    left: 4px;
-}
-
-.chat-icon::after {
-    content: '';
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background: #000;
-    border-radius: 50%;
-    top: 9px;
-    left: 9px;
-}
-
-.game-content {
-    text-align: center;
-}
-
-.game-title {
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 2px;
-}
-
+.chat-icon,
+.game-content,
+.game-title,
 .game-subtitle {
-    font-size: 12px;
-    color: #999;
+    display: none;
 }
 
 .money-tree-section {
@@ -936,29 +841,72 @@ body {
     color: #ff6b35;
 }
 
+/* 优化的树图标 */
+.tree-icon {
+    width: 32px;
+    height: 32px;
+    position: relative;
+    background: transparent;
+}
+
+.tree-icon::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #ff6b35;
+    border-radius: 2px;
+    top: 4px;
+    left: 4px;
+    clip-path: polygon(
+        50% 0%,
+        80% 30%,
+        65% 30%,
+        85% 60%,
+        70% 60%,
+        100% 90%,
+        0% 90%,
+        30% 60%,
+        15% 60%,
+        35% 30%,
+        20% 30%
+    );
+}
+
+.tree-icon::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 6px;
+    background: #ff6b35;
+    bottom: 0;
+    left: 12px;
+    border-radius: 1px;
+}
+
 .tree-container {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 20px auto;
 }
 
 .tree-circle {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     background: rgba(255, 107, 53, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease;
 }
 
-.tree-icon {
-    width: 28px;
-    height: 28px;
-    background: #ff6b35;
-    clip-path: polygon(50% 0%, 25% 50%, 35% 50%, 35% 100%, 65% 100%, 65% 50%, 75% 50%);
+.tree-circle:hover {
+    transform: scale(1.05);
+    background: rgba(255, 107, 53, 0.15);
 }
 
 .tree-actions {
@@ -1477,4 +1425,56 @@ body {
     background: #ff6b35;
     bottom: 0;
     left: 0;
+}
+
+/* 移除不需要的标签页样式 */
+.tabs {
+    display: none;
+}
+
+/* 调整树容器样式 */
+.tree-container {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.tree-circle {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 107, 53, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.tree-circle:hover {
+    transform: scale(1.05);
+    background: rgba(255, 107, 53, 0.15);
+}
+
+/* 响应式调整 */
+@media (max-width: 100%) {
+    .scrollable-content {
+        padding: 12px;
+    }
+    
+    .balance-card {
+        margin: 12px 0;
+    }
+    
+    .tree-container {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .tree-circle {
+        width: 60px;
+        height: 60px;
+    }
 }

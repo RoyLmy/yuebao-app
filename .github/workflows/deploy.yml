@@ -19,10 +19,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Convert SVG to PNG
+        run: |
+          npm install -g svgexport
+          svgexport icon-192.png icon-192.png 192:192
+          svgexport icon-512.png icon-512.png 512:512
+
       - name: Build
         run: |
-          mkdir dist
-          cp -r index.html style.css manifest.json sw.js icon.svg dist/
+          mkdir -p dist
+          cp -r index.html style.css manifest.json sw.js icon-192.png icon-512.png dist/
           
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
