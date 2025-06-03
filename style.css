@@ -277,9 +277,16 @@ body {
 }
 
 /* 眼睛图标样式 */
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #999;
+}
+
 .eye-icon {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     cursor: pointer;
     position: relative;
     transition: all 0.3s ease;
