@@ -1,11 +1,11 @@
 const CACHE_NAME = 'yuebao-v1';
 const CACHE_URLS = [
-    '/',
-    '/index.html',
-    '/style.css',
-    '/icon-192.png',
-    '/icon-512.png',
-    '/manifest.json'
+    './',
+    './index.html',
+    './style.css',
+    './icon-192.png',
+    './icon-512.png',
+    './manifest.json'
 ];
 
 // 安装Service Worker
