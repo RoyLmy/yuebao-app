@@ -92,8 +92,8 @@
 
                 <!-- 操作按钮 -->
                 <div class="action-buttons">
-                    <button class="btn-secondary" id="withdrawBtn">转出</button>
-                    <button class="btn-primary active" id="depositBtn">转入</button>
+                    <button class="btn-secondary" onclick="showPage('transferOutPage')">转出</button>
+                    <button class="btn-primary active" onclick="showPage('transferInPage')">转入</button>
                 </div>
 
                 <!-- 定时转入 -->
@@ -287,7 +287,7 @@
 
         <!-- 转入页面 -->
         <div id="transferInPage" class="page">
-            <div class="back-btn">
+            <div class="back-btn" onclick="showPage('homePage')">
                 <div class="back-arrow"></div>
             </div>
             <div class="title">
@@ -322,7 +322,7 @@
 
         <!-- 转出页面 -->
         <div id="transferOutPage" class="page">
-            <div class="back-btn">
+            <div class="back-btn" onclick="showPage('homePage')">
                 <div class="back-arrow"></div>
             </div>
             <div class="title">
@@ -365,6 +365,14 @@
 
     <script src="./main.js?v=20240608"></script>
     <script>
+    // 页面切换函数
+    function showPage(pageId) {
+        document.querySelectorAll('.page').forEach(page => {
+            page.classList.remove('active');
+        });
+        document.getElementById(pageId).classList.add('active');
+    }
+
     // 签到横滑与特效
     function setSignScroll() {
         const rewards = document.querySelector('.experience-rewards');
@@ -400,16 +408,39 @@
         signBtn.textContent = '已签到';
         signBtn.disabled = true;
     });
-    // 动态设置转出页面日期
-    function setWithdrawDate() {
-        const d = new Date();
-        const next = new Date(d.getTime() + 24*60*60*1000);
-        const mm = (next.getMonth()+1).toString().padStart(2,'0');
-        const dd = next.getDate().toString().padStart(2,'0');
-        document.getElementById('dynamicDate').textContent = mm+'月'+dd+'日';
-        document.getElementById('dynamicToday').textContent = mm+'月'+(dd-1)+'日';
+
+    // 动态设置转出页面时间
+    function updateDynamicTimes() {
+        const now = new Date();
+        const tomorrow = new Date(now);
+        tomorrow.setDate(now.getDate() + 1);
+        
+        // 更新到账时间显示
+        const arrivalTime = document.getElementById('arrivalTime');
+        if (arrivalTime) {
+            const month = tomorrow.getMonth() + 1;
+            const date = tomorrow.getDate();
+            arrivalTime.textContent = `${month}月${date}日(1天后)`;
+        }
+        
+        // 更新今日收益时间
+        const todayEarnings = document.getElementById('todayEarnings');
+        if (todayEarnings) {
+            const hours = now.getHours();
+            if (hours >= 23) {
+                todayEarnings.textContent = '已结算';
+            } else {
+                todayEarnings.textContent = '预计23:00后可查';
+            }
+        }
     }
-    document.addEventListener('DOMContentLoaded',setWithdrawDate);
+
+    // 页面加载完成后更新时间
+    document.addEventListener('DOMContentLoaded', function() {
+        updateDynamicTimes();
+        // 每分钟更新一次时间
+        setInterval(updateDynamicTimes, 60000);
+    });
     </script>
 </body>
 </html>
