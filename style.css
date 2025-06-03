@@ -290,7 +290,7 @@ body {
     position: absolute;
     width: 16px;
     height: 8px;
-    border: 2px solid #ffffff;
+    border: 1.5px solid #ffffff;
     border-radius: 16px 16px 0 0;
     border-bottom: none;
     top: 12px;
@@ -312,12 +312,12 @@ body {
 
 .eye-icon.hidden::before {
     transform: scaleY(0.3);
-    border-color: #666;
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .eye-icon.hidden::after {
     transform: scale(0.5);
-    background: #666;
+    background: rgba(255, 255, 255, 0.3);
 }
 
 .eye-icon:hover {
@@ -329,17 +329,25 @@ body {
 }
 
 /* 隐藏金额的占位样式 */
-.balance-amount.hidden,
-.value.hidden,
-.balance-details span.hidden {
+.balance-amount span.number,
+.value span.number,
+.balance-details span.number {
+    transition: all 0.3s ease;
+}
+
+.balance-amount.hidden span.number,
+.value.hidden span.number,
+.balance-details span.hidden span.number {
     color: transparent;
 }
 
-.balance-amount.hidden::before,
-.value.hidden::before,
-.balance-details span.hidden::before {
+.balance-amount.hidden span.number::before,
+.value.hidden span.number::before,
+.balance-details span.hidden span.number::before {
     content: '******';
     color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    left: 0;
 }
 
 .balance-amount {
