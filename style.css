@@ -246,7 +246,15 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjEwMCIgZmlsbD0iI0M3MDAwQiIvPjxwYXRoIGQ9Ik0xMDAgMzBjMzguNjYgMCA3MCAzMS4zNCA3MCA3MHMtMzEuMzQgNzAtNzAgNzAtNzAtMzEuMzQtNzAtNzAgMzEuMzQtNzAgNzAtNzBtMC0xMGMtNDQuMTggMC04MCAzNS44Mi04MCA4MHMzNS44MiA4MCA4MCA4MCA4MC0zNS44MiA4MC04MC0zNS44Mi04MC04MC04MHoiIGZpbGw9IiNGRkYiLz48Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjQwIiBmaWxsPSIjRkZGIi8+PC9zdmc+') center/cover no-repeat;
+    background: #C7000B;
+}
+
+.bank-icon.icbc::before {
+    content: '工';
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1;
 }
 
 /* 银行卡标签 */
