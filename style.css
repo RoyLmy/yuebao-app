@@ -322,14 +322,18 @@ body {
     transform: scale(0.95);
 }
 
-@keyframes blink {
-    0% { transform: scaleY(1); }
-    50% { transform: scaleY(0.1); }
-    100% { transform: scaleY(1); }
+/* 隐藏金额的占位样式 */
+.balance-amount.hidden,
+.value.hidden,
+.balance-details span.hidden {
+    color: transparent;
 }
 
-.eye-icon.blinking::before {
-    animation: blink 0.2s ease;
+.balance-amount.hidden::before,
+.value.hidden::before,
+.balance-details span.hidden::before {
+    content: '******';
+    color: rgba(255, 255, 255, 0.3);
 }
 
 .balance-amount {
@@ -349,18 +353,6 @@ body {
 
 .balance-details span {
     transition: all 0.3s ease;
-}
-
-/* 隐藏金额的占位样式 */
-.balance-amount:empty::before,
-.value:empty::before {
-    content: '******';
-    color: rgba(255, 255, 255, 0.3);
-}
-
-.balance-details span:empty::before {
-    content: '******';
-    color: rgba(255, 255, 255, 0.3);
 }
 
 /* 输入框占位符样式 */
@@ -1419,4 +1411,128 @@ body {
     background: #ccc;
     color: #fff;
     cursor: not-allowed;
+}
+
+/* 闲置资金升级模块 */
+.money-upgrade-section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px;
+}
+
+.money-upgrade-section h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.money-upgrade-section p {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.upgrade-content {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.upgrade-tip {
+    color: #ff6b35;
+    font-size: 14px;
+    margin-bottom: 16px;
+    padding: 8px 16px;
+    background: rgba(255, 107, 53, 0.1);
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.product-comparison {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.product-box {
+    flex: 1;
+    background: #f5f5f5;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.product-box.active-money {
+    background: #ff6b35;
+    color: #fff;
+}
+
+.product-name {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.risk-level {
+    font-size: 12px;
+    color: #999;
+}
+
+.product-box.active-money .risk-level {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.upgrade-arrow {
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+
+.upgrade-arrow::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid #ff6b35;
+    border-right: 2px solid #ff6b35;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 6px;
+    left: 0;
+}
+
+.product-desc {
+    color: #999;
+    font-size: 14px;
+    text-align: center;
+}
+
+.zero-money-section {
+    margin-top: 16px;
+    padding: 16px;
+    background: #f5f5f5;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.zero-money-title {
+    font-size: 16px;
+    color: #333;
+}
+
+.zero-money-desc {
+    font-size: 12px;
+    color: #999;
+}
+
+.check-btn {
+    background: #ff6b35;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
 }

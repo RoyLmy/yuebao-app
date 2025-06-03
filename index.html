@@ -198,29 +198,31 @@
                     </div>
                 </div>
 
-                <!-- 替换种树模块为余钱升级模块 -->
-                <div class="money-tree-section">
-                    <div class="tree-header">
-                        <h3>你的闲置资金有升级机会</h3>
-                        <p>成立以来从未亏损 追求比余额宝赚更多</p>
-                    </div>
+                <!-- 闲置资金升级模块 -->
+                <div class="money-upgrade-section">
+                    <h3>你的闲置资金有升级机会</h3>
+                    <p>成立以来从未亏损 追求比余额宝赚更多</p>
                     
-                    <div class="tree-game">
-                        <div class="reward-badge">
-                            <div class="coin-icon"></div>
-                            <span class="reward-text">钱放这里，历史赚更多</span>
-                        </div>
-                        
-                        <div class="tree-container">
-                            <div class="tree-circle">
-                                <div class="tree-icon"></div>
+                    <div class="upgrade-content">
+                        <div class="upgrade-tip">钱放这里，历史赚更多</div>
+                        <div class="product-comparison">
+                            <div class="product-box yuebao">
+                                <div class="product-name">余额宝</div>
+                                <div class="risk-level">低风险</div>
+                            </div>
+                            <div class="upgrade-arrow"></div>
+                            <div class="product-box active-money">
+                                <div class="product-name">活钱理财</div>
+                                <div class="risk-level">低风险</div>
                             </div>
                         </div>
-                        
-                        <div class="tree-actions">
-                            <span class="action-text">余额宝同类，历史日日正收益</span>
-                            <button class="tree-btn">去看看</button>
-                        </div>
+                        <div class="product-desc">余额宝同类，历史日日正收益</div>
+                    </div>
+                    
+                    <div class="zero-money-section">
+                        <div class="zero-money-title">零钱小金库</div>
+                        <div class="zero-money-desc">追求收益升级好选择</div>
+                        <button class="check-btn">去看看</button>
                     </div>
                 </div>
 
@@ -475,6 +477,21 @@
         });
         document.getElementById(pageId).classList.add('active');
     }
+
+    // 眼睛图标切换功能
+    const eyeToggle = document.getElementById('eyeToggle');
+    const balanceAmount = document.getElementById('balanceAmount');
+    const availableAmount = document.getElementById('availableAmount');
+    const dailyEarning = document.getElementById('dailyEarning');
+    const totalEarning = document.getElementById('totalEarning');
+
+    eyeToggle.addEventListener('click', function() {
+        eyeToggle.classList.toggle('hidden');
+        balanceAmount.classList.toggle('hidden');
+        availableAmount.classList.toggle('hidden');
+        dailyEarning.classList.toggle('hidden');
+        totalEarning.classList.toggle('hidden');
+    });
 
     // 签到横滑与特效
     function setSignScroll() {
