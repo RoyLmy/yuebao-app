@@ -220,10 +220,67 @@ body {
     color: #999;
 }
 
-/* 优化后的眼睛图标 */
-.eye-icon {
+/* 银行图标样式 */
+.bank-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
+    background: linear-gradient(135deg, #d4237a 0%, #ff6b6b 100%);
+    border-radius: 4px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.bank-icon::before {
+    content: '';
+    position: absolute;
     width: 24px;
-    height: 24px;
+    height: 16px;
+    background: #ffffff;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.bank-icon::after {
+    content: '银行';
+    position: absolute;
+    font-size: 8px;
+    color: #d4237a;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+/* 交通银行特殊样式 */
+.bank-info:has(.bank-name:contains("交通银行")) .bank-icon {
+    background: linear-gradient(135deg, #005baa 0%, #0080ff 100%);
+}
+
+.bank-info:has(.bank-name:contains("交通银行")) .bank-icon::after {
+    content: '交行';
+    color: #005baa;
+}
+
+/* 工商银行特殊样式 */
+.bank-info:has(.bank-name:contains("工商银行")) .bank-icon {
+    background: linear-gradient(135deg, #c7000b 0%, #ff1a1a 100%);
+}
+
+.bank-info:has(.bank-name:contains("工商银行")) .bank-icon::after {
+    content: '工行';
+    color: #c7000b;
+}
+
+/* 眼睛图标样式 */
+.eye-icon {
+    width: 32px;
+    height: 32px;
     cursor: pointer;
     position: relative;
     transition: all 0.3s ease;
@@ -233,7 +290,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
 }
 
 .eye-icon::before {
@@ -241,11 +297,11 @@ body {
     position: absolute;
     width: 16px;
     height: 8px;
-    border: 1.5px solid #ffffff;
+    border: 2px solid #ffffff;
     border-radius: 16px 16px 0 0;
-    top: 8px;
-    left: 4px;
-    transform-origin: bottom;
+    border-bottom: none;
+    top: 12px;
+    left: 8px;
     transition: all 0.3s ease;
 }
 
@@ -256,58 +312,33 @@ body {
     height: 4px;
     background: #ffffff;
     border-radius: 50%;
-    top: 10px;
-    left: 10px;
-    box-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
+    top: 14px;
+    left: 14px;
     transition: all 0.3s ease;
 }
 
 .eye-icon.hidden::before {
-    transform: scaleY(-1) translateY(1px);
-    border-radius: 0 0 16px 16px;
-    opacity: 0.6;
+    transform: scaleY(0.3);
+    border-color: #666;
 }
 
 .eye-icon.hidden::after {
-    transform: scale(0.8);
-    opacity: 0;
+    transform: scale(0.5);
+    background: #666;
 }
 
-/* 眼睛图标悬停效果 */
 .eye-icon:hover {
     background: rgba(255, 255, 255, 0.15);
-    transform: scale(1.05);
 }
 
 .eye-icon:active {
     transform: scale(0.95);
 }
 
-/* 眼睛图标点击波纹效果 */
-@keyframes ripple {
-    0% {
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3);
-    }
-    100% {
-        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
-    }
-}
-
-.eye-icon:active {
-    animation: ripple 0.6s ease-out;
-}
-
-/* 眼睛图标切换动画 */
 @keyframes blink {
-    0% {
-        transform: scaleY(1);
-    }
-    50% {
-        transform: scaleY(0.1);
-    }
-    100% {
-        transform: scaleY(1);
-    }
+    0% { transform: scaleY(1); }
+    50% { transform: scaleY(0.1); }
+    100% { transform: scaleY(1); }
 }
 
 .eye-icon.blinking::before {
@@ -477,11 +508,6 @@ body {
     align-items: center;
     gap: 12px;
     margin-bottom: 8px;
-}
-
-.bank-icon {
-    width: 24px;
-    height: 24px;
 }
 
 .bank-name {
