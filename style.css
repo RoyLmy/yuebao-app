@@ -238,11 +238,15 @@ body {
 
 /* 工商银行图标 */
 .bank-icon.icbc {
+    width: 36px;
+    height: 36px;
     background: #C7000B;
+    border-radius: 50%;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    overflow: hidden;
 }
 
 .bank-icon.icbc::before {
@@ -250,11 +254,11 @@ body {
     width: 24px;
     height: 24px;
     background: #ffffff;
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23fff' d='M50,5C25.2,5,5,25.2,5,50s20.2,45,45,45s45-20.2,45-45S74.8,5,50,5z M70,70H30V30h40V70z M40,60h20V40H40V60z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5C25.2 5 5 25.2 5 50s20.2 45 45 45 45-20.2 45-45S74.8 5 50 5zm0 80c-19.3 0-35-15.7-35-35s15.7-35 35-35 35 15.7 35 35-15.7 35-35 35zm0-60c-13.8 0-25 11.2-25 25s11.2 25 25 25 25-11.2 25-25-11.2-25-25-25z'/%3E%3C/svg%3E");
     mask-repeat: no-repeat;
     mask-position: center;
     mask-size: contain;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23fff' d='M50,5C25.2,5,5,25.2,5,50s20.2,45,45,45s45-20.2,45-45S74.8,5,50,5z M70,70H30V30h40V70z M40,60h20V40H40V60z'/%3E%3C/svg%3E");
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5C25.2 5 5 25.2 5 50s20.2 45 45 45 45-20.2 45-45S74.8 5 50 5zm0 80c-19.3 0-35-15.7-35-35s15.7-35 35-35 35 15.7 35 35-15.7 35-35 35zm0-60c-13.8 0-25 11.2-25 25s11.2 25 25 25 25-11.2 25-25-11.2-25-25-25z'/%3E%3C/svg%3E");
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
     -webkit-mask-size: contain;
@@ -288,36 +292,37 @@ body {
 .eye-icon::before {
     content: '';
     position: absolute;
-    width: 16px;
-    height: 8px;
-    border: 1.5px solid #ffffff;
-    border-radius: 16px 16px 0 0;
-    border-bottom: none;
-    top: 12px;
-    left: 8px;
+    width: 20px;
+    height: 12px;
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+    top: 10px;
+    left: 6px;
     transition: all 0.3s ease;
 }
 
 .eye-icon::after {
     content: '';
     position: absolute;
-    width: 4px;
-    height: 4px;
-    background: #ffffff;
+    width: 8px;
+    height: 8px;
+    border: 2px solid #ffffff;
     border-radius: 50%;
-    top: 14px;
-    left: 14px;
+    background: transparent;
+    top: 12px;
+    left: 12px;
     transition: all 0.3s ease;
 }
 
 .eye-icon.hidden::before {
-    transform: scaleY(0.3);
+    height: 2px;
+    top: 15px;
+    border-radius: 2px;
     border-color: rgba(255, 255, 255, 0.3);
 }
 
 .eye-icon.hidden::after {
-    transform: scale(0.5);
-    background: rgba(255, 255, 255, 0.3);
+    opacity: 0;
 }
 
 .eye-icon:hover {
@@ -329,6 +334,12 @@ body {
 }
 
 /* 隐藏金额的占位样式 */
+.balance-amount,
+.value,
+.balance-details span {
+    position: relative;
+}
+
 .balance-amount span.number,
 .value span.number,
 .balance-details span.number {
@@ -348,6 +359,7 @@ body {
     color: rgba(255, 255, 255, 0.3);
     position: absolute;
     left: 0;
+    white-space: nowrap;
 }
 
 .balance-amount {
@@ -650,6 +662,18 @@ body {
     
     .keypad {
         max-width: 100%;
+    }
+
+    .balance-amount,
+    .value,
+    .balance-details span {
+        font-size: 14px;
+    }
+
+    .balance-amount.hidden span.number::before,
+    .value.hidden span.number::before,
+    .balance-details span.hidden span.number::before {
+        font-size: 14px;
     }
 }
 
