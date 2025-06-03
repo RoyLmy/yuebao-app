@@ -1,11 +1,11 @@
 {
     "name": "支付宝",
     "short_name": "支付宝",
+    "description": "支付宝 - 让生活更简单",
     "start_url": "./",
     "display": "standalone",
-    "background_color": "#000000",
-    "theme_color": "#000000",
-    "description": "支付宝资金管理应用",
+    "background_color": "#ffffff",
+    "theme_color": "#1677ff",
     "icons": [
         {
             "src": "./icon-192.png",
