@@ -232,49 +232,36 @@ body {
     justify-content: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-}
-
-/* 工商银行图标 */
-.bank-icon.icbc {
     background: #fff;
     border: 1px solid #e6e6e6;
 }
 
-.bank-icon.icbc::before {
-    content: '';
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    background: #c7000b;
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5C25.2 5 5 25.2 5 50s20.2 45 45 45 45-20.2 45-45S74.8 5 50 5zm0 80c-19.3 0-35-15.7-35-35s15.7-35 35-35 35 15.7 35 35-15.7 35-35 35z'/%3E%3Cpath d='M65 35H35v30h30V35zm-5 25H40V40h20v20z'/%3E%3C/svg%3E");
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: contain;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5C25.2 5 5 25.2 5 50s20.2 45 45 45 45-20.2 45-45S74.8 5 50 5zm0 80c-19.3 0-35-15.7-35-35s15.7-35 35-35 35 15.7 35 35-15.7 35-35 35z'/%3E%3Cpath d='M65 35H35v30h30V35zm-5 25H40V40h20v20z'/%3E%3C/svg%3E");
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    -webkit-mask-size: contain;
-}
-
-/* 交通银行图标 */
-.bank-icon.boc {
-    background: #005baa;
-}
-
+/* 工商银行图标 */
+.bank-icon.icbc::before,
 .bank-icon.boc::before {
     content: '';
     position: absolute;
     width: 24px;
     height: 24px;
-    background: #fff;
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M75 25c-13.8 0-25 11.2-25 25s11.2 25 25 25 25-11.2 25-25-11.2-25-25-25zm0 45c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20z'/%3E%3Ccircle cx='75' cy='50' r='10'/%3E%3C/svg%3E");
+    background: #c7000b;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M100 0C44.8 0 0 44.8 0 100s44.8 100 100 100 100-44.8 100-100S155.2 0 100 0zm0 180c-44.2 0-80-35.8-80-80s35.8-80 80-80 80 35.8 80 80-35.8 80-80 80zm40-120H60v80h80V60zm-20 60H80V80h40v40z'/%3E%3C/svg%3E");
     mask-repeat: no-repeat;
     mask-position: center;
     mask-size: contain;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M75 25c-13.8 0-25 11.2-25 25s11.2 25 25 25 25-11.2 25-25-11.2-25-25-25zm0 45c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20z'/%3E%3Ccircle cx='75' cy='50' r='10'/%3E%3C/svg%3E");
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M100 0C44.8 0 0 44.8 0 100s44.8 100 100 100 100-44.8 100-100S155.2 0 100 0zm0 180c-44.2 0-80-35.8-80-80s35.8-80 80-80 80 35.8 80 80-35.8 80-80 80zm40-120H60v80h80V60zm-20 60H80V80h40v40z'/%3E%3C/svg%3E");
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
     -webkit-mask-size: contain;
+}
+
+/* 银行卡标签 */
+.bank-tag {
+    font-size: 12px;
+    color: #ff6b35;
+    background: rgba(255, 107, 53, 0.1);
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-left: 8px;
 }
 
 /* 眼睛图标样式 */
@@ -514,15 +501,6 @@ body {
     font-size: 16px;
     font-weight: 500;
     color: #ffffff;
-}
-
-.bank-tag {
-    font-size: 12px;
-    color: #ff6b35;
-    background: rgba(255, 107, 53, 0.1);
-    padding: 2px 6px;
-    border-radius: 10px;
-    margin-left: 8px;
 }
 
 .bank-tip {
@@ -947,10 +925,10 @@ body {
 }
 
 .experience-section {
-    background: #fff;
+    background: #1a1a1a;
     border-radius: 12px;
-    padding: 20px;
-    margin: 16px;
+    padding: 16px;
+    margin-bottom: 16px;
 }
 
 .experience-header {
@@ -974,8 +952,57 @@ body {
 }
 
 .main-reward {
+    flex: 1;
+    background: #2a2a2a;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.reward-amount {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ff6b35;
+}
+
+.coin-large {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #ffd700 0%, #ffb700 50%, #ffd700 100%);
+    border-radius: 50%;
     position: relative;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        inset 0 0 10px rgba(255, 255, 255, 0.8),
+        inset 0 0 20px rgba(255, 183, 0, 0.5),
+        0 2px 4px rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+.coin-large::before {
+    content: '¥';
+    color: #8B4513;
+    font-size: 28px;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+    transform: translateZ(1px);
+}
+
+.coin-large::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
 }
 
 .reward-status {
