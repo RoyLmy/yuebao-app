@@ -240,28 +240,13 @@ body {
 .bank-icon.icbc {
     width: 36px;
     height: 36px;
-    background: #C7000B;
     border-radius: 50%;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-}
-
-.bank-icon.icbc::before {
-    content: '';
-    width: 24px;
-    height: 24px;
-    background: #ffffff;
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M185 100c0 46.944-38.056 85-85 85s-85-38.056-85-85 38.056-85 85-85 85 38.056 85 85zM100 35c-35.899 0-65 29.101-65 65s29.101 65 65 65 65-29.101 65-65-29.101-65-65-65zm0 20c24.853 0 45 20.147 45 45s-20.147 45-45 45-45-20.147-45-45 20.147-45 45-45z' fill='%23ffffff'/%3E%3C/svg%3E");
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: contain;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M185 100c0 46.944-38.056 85-85 85s-85-38.056-85-85 38.056-85 85-85 85 38.056 85 85zM100 35c-35.899 0-65 29.101-65 65s29.101 65 65 65 65-29.101 65-65-29.101-65-65-65zm0 20c24.853 0 45 20.147 45 45s-20.147 45-45 45-45-20.147-45-45 20.147-45 45-45z' fill='%23ffffff'/%3E%3C/svg%3E");
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    -webkit-mask-size: contain;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjEwMCIgZmlsbD0iI0M3MDAwQiIvPjxwYXRoIGQ9Ik0xMDAgMzBjMzguNjYgMCA3MCAzMS4zNCA3MCA3MHMtMzEuMzQgNzAtNzAgNzAtNzAtMzEuMzQtNzAtNzAgMzEuMzQtNzAgNzAtNzBtMC0xMGMtNDQuMTggMC04MCAzNS44Mi04MCA4MHMzNS44MiA4MCA4MCA4MCA4MC0zNS44MiA4MC04MC0zNS44Mi04MC04MC04MHoiIGZpbGw9IiNGRkYiLz48Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjQwIiBmaWxsPSIjRkZGIi8+PC9zdmc+') center/cover no-repeat;
 }
 
 /* 银行卡标签 */
@@ -292,78 +277,53 @@ body {
 .eye-icon::before {
     content: '';
     position: absolute;
-    width: 16px;
-    height: 8px;
+    width: 20px;
+    height: 12px;
     border: 2px solid #ffffff;
-    border-radius: 16px;
-    top: 12px;
-    left: 8px;
+    border-radius: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     transition: all 0.3s ease;
 }
 
 .eye-icon::after {
     content: '';
     position: absolute;
-    width: 4px;
-    height: 4px;
+    width: 6px;
+    height: 6px;
     background: #ffffff;
     border-radius: 50%;
-    top: 15px;
-    left: 14px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     transition: all 0.3s ease;
 }
 
 .eye-icon.hidden::before {
     height: 2px;
-    top: 15px;
     border-radius: 2px;
     border-color: rgba(255, 255, 255, 0.3);
-}
-
-.eye-icon.hidden::after {
-    opacity: 0;
-}
-
-/* 添加闭眼状态的眉毛 */
-.eye-icon.hidden {
-    position: relative;
-}
-
-.eye-icon.hidden::before {
-    content: '';
-    position: absolute;
-    width: 16px;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.3);
-    top: 15px;
-    left: 8px;
+    top: 50%;
 }
 
 .eye-icon.hidden::after {
     content: '';
     position: absolute;
-    width: 10px;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.3);
-    top: 10px;
-    left: 11px;
-    transform: rotate(-25deg);
-    opacity: 1;
-    border-radius: 1px;
-}
-
-.eye-icon.hidden::after {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.3);
-    top: 10px;
-    left: 11px;
-    transform: rotate(-25deg);
-    opacity: 1;
-    border-radius: 1px;
-    box-shadow: -4px 0px 0 rgba(255, 255, 255, 0.3);
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: transparent;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    box-shadow: 
+        -8px 2px 0 -6px rgba(255, 255, 255, 0.3),
+        -4px 2px 0 -6px rgba(255, 255, 255, 0.3),
+        0px 2px 0 -6px rgba(255, 255, 255, 0.3),
+        4px 2px 0 -6px rgba(255, 255, 255, 0.3),
+        8px 2px 0 -6px rgba(255, 255, 255, 0.3);
 }
 
 .eye-icon:hover {
