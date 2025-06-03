@@ -222,10 +222,10 @@ body {
 
 /* 银行图标样式 */
 .bank-icon {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     margin-right: 12px;
-    border-radius: 4px;
+    border-radius: 50%;
     position: relative;
     display: flex;
     align-items: center;
@@ -236,48 +236,44 @@ body {
 
 /* 工商银行图标 */
 .bank-icon.icbc {
-    background: linear-gradient(135deg, #c7000b 0%, #e60012 100%);
+    background: #c7000b;
 }
 
 .bank-icon.icbc::before {
     content: '';
     position: absolute;
     width: 24px;
-    height: 16px;
-    background: #ffffff;
-    border-radius: 2px;
-}
-
-.bank-icon.icbc::after {
-    content: '工行';
-    position: absolute;
-    font-size: 10px;
-    color: #ffffff;
-    font-weight: bold;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    height: 24px;
+    background: #fff;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5C25.2 5 5 25.2 5 50s20.2 45 45 45 45-20.2 45-45S74.8 5 50 5zm0 80c-19.3 0-35-15.7-35-35s15.7-35 35-35 35 15.7 35 35-15.7 35-35 35z'/%3E%3Cpath d='M65 35H35v30h30V35zm-5 25H40V40h20v20z'/%3E%3C/svg%3E");
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5C25.2 5 5 25.2 5 50s20.2 45 45 45 45-20.2 45-45S74.8 5 50 5zm0 80c-19.3 0-35-15.7-35-35s15.7-35 35-35 35 15.7 35 35-15.7 35-35 35z'/%3E%3Cpath d='M65 35H35v30h30V35zm-5 25H40V40h20v20z'/%3E%3C/svg%3E");
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
 }
 
 /* 交通银行图标 */
 .bank-icon.boc {
-    background: linear-gradient(135deg, #005baa 0%, #0066cc 100%);
+    background: #005baa;
 }
 
 .bank-icon.boc::before {
     content: '';
     position: absolute;
     width: 24px;
-    height: 16px;
-    background: #ffffff;
-    border-radius: 2px;
-}
-
-.bank-icon.boc::after {
-    content: '交行';
-    position: absolute;
-    font-size: 10px;
-    color: #ffffff;
-    font-weight: bold;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    height: 24px;
+    background: #fff;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M75 25c-13.8 0-25 11.2-25 25s11.2 25 25 25 25-11.2 25-25-11.2-25-25-25zm0 45c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20z'/%3E%3Ccircle cx='75' cy='50' r='10'/%3E%3C/svg%3E");
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M75 25c-13.8 0-25 11.2-25 25s11.2 25 25 25 25-11.2 25-25-11.2-25-25-25zm0 45c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20z'/%3E%3Ccircle cx='75' cy='50' r='10'/%3E%3C/svg%3E");
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
 }
 
 /* 眼睛图标样式 */
@@ -811,7 +807,7 @@ body {
 }
 
 .money-tree-section {
-    background: #ffffff;
+    background: #fff;
     border-radius: 12px;
     padding: 20px;
     margin: 16px;
@@ -835,19 +831,20 @@ body {
 }
 
 .tree-game {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    background: linear-gradient(135deg, #fff5f0 0%, #fff9f5 100%);
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 20px;
 }
 
 .reward-badge {
     background: #fff2e8;
     padding: 8px 16px;
     border-radius: 20px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
+    margin-bottom: 24px;
 }
 
 .coin-icon {
@@ -876,12 +873,13 @@ body {
 .tree-container {
     width: 120px;
     height: 120px;
-    background: #fff7f2;
+    background: linear-gradient(135deg, #fff7f2 0%, #fff2e8 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 20px auto;
+    position: relative;
 }
 
 .tree-circle {
@@ -1493,5 +1491,44 @@ body {
     .tree-circle {
         width: 60px;
         height: 60px;
+    }
+}
+
+@media (max-width: 375px) {
+    .bank-icon {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .bank-icon::before {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .tree-container {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .tree-circle {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .tree-icon {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 320px) {
+    .bank-icon {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .bank-icon::before {
+        width: 18px;
+        height: 18px;
     }
 }
