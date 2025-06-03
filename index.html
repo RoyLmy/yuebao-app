@@ -584,10 +584,71 @@
         }
     }
 
-    // 页面加载完成后更新时间
+    // 数字键盘功能
+    function setupKeypad() {
+        const depositAmount = document.getElementById('depositAmount');
+        const withdrawAmount = document.getElementById('withdrawAmount');
+        const keypadButtons = document.querySelectorAll('.key');
+        let currentInput = null;
+
+        // 设置输入框点击事件
+        depositAmount && depositAmount.addEventListener('focus', () => {
+            currentInput = depositAmount;
+        });
+
+        withdrawAmount && withdrawAmount.addEventListener('focus', () => {
+            currentInput = withdrawAmount;
+        });
+
+        // 设置数字键盘点击事件
+        keypadButtons.forEach(key => {
+            key.addEventListener('click', () => {
+                if (!currentInput) {
+                    currentInput = document.querySelector('.page.active .amount-value');
+                }
+                
+                if (currentInput) {
+                    if (key.classList.contains('delete')) {
+                        // 删除键功能
+                        currentInput.value = currentInput.value.slice(0, -1);
+                    } else if (key.classList.contains('confirm')) {
+                        // 确认键功能
+                        console.log('确认转账：', currentInput.value);
+                    } else {
+                        const digit = key.textContent;
+                        // 处理小数点
+                        if (digit === '.' && currentInput.value.includes('.')) {
+                            return;
+                        }
+                        // 限制小数点后两位
+                        if (currentInput.value.includes('.') && 
+                            currentInput.value.split('.')[1]?.length >= 2) {
+                            return;
+                        }
+                        currentInput.value += digit;
+                    }
+                }
+            });
+        });
+
+        // 快速金额点击
+        const quickAmounts = document.querySelectorAll('.quick-amount');
+        quickAmounts.forEach(amount => {
+            amount.addEventListener('click', () => {
+                if (!currentInput) {
+                    currentInput = document.querySelector('.page.active .amount-value');
+                }
+                if (currentInput) {
+                    currentInput.value = amount.textContent;
+                }
+            });
+        });
+    }
+
+    // 页面加载完成后初始化数字键盘
     document.addEventListener('DOMContentLoaded', function() {
+        setupKeypad();
         updateDynamicTimes();
-        // 每分钟更新一次时间
         setInterval(updateDynamicTimes, 60000);
     });
     </script>
