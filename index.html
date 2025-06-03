@@ -35,7 +35,7 @@
                     <div class="back-arrow"></div>
                 </div>
                 <div class="title">
-                    <h1>支付宝</h1>
+                    <h1>余额宝</h1>
                     <div class="security-badge">
                         <div class="shield-icon"></div>
                         <span>资金安全</span>
@@ -236,48 +236,46 @@
                         <h3>领免费体验金，收益奖励都归你</h3>
                         <p>每天都能领体验金</p>
                     </div>
-                    
-                    <div class="experience-rewards">
-                        <div class="daily-rewards">
-                            <div class="daily-item main-reward">
-                                <div class="daily-amount">+10</div>
-                                <div class="coin-small"></div>
-                                <div class="day-label">第1天</div>
-                            </div>
-                            <div class="daily-item">
-                                <div class="daily-amount">+10</div>
-                                <div class="coin-small"></div>
-                                <div class="day-label">第2天</div>
-                            </div>
-                            <div class="daily-item">
-                                <div class="daily-amount">+10</div>
-                                <div class="coin-small"></div>
-                                <div class="day-label">第3天</div>
-                            </div>
-                            <div class="daily-item">
-                                <div class="daily-amount">+10</div>
-                                <div class="coin-small"></div>
-                                <div class="day-label">第4天</div>
-                            </div>
-                            <div class="daily-item">
-                                <div class="daily-amount">+10</div>
-                                <div class="coin-small"></div>
-                                <div class="day-label">第5天</div>
-                            </div>
+                    <div class="experience-rewards horizontal-scroll">
+                        <div class="daily-item" id="signDay1">
+                            <div class="daily-amount">+10</div>
+                            <div class="coin-small"></div>
+                            <div class="day-label">第1天</div>
+                        </div>
+                        <div class="daily-item" id="signDay2">
+                            <div class="daily-amount">+10</div>
+                            <div class="coin-small"></div>
+                            <div class="day-label">第2天</div>
+                        </div>
+                        <div class="daily-item" id="signDay3">
+                            <div class="daily-amount">+10</div>
+                            <div class="coin-small"></div>
+                            <div class="day-label">第3天</div>
+                        </div>
+                        <div class="daily-item" id="signDay4">
+                            <div class="daily-amount">+10</div>
+                            <div class="coin-small"></div>
+                            <div class="day-label">第4天</div>
+                        </div>
+                        <div class="daily-item" id="signDay5">
+                            <div class="daily-amount">+10</div>
+                            <div class="coin-small"></div>
+                            <div class="day-label">第5天</div>
                         </div>
                     </div>
+                    <div class="sign-btn-wrap"><button id="signBtn" class="sign-btn">立即签到</button></div>
+                </div>
 
-                    <div class="experience-progress">
-                        <div class="progress-bar">
-                            <div class="progress-fill"></div>
-                        </div>
-                        <div class="progress-labels">
-                            <span>立即签到</span>
-                            <span>第2天</span>
-                            <span>第3天</span>
-                            <span>第4天</span>
-                            <span>第5天</span>
-                        </div>
+                <div class="experience-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="progress-labels">
+                        <span>立即签到</span>
+                        <span>第2天</span>
+                        <span>第3天</span>
+                        <span>第4天</span>
+                        <span>第5天</span>
                     </div>
                 </div>
 
@@ -441,7 +439,7 @@
                             <input type="radio" name="withdrawMethod" />
                             <div class="option-content">
                                 <div class="option-title">普通到账</div>
-                                <div class="option-desc">预计06月04日 (1天后) 23:59前到账，无限额，06月03日仍有收益</div>
+                                <div class="option-desc">预计<span id="dynamicDate"></span> (1天后) 23:59前到账，无限额，<span id="dynamicToday"></span>仍有收益</div>
                             </div>
                         </label>
                     </div>
@@ -463,5 +461,52 @@
     </div>
 
     <script src="./main.js?v=20240608"></script>
+    <script>
+    // 签到横滑与特效
+    function setSignScroll() {
+        const rewards = document.querySelector('.experience-rewards');
+        if (rewards) {
+            rewards.style.overflowX = 'auto';
+            rewards.style.display = 'flex';
+            rewards.style.gap = '12px';
+            rewards.style.scrollSnapType = 'x mandatory';
+            rewards.querySelectorAll('.daily-item').forEach(item => {
+                item.style.minWidth = '90px';
+                item.style.scrollSnapAlign = 'center';
+            });
+        }
+    }
+    setSignScroll();
+
+    // 签到按钮逻辑
+    const signBtn = document.getElementById('signBtn');
+    let signed = false;
+    signBtn && signBtn.addEventListener('click', function() {
+        if (signed) return;
+        signed = true;
+        const today = new Date().getDay();
+        const item = document.getElementById('signDay' + (today === 0 ? 7 : today));
+        if (item) {
+            item.classList.add('signed');
+            item.innerHTML = '<div class="daily-amount">已签到</div><div class="coin-small"></div><div class="day-label">今日</div>';
+            item.style.background = 'linear-gradient(135deg,#ffecd2 0%,#fcb69f 100%)';
+            item.style.color = '#ff6b35';
+            item.style.transform = 'scale(1.08)';
+            setTimeout(()=>{item.style.transform='scale(1)';},400);
+        }
+        signBtn.textContent = '已签到';
+        signBtn.disabled = true;
+    });
+    // 动态设置转出页面日期
+    function setWithdrawDate() {
+        const d = new Date();
+        const next = new Date(d.getTime() + 24*60*60*1000);
+        const mm = (next.getMonth()+1).toString().padStart(2,'0');
+        const dd = next.getDate().toString().padStart(2,'0');
+        document.getElementById('dynamicDate').textContent = mm+'月'+dd+'日';
+        document.getElementById('dynamicToday').textContent = mm+'月'+(dd-1)+'日';
+    }
+    document.addEventListener('DOMContentLoaded',setWithdrawDate);
+    </script>
 </body>
 </html>
