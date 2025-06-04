@@ -284,13 +284,6 @@ body {
 }
 
 /* 眼睛图标样式 */
-.header-title {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    color: #999;
-}
-
 .eye-icon {
     width: 24px;
     height: 24px;
@@ -332,28 +325,24 @@ body {
 }
 
 .eye-icon.hidden::before {
-    height: 12px;
-    border-radius: 12px;
-    border: 1.5px solid rgba(255, 255, 255, 0.3);
-    background: transparent;
-    width: 18px;
-    transform: translate(-50%, -50%);
+    height: 2px;
+    border-radius: 1px;
+    border: none;
+    background: rgba(255, 255, 255, 0.6);
+    transform: translate(-50%, -50%) rotate(-45deg);
+    width: 20px;
 }
 
 .eye-icon.hidden::after {
-    width: 14px;
-    height: 1.5px;
-    background: rgba(255, 255, 255, 0.3);
-    transform: translate(-50%, -50%) rotate(-45deg);
+    width: 20px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.6);
+    transform: translate(-50%, -50%) rotate(45deg);
     border-radius: 1px;
 }
 
 .eye-icon:hover {
-    background: rgba(255, 255, 255, 0.15);
-}
-
-.eye-icon:active {
-    transform: scale(0.95);
+    opacity: 1;
 }
 
 /* 隐藏金额的占位样式 */
