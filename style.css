@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    background: #000000;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     background: #000000;
@@ -16,6 +20,8 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
 }
 
 /* 状态栏 */
@@ -28,6 +34,12 @@ body {
     font-size: 15px;
     font-weight: 600;
     background: #000000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding-top: max(12px, env(safe-area-inset-top));
 }
 
 .status-icons {
@@ -127,7 +139,7 @@ body {
     padding: 16px;
     background: #000000;
     position: sticky;
-    top: 0;
+    top: env(safe-area-inset-top);
     z-index: 100;
 }
 
