@@ -14,6 +14,8 @@ body {
     margin: 0 auto;
     position: relative;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* 状态栏 */
@@ -191,6 +193,8 @@ body {
     display: none;
     height: calc(100vh - 44px);
     background: #000000;
+    min-height: 100vh;
+    width: 100%;
 }
 
 .page.active {
@@ -201,6 +205,7 @@ body {
 .scrollable-content {
     padding: 16px;
     background: #000000;
+    min-height: calc(100vh - 44px);
 }
 
 /* 余额卡片 */
@@ -446,6 +451,7 @@ body {
     background: #1a1a1a;
     padding: 12px;
     border-radius: 12px;
+    min-width: 0; /* 防止内容溢出 */
 }
 
 .label {
@@ -456,6 +462,8 @@ body {
     align-items: center;
     gap: 4px;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .value {
@@ -463,10 +471,43 @@ body {
     font-weight: 500;
     color: #ffffff;
     transition: all 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .value.orange {
     color: #ff6b35;
+}
+
+/* 适配iPhone 15 Pro Max */
+@media screen and (min-width: 430px) {
+    .earning-item {
+        padding: 16px;
+    }
+    
+    .label {
+        font-size: 13px;
+    }
+    
+    .value {
+        font-size: 18px;
+    }
+}
+
+/* 适配iPhone 15 Pro */
+@media screen and (min-width: 393px) {
+    .earning-item {
+        padding: 14px;
+    }
+    
+    .label {
+        font-size: 12px;
+    }
+    
+    .value {
+        font-size: 17px;
+    }
 }
 
 /* 操作按钮 */
@@ -501,6 +542,7 @@ body {
 .deposit-content, .withdraw-content {
     background: #000000;
     padding: 20px 16px;
+    min-height: calc(100vh - 44px - 240px); /* 减去header和键盘的高度 */
 }
 
 .rate-info {
@@ -666,6 +708,7 @@ body {
     padding: 8px;
     max-width: 430px;
     margin: 0 auto;
+    border-top: 1px solid #1a1a1a;
 }
 
 .keypad-row {
