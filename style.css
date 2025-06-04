@@ -1001,7 +1001,133 @@ body {
     transform: translateY(1px);
 }
 
-/* 签到模块样式 */
+/* 闲置资金升级模块 */
+.money-upgrade-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border-radius: 16px;
+    padding: 20px;
+    margin: 0 0 24px 0;
+    width: 100%;
+}
+
+.money-upgrade-section h3 {
+    font-size: 18px;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.money-upgrade-section p {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.upgrade-content {
+    background: #2a2a2a;
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 16px;
+}
+
+.upgrade-tip {
+    color: #ff6b35;
+    font-size: 14px;
+    margin-bottom: 16px;
+    padding: 8px 16px;
+    background: rgba(255, 107, 53, 0.1);
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.product-comparison {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.product-box {
+    flex: 1;
+    background: #333333;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.product-box.active-money {
+    background: #ff6b35;
+    color: #fff;
+}
+
+.product-name {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.risk-level {
+    font-size: 12px;
+    color: #999;
+}
+
+.product-box.active-money .risk-level {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.upgrade-arrow {
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+
+.upgrade-arrow::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid #ff6b35;
+    border-right: 2px solid #ff6b35;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 6px;
+    left: 0;
+}
+
+.product-desc {
+    color: #999;
+    font-size: 14px;
+    text-align: center;
+}
+
+.zero-money-section {
+    margin-top: 16px;
+    padding: 16px;
+    background: #2a2a2a;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.zero-money-title {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.zero-money-desc {
+    font-size: 12px;
+    color: #999;
+}
+
+.check-btn {
+    background: #ff6b35;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* 体验金模块样式优化 */
 .experience-section {
     width: 100%;
     background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
@@ -1009,23 +1135,6 @@ body {
     padding: 20px;
     margin: 0 0 24px 0;
     box-sizing: border-box;
-}
-
-.experience-header {
-    margin-bottom: 20px;
-}
-
-.experience-header h3 {
-    color: #fff;
-    font-size: 18px;
-    margin: 0;
-    font-weight: 600;
-}
-
-.experience-header p {
-    color: #999;
-    font-size: 14px;
-    margin: 8px 0 0;
 }
 
 .experience-rewards.horizontal-scroll {
