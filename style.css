@@ -1003,12 +1003,12 @@ body {
 
 /* 签到模块样式 */
 .experience-section {
+    width: 100%;
     background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
     border-radius: 16px;
     padding: 20px;
-    margin: 20px 16px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    margin: 0 0 24px 0;
+    box-sizing: border-box;
 }
 
 .experience-header {
@@ -1047,30 +1047,25 @@ body {
     border-radius: 12px;
     padding: 16px 8px;
     scroll-snap-align: center;
-}
-
-.daily-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
 }
 
 .daily-item.signed {
-    background: linear-gradient(135deg, #ff6b35 0%, #ff8c64 100%);
-    border: none;
-    transform: scale(1.05);
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    color: #ff6b35;
+    font-weight: bold;
+    border: 2px solid #ff6b35;
 }
 
-.daily-item .daily-amount {
-    color: #ff6b35;
+.daily-amount {
     font-size: 20px;
     font-weight: bold;
 }
 
-.daily-item.signed .daily-amount {
-    color: #fff;
-}
-
-.daily-item .coin-small {
+.coin-small {
     width: 32px;
     height: 32px;
     background: linear-gradient(135deg, #ffd700 0%, #ffb700 100%);
@@ -1078,37 +1073,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 6px rgba(255, 183, 0, 0.3);
-    position: relative;
 }
 
-.daily-item .coin-small::after {
-    content: "¥";
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.daily-item .day-label {
-    color: #999;
+.day-label {
     font-size: 12px;
-}
-
-.daily-item.signed .day-label {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.daily-item .sign-status {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background: #4CAF50;
-    color: white;
-    font-size: 10px;
-    padding: 4px 6px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: #999;
 }
 
 .sign-btn-wrap {
@@ -1117,31 +1086,25 @@ body {
 }
 
 .sign-btn {
-    background: linear-gradient(135deg, #ff6b35 0%, #ff8c64 100%);
-    color: white;
+    background: #ff6b35;
+    color: #ffffff;
     border: none;
     border-radius: 24px;
     padding: 12px 32px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
-}
-
-.sign-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(255, 107, 53, 0.4);
-}
-
-.sign-btn:active {
-    transform: translateY(1px);
 }
 
 .sign-btn:disabled {
-    background: linear-gradient(135deg, #666 0%, #888 100%);
+    background: #666;
     cursor: not-allowed;
-    box-shadow: none;
+}
+
+@media screen and (min-width: 390px) {
+    .experience-section {
+        margin-bottom: 28px;
+    }
 }
 
 /* 底部导航栏 */
@@ -1381,132 +1344,6 @@ body {
 .tree-circle:hover {
     transform: scale(1.05);
     background: rgba(255, 107, 53, 0.15);
-}
-
-/* 响应式调整 */
-@media screen and (min-width: 390px) {
-    .scrollable-content {
-        padding: 20px;
-    }
-    
-    .balance-card,
-    .earnings-info,
-    .auto-transfer,
-    .weekly-section,
-    .stable-finance-section,
-    .money-upgrade-section,
-    .experience-section {
-        margin-bottom: 28px;
-    }
-    
-    .experience-section {
-        margin-bottom: 28px;
-    }
-}
-
-@media (max-width: 100%) {
-    .scrollable-content {
-        padding: 12px;
-    }
-    
-    .balance-card {
-        margin: 12px 0;
-    }
-    
-    .tree-container {
-        width: 80px;
-        height: 80px;
-    }
-    
-    .tree-circle {
-        width: 60px;
-        height: 60px;
-    }
-}
-
-@media (max-width: 375px) {
-    .bank-icon {
-        width: 32px;
-        height: 32px;
-    }
-    
-    .bank-icon::before {
-        width: 20px;
-        height: 20px;
-    }
-    
-    .tree-container {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .tree-circle {
-        width: 80px;
-        height: 80px;
-    }
-    
-    .tree-icon {
-        width: 50px;
-        height: 50px;
-    }
-}
-
-@media (max-width: 320px) {
-    .bank-icon {
-        width: 28px;
-        height: 28px;
-    }
-    
-    .bank-icon::before {
-        width: 18px;
-        height: 18px;
-    }
-}
-
-/* 闲置资金升级模块样式优化 */
-.money-upgrade-section .upgrade-content {
-    background: #2a2a2a;
-    border-radius: 12px;
-    padding: 16px;
-    margin: 16px 0 0 0;
-    width: 100%;
-}
-
-.zero-money-section {
-    margin-top: 16px;
-    padding: 16px;
-    background: #2a2a2a;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-}
-
-/* 体验金模块样式优化 */
-.experience-section {
-    width: 100%;
-}
-
-.experience-rewards.horizontal-scroll {
-    margin: 20px 0;
-    padding: 0;
-    width: 100%;
-    display: flex;
-    gap: 12px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-}
-
-.daily-item {
-    flex: 0 0 auto;
-    width: calc((100% - 48px) / 5);
-    min-width: 90px;
-    background: #2a2a2a;
-    border-radius: 12px;
-    padding: 16px 8px;
-    scroll-snap-align: center;
 }
 
 /* 响应式调整 */
