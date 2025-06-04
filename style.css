@@ -1153,28 +1153,27 @@ body {
     box-shadow: none;
 }
 
+/* 底部导航栏 */
 .bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    position: relative;
+    width: 100%;
     max-width: 430px;
-    margin: 0 auto;
+    margin: 0 0 24px 0;
     background: #1a1a1a;
-    padding: 8px 0;
-    border-top: 0.5px solid rgba(255, 255, 255, 0.1);
-    z-index: 100;
+    padding: 12px 0;
+    border-radius: 16px;
     display: flex;
     justify-content: space-around;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
 }
 
 .nav-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2px;
+    gap: 4px;
     color: #999;
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .nav-item.active {
@@ -1182,8 +1181,8 @@ body {
 }
 
 .nav-icon {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     background: currentColor;
     mask-size: 20px;
     mask-repeat: no-repeat;
@@ -1191,7 +1190,6 @@ body {
     -webkit-mask-size: 20px;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
-    margin-bottom: 2px;
 }
 
 .tree-nav {
@@ -1411,7 +1409,7 @@ body {
     }
     
     .experience-section {
-        margin-bottom: 120px;
+        margin-bottom: 28px;
     }
 }
 
