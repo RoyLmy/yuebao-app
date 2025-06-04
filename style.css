@@ -451,29 +451,24 @@ body {
     background: #1a1a1a;
     padding: 12px;
     border-radius: 12px;
-    min-width: 0; /* 防止内容溢出 */
 }
 
 .label {
-    font-size: 12px;
+    font-size: 11px;
     color: #999;
     margin-bottom: 8px;
     display: flex;
     align-items: center;
     gap: 4px;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .value {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     color: #ffffff;
     transition: all 0.3s ease;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .value.orange {
@@ -487,11 +482,11 @@ body {
     }
     
     .label {
-        font-size: 13px;
+        font-size: 11px;
     }
     
     .value {
-        font-size: 18px;
+        font-size: 14px;
     }
 }
 
@@ -502,11 +497,11 @@ body {
     }
     
     .label {
-        font-size: 12px;
+        font-size: 11px;
     }
     
     .value {
-        font-size: 17px;
+        font-size: 14px;
     }
 }
 
