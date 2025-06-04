@@ -443,28 +443,35 @@ body {
 .earnings-info {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    gap: 12px;
     margin-bottom: 24px;
 }
 
 .earning-item {
     background: #1a1a1a;
-    padding: 12px;
+    padding: 10px 8px;
     border-radius: 12px;
+    width: 100%;
 }
 
 .label {
-    font-size: 11px;
+    font-size: 10px;
     color: #999;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 2px;
     white-space: nowrap;
 }
 
+.info-icon {
+    width: 12px;
+    height: 12px;
+    min-width: 12px;
+}
+
 .value {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     color: #ffffff;
     transition: all 0.3s ease;
@@ -477,12 +484,17 @@ body {
 
 /* 适配iPhone 15 Pro Max */
 @media screen and (min-width: 430px) {
+    .earnings-info {
+        gap: 16px;
+    }
+    
     .earning-item {
-        padding: 16px;
+        padding: 12px 10px;
     }
     
     .label {
         font-size: 11px;
+        gap: 4px;
     }
     
     .value {
@@ -492,16 +504,21 @@ body {
 
 /* 适配iPhone 15 Pro */
 @media screen and (min-width: 393px) {
+    .earnings-info {
+        gap: 14px;
+    }
+    
     .earning-item {
-        padding: 14px;
+        padding: 11px 9px;
     }
     
     .label {
-        font-size: 11px;
+        font-size: 10px;
+        gap: 3px;
     }
     
     .value {
-        font-size: 14px;
+        font-size: 13px;
     }
 }
 
