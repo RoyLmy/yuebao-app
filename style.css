@@ -216,6 +216,7 @@ body {
     padding: 20px;
     margin: 0 0 24px 0;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .balance-header {
@@ -1007,6 +1008,7 @@ body {
     padding: 20px;
     margin: 20px 16px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
 .experience-header {
@@ -1027,35 +1029,24 @@ body {
 }
 
 .experience-rewards.horizontal-scroll {
+    margin: 20px 0;
+    padding: 0;
+    width: 100%;
     display: flex;
     gap: 12px;
     overflow-x: auto;
-    padding: 8px 4px;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    margin: 0 -4px;
-}
-
-.experience-rewards.horizontal-scroll::-webkit-scrollbar {
-    display: none;
 }
 
 .daily-item {
     flex: 0 0 auto;
-    width: 80px;
-    height: 100px;
-    background: #333;
+    width: calc((100% - 48px) / 5);
+    min-width: 90px;
+    background: #2a2a2a;
     border-radius: 12px;
-    padding: 12px 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    position: relative;
+    padding: 16px 8px;
     scroll-snap-align: center;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .daily-item:hover {
@@ -1472,149 +1463,13 @@ body {
     }
 }
 
-/* 签到横滑样式 */
-.experience-rewards.horizontal-scroll {
-    overflow-x: auto;
-    display: flex;
-    gap: 12px;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 8px;
-}
-.experience-rewards.horizontal-scroll .daily-item {
-    min-width: 90px;
-    scroll-snap-align: center;
-    background: #2a2a2a;
-    border-radius: 12px;
-    padding: 16px 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-.experience-rewards.horizontal-scroll .daily-item.signed {
-    background: linear-gradient(135deg,#ffecd2 0%,#fcb69f 100%);
-    color: #ff6b35;
-    font-weight: bold;
-    border: 2px solid #ff6b35;
-    transform: scale(1.08);
-}
-.sign-btn-wrap {
-    text-align: center;
-    margin-top: 10px;
-}
-.sign-btn {
-    background: #ff6b35;
-    color: #fff;
-    border: none;
-    border-radius: 20px;
-    padding: 8px 32px;
-    font-size: 16px;
-    font-weight: 600;
-    box-shadow: 0 2px 8px rgba(255,107,53,0.08);
-    cursor: pointer;
-    transition: background 0.2s;
-}
-.sign-btn:disabled {
-    background: #ccc;
-    color: #fff;
-    cursor: not-allowed;
-}
-
-/* 闲置资金升级模块 */
-.money-upgrade-section {
-    background: #1a1a1a;
-    border-radius: 12px;
-    padding: 20px;
-    margin: 16px;
-}
-
-.money-upgrade-section h3 {
-    font-size: 18px;
-    color: #ffffff;
-    margin-bottom: 8px;
-}
-
-.money-upgrade-section p {
-    font-size: 14px;
-    color: #999;
-    margin-bottom: 20px;
-}
-
-.upgrade-content {
+/* 闲置资金升级模块样式优化 */
+.money-upgrade-section .upgrade-content {
     background: #2a2a2a;
     border-radius: 12px;
     padding: 16px;
-    margin-top: 16px;
-}
-
-.upgrade-tip {
-    color: #ff6b35;
-    font-size: 14px;
-    margin-bottom: 16px;
-    padding: 8px 16px;
-    background: rgba(255, 107, 53, 0.1);
-    border-radius: 20px;
-    display: inline-block;
-}
-
-.product-comparison {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
-}
-
-.product-box {
-    flex: 1;
-    background: #333333;
-    padding: 12px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.product-box.active-money {
-    background: #ff6b35;
-    color: #fff;
-}
-
-.product-name {
-    font-size: 16px;
-    margin-bottom: 4px;
-}
-
-.risk-level {
-    font-size: 12px;
-    color: #999;
-}
-
-.product-box.active-money .risk-level {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.upgrade-arrow {
-    width: 20px;
-    height: 20px;
-    position: relative;
-}
-
-.upgrade-arrow::after {
-    content: '';
-    width: 8px;
-    height: 8px;
-    border-top: 2px solid #ff6b35;
-    border-right: 2px solid #ff6b35;
-    transform: rotate(45deg);
-    position: absolute;
-    top: 6px;
-    left: 0;
-}
-
-.product-desc {
-    color: #999;
-    font-size: 14px;
-    text-align: center;
+    margin: 16px 0 0 0;
+    width: 100%;
 }
 
 .zero-money-section {
@@ -1625,58 +1480,49 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
 }
 
-.zero-money-title {
-    font-size: 16px;
-    color: #ffffff;
+/* 体验金模块样式优化 */
+.experience-section {
+    width: 100%;
 }
 
-.zero-money-desc {
-    font-size: 12px;
-    color: #999;
+.experience-rewards.horizontal-scroll {
+    margin: 20px 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
 }
 
-.check-btn {
-    background: #ff6b35;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-/* 统一标题样式 */
-.section-header,
-.money-upgrade-section h3,
-.experience-header h3 {
-    font-size: 18px;
-    font-weight: 600;
-    color: #ffffff;
-    margin-bottom: 8px;
-}
-
-/* 统一描述文字样式 */
-.section-desc,
-.money-upgrade-section p,
-.experience-header p {
-    font-size: 14px;
-    color: #999;
-    margin-bottom: 20px;
-}
-
-/* 产品列表样式 */
-.finance-products {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-top: 16px;
-}
-
-.product-item {
+.daily-item {
+    flex: 0 0 auto;
+    width: calc((100% - 48px) / 5);
+    min-width: 90px;
     background: #2a2a2a;
-    padding: 16px;
     border-radius: 12px;
-    text-align: center;
+    padding: 16px 8px;
+    scroll-snap-align: center;
+}
+
+/* 响应式调整 */
+@media screen and (min-width: 390px) {
+    .scrollable-content {
+        padding: 20px;
+    }
+    
+    .balance-card,
+    .earnings-info,
+    .auto-transfer,
+    .weekly-section,
+    .stable-finance-section,
+    .bottom-nav,
+    .money-upgrade-section,
+    .experience-section {
+        margin-bottom: 28px;
+    }
 }
