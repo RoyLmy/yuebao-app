@@ -455,6 +455,7 @@ body {
     display: flex;
     align-items: center;
     gap: 4px;
+    white-space: nowrap;
 }
 
 .value {
@@ -498,8 +499,8 @@ body {
 
 /* 转入转出页面样式 */
 .deposit-content, .withdraw-content {
-    padding: 20px 16px;
     background: #000000;
+    padding: 20px 16px;
 }
 
 .rate-info {
