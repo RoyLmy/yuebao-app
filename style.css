@@ -1231,7 +1231,7 @@ body {
     padding: 0;
     width: 100%;
     display: flex;
-    gap: 12px;
+    gap: 8px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
@@ -1239,71 +1239,149 @@ body {
 
 .daily-item {
     flex: 0 0 auto;
-    width: calc((100% - 48px) / 5);
-    min-width: 90px;
+    width: calc((100% - 48px) / 7);
+    min-width: 80px;
     background: #1a1a1a;
     border-radius: 12px;
-    padding: 16px 8px;
+    padding: 12px 6px;
     scroll-snap-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     position: relative;
     transition: all 0.3s ease;
 }
 
 .daily-item.signed {
-    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-    color: #ff6b35;
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    color: #4ade80;
+    font-weight: bold;
+    border: 2px solid #4ade80;
+    box-shadow: 0 4px 20px rgba(74, 222, 128, 0.3);
+}
+
+.daily-item.signed .sign-status {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #4ade80;
+    color: #000;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.daily-item.today-sign {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+    color: #ffffff;
     font-weight: bold;
     border: 2px solid #ff6b35;
+    box-shadow: 0 8px 32px rgba(255, 107, 53, 0.5);
+    transform: scale(1.05);
+}
+
+.daily-item.today-sign .today-label {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff6b35;
+    color: #ffffff;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-weight: bold;
+    animation: bounce 2s infinite;
 }
 
 .daily-item.unsigned {
-    background: #1a1a1a;
+    background: #0a0a0a;
     border: 1px solid #333;
-    opacity: 0.8;
-}
-
-.daily-item.unsigned::after {
-    content: '未签到';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #666;
-    font-size: 12px;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 4px 8px;
-    border-radius: 10px;
-    white-space: nowrap;
+    opacity: 0.6;
 }
 
 .daily-item.unsigned .daily-amount,
 .daily-item.unsigned .day-label {
     opacity: 0.5;
+    color: #666;
+}
+
+.daily-item.unsigned .special-reward {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: linear-gradient(135deg, #ffd700 0%, #ffb700 100%);
+    color: #000;
+    font-size: 10px;
+    padding: 3px 6px;
+    border-radius: 8px;
+    font-weight: bold;
+    animation: sparkle 2s infinite;
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.5);
+}
+
+/* 第7天特殊样式 */
+#signDay7 {
+    position: relative;
+}
+
+#signDay7 .daily-amount {
+    color: #ffd700;
+    font-weight: 900;
 }
 
 .daily-amount {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
+    line-height: 1.2;
 }
 
 .coin-small {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     background: linear-gradient(135deg, #ffd700 0%, #ffb700 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+    position: relative;
+}
+
+.coin-small.signed-coin {
+    background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+    box-shadow: 0 4px 15px rgba(74, 222, 128, 0.4);
+}
+
+.coin-small.signed-coin::after {
+    content: '✓';
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.coin-small.pulse-effect {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+    animation: pulse 1.5s infinite;
+    box-shadow: 0 4px 20px rgba(255, 107, 53, 0.6);
+}
+
+.coin-small.pulse-effect::after {
+    content: '?';
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .daily-item.unsigned .coin-small {
-    background: linear-gradient(135deg, #666 0%, #444 100%);
-    opacity: 0.5;
+    background: linear-gradient(135deg, #444 0%, #222 100%);
+    opacity: 0.4;
+}
+
+.daily-item.unsigned .coin-small::after {
+    content: '';
 }
 
 .day-label {
@@ -1330,6 +1408,49 @@ body {
 .sign-btn:disabled {
     background: #666;
     cursor: not-allowed;
+}
+
+/* 动画效果 */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 20px rgba(255, 107, 53, 0.6);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 6px 25px rgba(255, 107, 53, 0.8);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 20px rgba(255, 107, 53, 0.6);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-4px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-2px);
+    }
+}
+
+@keyframes sparkle {
+    0%, 50%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    25% {
+        transform: scale(1.1) rotate(5deg);
+        opacity: 0.8;
+    }
+    75% {
+        transform: scale(1.1) rotate(-5deg);
+        opacity: 0.8;
+    }
 }
 
 @media screen and (min-width: 390px) {

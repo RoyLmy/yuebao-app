@@ -242,35 +242,51 @@
                 <!-- 体验金模块 -->
                 <div class="experience-section">
                     <div class="experience-header">
-                        <h3>领免费体验金，收益奖励都归你</h3>
-                        <p>每天都能领体验金</p>
+                        <h3>7天签到挑战，超值奖励等你拿</h3>
+                        <p>连续签到7天，累计获得270体验金</p>
                     </div>
                     <div class="experience-rewards horizontal-scroll">
                         <div class="daily-item signed" id="signDay1">
                             <div class="daily-amount">+10</div>
-                            <div class="coin-small"></div>
+                            <div class="coin-small signed-coin"></div>
                             <div class="day-label">第1天</div>
                             <div class="sign-status">已签到</div>
                         </div>
-                        <div class="daily-item unsigned" id="signDay2">
+                        <div class="daily-item signed" id="signDay2">
                             <div class="daily-amount">+20</div>
-                            <div class="coin-small"></div>
+                            <div class="coin-small signed-coin"></div>
                             <div class="day-label">第2天</div>
+                            <div class="sign-status">已签到</div>
                         </div>
-                        <div class="daily-item" id="signDay3">
+                        <div class="daily-item signed" id="signDay3">
                             <div class="daily-amount">+30</div>
-                            <div class="coin-small"></div>
+                            <div class="coin-small signed-coin"></div>
                             <div class="day-label">第3天</div>
+                            <div class="sign-status">已签到</div>
                         </div>
-                        <div class="daily-item" id="signDay4">
+                        <div class="daily-item signed" id="signDay4">
                             <div class="daily-amount">+40</div>
-                            <div class="coin-small"></div>
+                            <div class="coin-small signed-coin"></div>
                             <div class="day-label">第4天</div>
+                            <div class="sign-status">已签到</div>
                         </div>
-                        <div class="daily-item" id="signDay5">
+                        <div class="daily-item signed" id="signDay5">
                             <div class="daily-amount">+50</div>
-                            <div class="coin-small"></div>
+                            <div class="coin-small signed-coin"></div>
                             <div class="day-label">第5天</div>
+                            <div class="sign-status">已签到</div>
+                        </div>
+                        <div class="daily-item today-sign" id="signDay6">
+                            <div class="daily-amount">+60</div>
+                            <div class="coin-small pulse-effect"></div>
+                            <div class="day-label">第6天</div>
+                            <div class="today-label">今日</div>
+                        </div>
+                        <div class="daily-item unsigned" id="signDay7">
+                            <div class="daily-amount">+100</div>
+                            <div class="coin-small"></div>
+                            <div class="day-label">第7天</div>
+                            <div class="special-reward">大奖</div>
                         </div>
                     </div>
                     <div class="sign-btn-wrap">
@@ -512,35 +528,153 @@
         if (rewards) {
             rewards.style.overflowX = 'auto';
             rewards.style.display = 'flex';
-            rewards.style.gap = '12px';
+            rewards.style.gap = '8px';
             rewards.style.scrollSnapType = 'x mandatory';
             rewards.querySelectorAll('.daily-item').forEach(item => {
-                item.style.minWidth = '90px';
+                item.style.minWidth = '80px';
                 item.style.scrollSnapAlign = 'center';
             });
         }
     }
     setSignScroll();
 
+    // 签到状态管理
+    let currentSignDay = 6; // 当前可签到天数（第6天）
+    let signedDays = [1, 2, 3, 4, 5]; // 已签到的天数
+
+    // 初始化签到状态
+    function initSignStatus() {
+        for (let i = 1; i <= 7; i++) {
+            const item = document.getElementById('signDay' + i);
+            if (item) {
+                if (signedDays.includes(i)) {
+                    item.classList.remove('unsigned', 'today-sign');
+                    item.classList.add('signed');
+                } else if (i === currentSignDay) {
+                    item.classList.remove('unsigned', 'signed');
+                    item.classList.add('today-sign');
+                } else {
+                    item.classList.remove('signed', 'today-sign');
+                    item.classList.add('unsigned');
+                }
+            }
+        }
+    }
+
     // 签到按钮逻辑
     const signBtn = document.getElementById('signBtn');
-    let signed = false;
-    signBtn && signBtn.addEventListener('click', function() {
-        if (signed) return;
-        signed = true;
-        const today = new Date().getDay();
-        const item = document.getElementById('signDay' + (today === 0 ? 7 : today));
-        if (item) {
-            item.classList.add('signed');
-            item.innerHTML = '<div class="daily-amount">已签到</div><div class="coin-small"></div><div class="day-label">今日</div>';
-            item.style.background = 'linear-gradient(135deg,#ffecd2 0%,#fcb69f 100%)';
-            item.style.color = '#ff6b35';
-            item.style.transform = 'scale(1.08)';
-            setTimeout(()=>{item.style.transform='scale(1)';},400);
-        }
+    let canSign = true;
+    
+    // 检查当前签到状态
+    if (signedDays.includes(currentSignDay)) {
         signBtn.textContent = '已签到';
         signBtn.disabled = true;
+        canSign = false;
+    }
+
+    signBtn && signBtn.addEventListener('click', function() {
+        if (!canSign || signedDays.includes(currentSignDay)) return;
+        
+        const item = document.getElementById('signDay' + currentSignDay);
+        if (item) {
+            // 添加签到动画效果
+            item.style.transform = 'scale(1.15)';
+            item.style.transition = 'all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+            
+            setTimeout(() => {
+                item.classList.remove('today-sign');
+                item.classList.add('signed');
+                
+                // 更新硬币样式
+                const coin = item.querySelector('.coin-small');
+                if (coin) {
+                    coin.classList.remove('pulse-effect');
+                    coin.classList.add('signed-coin');
+                }
+                
+                // 更新标签
+                const todayLabel = item.querySelector('.today-label');
+                if (todayLabel) {
+                    todayLabel.remove();
+                }
+                
+                // 添加已签到标签
+                const signStatus = document.createElement('div');
+                signStatus.className = 'sign-status';
+                signStatus.textContent = '已签到';
+                item.appendChild(signStatus);
+                
+                item.style.transform = 'scale(1)';
+                
+                // 更新状态
+                signedDays.push(currentSignDay);
+                currentSignDay++;
+                
+                // 更新按钮状态
+                if (currentSignDay <= 7) {
+                    const nextItem = document.getElementById('signDay' + currentSignDay);
+                    if (nextItem && !signedDays.includes(currentSignDay)) {
+                        nextItem.classList.remove('unsigned');
+                        nextItem.classList.add('today-sign');
+                        
+                        const nextCoin = nextItem.querySelector('.coin-small');
+                        if (nextCoin) {
+                            nextCoin.classList.add('pulse-effect');
+                        }
+                        
+                        const nextTodayLabel = document.createElement('div');
+                        nextTodayLabel.className = 'today-label';
+                        nextTodayLabel.textContent = '今日';
+                        nextItem.appendChild(nextTodayLabel);
+                        
+                        signBtn.textContent = '立即签到';
+                    } else {
+                        signBtn.textContent = '已完成';
+                        signBtn.disabled = true;
+                    }
+                } else {
+                    signBtn.textContent = '已完成';
+                    signBtn.disabled = true;
+                    // 显示完成特效
+                    showCompletionEffect();
+                }
+            }, 200);
+        }
     });
+
+    // 完成签到特效
+    function showCompletionEffect() {
+        const experience = document.querySelector('.experience-section');
+        if (experience) {
+            const celebration = document.createElement('div');
+            celebration.innerHTML = '🎉 七日签到完成！恭喜获得所有奖励！';
+            celebration.style.cssText = `
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+                color: white;
+                padding: 16px 24px;
+                border-radius: 20px;
+                font-weight: bold;
+                box-shadow: 0 8px 32px rgba(255, 107, 53, 0.5);
+                z-index: 1000;
+                animation: bounce 0.5s ease-out;
+            `;
+            experience.style.position = 'relative';
+            experience.appendChild(celebration);
+            
+            setTimeout(() => {
+                if (celebration.parentNode) {
+                    celebration.parentNode.removeChild(celebration);
+                }
+            }, 3000);
+        }
+    }
+
+    // 初始化页面时设置签到状态
+    initSignStatus();
 
     // 动态设置转出页面时间
     function updateDynamicTimes() {
