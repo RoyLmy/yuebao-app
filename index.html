@@ -244,6 +244,15 @@
                     <div class="experience-header">
                         <h3>7天签到挑战，超值奖励等你拿</h3>
                         <p>连续签到7天，累计获得270体验金</p>
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="signProgress"></div>
+                            </div>
+                            <div class="progress-text">
+                                <span id="progressText">已完成 5/6 天</span>
+                                <span class="total-reward">总奖励: 270金币</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="experience-rewards horizontal-scroll">
                         <div class="daily-item signed" id="signDay1">
@@ -282,11 +291,15 @@
                             <div class="day-label">第6天</div>
                             <div class="today-label">今日</div>
                         </div>
-                        <div class="daily-item unsigned" id="signDay7">
+                        <div class="daily-item unsigned special-day" id="signDay7">
                             <div class="daily-amount">+100</div>
-                            <div class="coin-small"></div>
+                            <div class="coin-small golden-coin"></div>
                             <div class="day-label">第7天</div>
                             <div class="special-reward">大奖</div>
+                            <div class="lock-overlay">
+                                <div class="lock-icon">🔒</div>
+                                <div class="unlock-text">明日解锁</div>
+                            </div>
                         </div>
                     </div>
                     <div class="sign-btn-wrap">
@@ -527,12 +540,40 @@
         const rewards = document.querySelector('.experience-rewards');
         if (rewards) {
             rewards.style.overflowX = 'auto';
+            rewards.style.overflowY = 'hidden';
             rewards.style.display = 'flex';
-            rewards.style.gap = '8px';
+            rewards.style.gap = '12px';
             rewards.style.scrollSnapType = 'x mandatory';
-            rewards.querySelectorAll('.daily-item').forEach(item => {
-                item.style.minWidth = '80px';
+            rewards.style.scrollBehavior = 'smooth';
+            rewards.style.WebkitOverflowScrolling = 'touch';
+            
+            // 隐藏滚动条但保持滚动功能
+            rewards.style.scrollbarWidth = 'none'; // Firefox
+            rewards.style.msOverflowStyle = 'none'; // IE and Edge
+            
+            // 添加CSS规则隐藏Webkit滚动条
+            const style = document.createElement('style');
+            style.textContent = `
+                .experience-rewards.horizontal-scroll::-webkit-scrollbar {
+                    display: none;
+                }
+            `;
+            document.head.appendChild(style);
+            
+            rewards.querySelectorAll('.daily-item').forEach((item, index) => {
+                item.style.minWidth = '85px';
                 item.style.scrollSnapAlign = 'center';
+                
+                // 自动滚动到第6天（今日可签到）
+                if (index === 5) { // 第6天（索引5）
+                    setTimeout(() => {
+                        item.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            inline: 'center',
+                            block: 'nearest'
+                        });
+                    }, 500);
+                }
             });
         }
     }
@@ -541,6 +582,7 @@
     // 签到状态管理
     let currentSignDay = 6; // 当前可签到天数（第6天）
     let signedDays = [1, 2, 3, 4, 5]; // 已签到的天数
+    let maxSignDay = 6; // 最大可签到天数（第7天不能签到）
 
     // 初始化签到状态
     function initSignStatus() {
@@ -573,10 +615,10 @@
     }
 
     signBtn && signBtn.addEventListener('click', function() {
-        if (!canSign || signedDays.includes(currentSignDay)) return;
+        if (!canSign || signedDays.includes(currentSignDay) || currentSignDay > maxSignDay) return;
         
         const item = document.getElementById('signDay' + currentSignDay);
-        if (item) {
+        if (item && currentSignDay <= maxSignDay) {
             // 添加签到动画效果
             item.style.transform = 'scale(1.15)';
             item.style.transition = 'all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
@@ -608,36 +650,18 @@
                 
                 // 更新状态
                 signedDays.push(currentSignDay);
-                currentSignDay++;
                 
-                // 更新按钮状态
-                if (currentSignDay <= 7) {
-                    const nextItem = document.getElementById('signDay' + currentSignDay);
-                    if (nextItem && !signedDays.includes(currentSignDay)) {
-                        nextItem.classList.remove('unsigned');
-                        nextItem.classList.add('today-sign');
-                        
-                        const nextCoin = nextItem.querySelector('.coin-small');
-                        if (nextCoin) {
-                            nextCoin.classList.add('pulse-effect');
-                        }
-                        
-                        const nextTodayLabel = document.createElement('div');
-                        nextTodayLabel.className = 'today-label';
-                        nextTodayLabel.textContent = '今日';
-                        nextItem.appendChild(nextTodayLabel);
-                        
-                        signBtn.textContent = '立即签到';
-                    } else {
-                        signBtn.textContent = '已完成';
-                        signBtn.disabled = true;
-                    }
-                } else {
-                    signBtn.textContent = '已完成';
-                    signBtn.disabled = true;
-                    // 显示完成特效
-                    showCompletionEffect();
-                }
+                // 更新进度条
+                updateProgress();
+                
+                // 签到完成，第7天保持不可签到状态
+                signBtn.textContent = '6天签到完成';
+                signBtn.disabled = true;
+                signBtn.style.background = '#4ade80';
+                signBtn.style.color = '#000';
+                
+                // 显示完成特效
+                showCompletionEffect();
             }, 200);
         }
     });
@@ -647,20 +671,22 @@
         const experience = document.querySelector('.experience-section');
         if (experience) {
             const celebration = document.createElement('div');
-            celebration.innerHTML = '🎉 七日签到完成！恭喜获得所有奖励！';
+            celebration.innerHTML = '🎉 6天签到完成！明日可解锁第7天大奖！';
             celebration.style.cssText = `
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+                background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
                 color: white;
                 padding: 16px 24px;
                 border-radius: 20px;
                 font-weight: bold;
-                box-shadow: 0 8px 32px rgba(255, 107, 53, 0.5);
+                box-shadow: 0 8px 32px rgba(74, 222, 128, 0.5);
                 z-index: 1000;
                 animation: bounce 0.5s ease-out;
+                text-align: center;
+                line-height: 1.4;
             `;
             experience.style.position = 'relative';
             experience.appendChild(celebration);
@@ -669,12 +695,28 @@
                 if (celebration.parentNode) {
                     celebration.parentNode.removeChild(celebration);
                 }
-            }, 3000);
+            }, 4000);
+        }
+    }
+
+    // 更新进度条
+    function updateProgress() {
+        const progressFill = document.getElementById('signProgress');
+        const progressText = document.getElementById('progressText');
+        
+        if (progressFill && progressText) {
+            const completedDays = signedDays.length;
+            const maxDays = maxSignDay;
+            const percentage = (completedDays / maxDays) * 100;
+            
+            progressFill.style.width = percentage + '%';
+            progressText.textContent = `已完成 ${completedDays}/${maxDays} 天`;
         }
     }
 
     // 初始化页面时设置签到状态
     initSignStatus();
+    updateProgress();
 
     // 动态设置转出页面时间
     function updateDynamicTimes() {
