@@ -1306,11 +1306,11 @@ body {
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #64ffda 0%, #4dd0e1 100%);
+    background: linear-gradient(90deg, #4fc3f7 0%, #29b6f6 100%);
     border-radius: 4px;
     transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    width: 83.33%; /* 5/6 = 83.33% */
-    box-shadow: 0 0 8px rgba(100, 255, 218, 0.5);
+    width: 71.43%; /* 5/7 = 71.43% */
+    box-shadow: 0 0 8px rgba(79, 195, 247, 0.3);
 }
 
 .progress-text {
@@ -1321,7 +1321,7 @@ body {
 }
 
 .progress-text span:first-child {
-    color: #64ffda;
+    color: #4fc3f7;
     font-weight: bold;
 }
 
@@ -1365,11 +1365,11 @@ body {
 }
 
 .daily-item.signed {
-    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-    color: #64ffda;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #4fc3f7;
     font-weight: bold;
-    border: 2px solid #64ffda;
-    box-shadow: 0 6px 24px rgba(100, 255, 218, 0.3), 0 0 20px rgba(100, 255, 218, 0.1);
+    border: 2px solid #4fc3f7;
+    box-shadow: 0 6px 24px rgba(79, 195, 247, 0.2), 0 0 20px rgba(79, 195, 247, 0.08);
     transform: translateY(-2px);
 }
 
@@ -1377,7 +1377,7 @@ body {
     position: absolute;
     top: -8px;
     right: -8px;
-    background: #64ffda;
+    background: #4fc3f7;
     color: #000;
     font-size: 10px;
     padding: 2px 6px;
@@ -1542,8 +1542,8 @@ body {
 }
 
 .coin-small.signed-coin {
-    background: linear-gradient(135deg, #64ffda 0%, #4dd0e1 100%);
-    box-shadow: 0 4px 15px rgba(100, 255, 218, 0.4);
+    background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);
+    box-shadow: 0 4px 15px rgba(79, 195, 247, 0.3);
 }
 
 .coin-small.signed-coin::after {

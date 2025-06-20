@@ -249,7 +249,7 @@
                                 <div class="progress-fill" id="signProgress"></div>
                             </div>
                             <div class="progress-text">
-                                <span id="progressText">已完成 5/6 天</span>
+                                <span id="progressText">已完成 5/7 天</span>
                                 <span class="total-reward">总奖励: 270金币</span>
                             </div>
                         </div>
@@ -654,10 +654,10 @@
                 // 更新进度条
                 updateProgress();
                 
-                // 签到第6天后完成，第7天保持锁定状态
+                                 // 签到第6天后完成，第7天保持锁定状态
                 signBtn.textContent = '6天签到完成';
                 signBtn.disabled = true;
-                signBtn.style.background = '#64ffda';
+                signBtn.style.background = '#4fc3f7';
                 signBtn.style.color = '#000';
                 
                 // 显示完成特效
@@ -672,8 +672,8 @@
         if (experience) {
             const celebration = document.createElement('div');
             celebration.innerHTML = '🎉 6天签到完成！明日可解锁第7天大奖！';
-            let bgStyle = 'linear-gradient(135deg, #64ffda 0%, #4dd0e1 100%)';
-            let shadowStyle = '0 8px 32px rgba(100, 255, 218, 0.5)';
+            let bgStyle = 'linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%)';
+            let shadowStyle = '0 8px 32px rgba(79, 195, 247, 0.3)';
             let textColor = '#000';
             celebration.style.cssText = `
                 position: absolute;
@@ -709,11 +709,11 @@
         
         if (progressFill && progressText) {
             const completedDays = signedDays.length;
-            const maxDays = maxSignDay;
-            const percentage = (completedDays / maxDays) * 100;
+            const totalDays = 7; // 总是显示7天
+            const percentage = (completedDays / totalDays) * 100;
             
             progressFill.style.width = percentage + '%';
-            progressText.textContent = `已完成 ${completedDays}/${maxDays} 天`;
+            progressText.textContent = `已完成 ${completedDays}/${totalDays} 天`;
         }
     }
 
