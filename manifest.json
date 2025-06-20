@@ -1,7 +1,7 @@
 {
-    "name": "支付宝",
-    "short_name": "支付宝",
-    "description": "支付宝 - 让生活更简单",
+    "name": "支付宝宝",
+    "short_name": "支付宝宝",
+    "description": "支付宝宝 - 让生活更简单",
     "start_url": "./",
     "display": "standalone",
     "background_color": "#ffffff",

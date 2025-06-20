@@ -6,24 +6,24 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#000000">
-    <meta name="apple-mobile-web-app-title" content="支付宝">
+    <meta name="apple-mobile-web-app-title" content="支付宝宝">
     <link rel="apple-touch-icon" href="./icon-192.png">
     <link rel="manifest" href="./manifest.json">
-    <title>余额宝</title>
+    <title>支付宝宝</title>
     <link rel="stylesheet" href="style.css?v=20240620">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <meta property="og:title" content="支付宝" />
-    <meta property="og:description" content="支付宝 - 让生活更简单，余额、签到、理财一站式体验。" />
+    <meta property="og:title" content="支付宝宝" />
+    <meta property="og:description" content="支付宝宝 - 让生活更简单，余额、签到、理财一站式体验。" />
     <meta property="og:image" content="./icon-512.png" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://roylmy.github.io/yuebao-app/" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="支付宝" />
-    <meta name="twitter:description" content="支付宝 - 让生活更简单，余额、签到、理财一站式体验。" />
+    <meta name="twitter:title" content="支付宝宝" />
+    <meta name="twitter:description" content="支付宝宝 - 让生活更简单，余额、签到、理财一站式体验。" />
     <meta name="twitter:image" content="./icon-512.png" />
-    <meta name="apple-mobile-web-app-title" content="支付宝" />
+    <meta name="apple-mobile-web-app-title" content="支付宝宝" />
 </head>
 <body>
     <!-- 主页面容器 -->
@@ -249,7 +249,7 @@
                                 <div class="progress-fill" id="signProgress"></div>
                             </div>
                             <div class="progress-text">
-                                <span id="progressText">已完成 5/6 天</span>
+                                <span id="progressText">已完成 5/7 天</span>
                                 <span class="total-reward">总奖励: 270金币</span>
                             </div>
                         </div>
@@ -582,7 +582,7 @@
     // 签到状态管理
     let currentSignDay = 6; // 当前可签到天数（第6天）
     let signedDays = [1, 2, 3, 4, 5]; // 已签到的天数
-    let maxSignDay = 6; // 最大可签到天数（第7天不能签到）
+    let maxSignDay = 7; // 最大可签到天数（包含第7天大奖）
 
     // 初始化签到状态
     function initSignStatus() {
@@ -654,11 +654,44 @@
                 // 更新进度条
                 updateProgress();
                 
-                // 签到完成，第7天保持不可签到状态
-                signBtn.textContent = '6天签到完成';
-                signBtn.disabled = true;
-                signBtn.style.background = '#4ade80';
-                signBtn.style.color = '#000';
+                // 更新到下一天或完成
+                currentSignDay++;
+                
+                if (currentSignDay <= maxSignDay) {
+                    // 还有下一天可以签到
+                    const nextItem = document.getElementById('signDay' + currentSignDay);
+                    if (nextItem) {
+                        nextItem.classList.remove('unsigned', 'special-day');
+                        nextItem.classList.add('today-sign');
+                        
+                        // 移除锁定遮罩
+                        const lockOverlay = nextItem.querySelector('.lock-overlay');
+                        if (lockOverlay) {
+                            lockOverlay.remove();
+                        }
+                        
+                        const nextCoin = nextItem.querySelector('.coin-small');
+                        if (nextCoin) {
+                            nextCoin.classList.remove('golden-coin');
+                            nextCoin.classList.add('pulse-effect');
+                        }
+                        
+                        const nextTodayLabel = document.createElement('div');
+                        nextTodayLabel.className = 'today-label';
+                        nextTodayLabel.textContent = '今日';
+                        nextItem.appendChild(nextTodayLabel);
+                        
+                        signBtn.textContent = currentSignDay === 7 ? '领取大奖' : '立即签到';
+                        signBtn.style.background = currentSignDay === 7 ? '#ffd700' : '#ff6b35';
+                        signBtn.style.color = currentSignDay === 7 ? '#000' : '#fff';
+                    }
+                } else {
+                    // 全部完成
+                    signBtn.textContent = '7天签到完成';
+                    signBtn.disabled = true;
+                    signBtn.style.background = '#ffd700';
+                    signBtn.style.color = '#000';
+                }
                 
                 // 显示完成特效
                 showCompletionEffect();
@@ -671,18 +704,29 @@
         const experience = document.querySelector('.experience-section');
         if (experience) {
             const celebration = document.createElement('div');
-            celebration.innerHTML = '🎉 6天签到完成！明日可解锁第7天大奖！';
+            let bgStyle, shadowStyle, textColor;
+            if (currentSignDay > maxSignDay) {
+                celebration.innerHTML = '🎉 7天签到挑战完成！恭喜获得所有奖励！';
+                bgStyle = 'linear-gradient(135deg, #ffd700 0%, #ffb700 100%)';
+                shadowStyle = '0 8px 32px rgba(255, 215, 0, 0.5)';
+                textColor = '#000';
+            } else {
+                celebration.innerHTML = '🎉 签到成功！继续加油完成挑战！';
+                bgStyle = 'linear-gradient(135deg, #4ade80 0%, #22c55e 100%)';
+                shadowStyle = '0 8px 32px rgba(74, 222, 128, 0.5)';
+                textColor = '#fff';
+            }
             celebration.style.cssText = `
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
-                color: white;
+                background: ${bgStyle};
+                color: ${textColor};
                 padding: 16px 24px;
                 border-radius: 20px;
                 font-weight: bold;
-                box-shadow: 0 8px 32px rgba(74, 222, 128, 0.5);
+                box-shadow: ${shadowStyle};
                 z-index: 1000;
                 animation: bounce 0.5s ease-out;
                 text-align: center;
