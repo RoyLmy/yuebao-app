@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" href="./icon-192.png">
     <link rel="manifest" href="./manifest.json">
     <title>支付宝宝</title>
-    <link rel="stylesheet" href="style.css?v=20241219b">
+    <link rel="stylesheet" href="style.css?v=20241219c">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -657,7 +657,7 @@
                                  // 签到第6天后完成，第7天保持锁定状态
                 signBtn.textContent = '6天签到完成';
                 signBtn.disabled = true;
-                signBtn.style.background = '#4fc3f7';
+                signBtn.style.background = '#FFD700';
                 signBtn.style.color = '#000';
                 
                 // 显示完成特效
@@ -672,8 +672,8 @@
         if (experience) {
             const celebration = document.createElement('div');
             celebration.innerHTML = '🎉 6天签到完成！明日可解锁第7天大奖！';
-            let bgStyle = 'linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%)';
-            let shadowStyle = '0 8px 32px rgba(79, 195, 247, 0.3)';
+            let bgStyle = 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)';
+            let shadowStyle = '0 8px 32px rgba(255, 215, 0, 0.4)';
             let textColor = '#000';
             celebration.style.cssText = `
                 position: absolute;
