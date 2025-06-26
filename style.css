@@ -289,7 +289,7 @@ body {
 .back-btn {
     width: 28px;
     height: 28px;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -476,8 +476,8 @@ body {
     border: 1px solid #e6e6e6;
 }
 
-/* 北京银行图标 - 精确还原官方图片 */
-.bank-icon.bjbank {
+/* 中国银行图标 - 经典红底白字"中"字 */
+.bank-icon.boc {
     width: 24px;
     height: 24px;
     border-radius: 50%;
@@ -486,19 +486,19 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8IS0tIOe6ouiJsuWchuW9ouiDjOaZryAtLT4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMiIgZmlsbD0iI0RDMzkzOSIvPgogIAogIDwhLS0g55m96ImyIkIi5a2X5q+NIC0g57K+56Gu6L+Y5Y6f5Zu+54mH6K6+6K6hIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQuNSwgNC41KSI+CiAgICA8IS0tIOWeguebtOS4u+W5siAtLT4KICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyLjUiIGhlaWdodD0iMTUiIGZpbGw9IndoaXRlIi8+CiAgICAKICAgIDwhLS0g5LiK5Y2K5ZyG5bynIC0tPgogICAgPHBhdGggZD0iTTIuNSAwSDguNUMxMSAwIDEzIDIgMTMgNC41QzEzIDcgMTEgOSA4LjUgOUgyLjVWN0g4LjVDOS45IDcgMTEgNS45IDExIDQuNUMxMSAzLjEgOS45IDIgOC41IDJIMi41VjBaIiBmaWxsPSJ3aGl0ZSIvPgogICAgCiAgICA8IS0tIOS4i+WNiuWchuW8pyAtLT4KICAgIDxwYXRoIGQ9Ik0yLjUgOEg5LjVDMTIuMyA4IDE0LjUgMTAuMiAxNC41IDEzQzE0LjUgMTUuOCAxMi4zIDE4IDkuNSAxOEgyLjVWOFpNMi41IDEwVjE2SDkuNUMxMS4yIDE2IDEyLjUgMTQuNyAxMi41IDEzQzEyLjUgMTEuMyAxMS4yIDEwIDkuNSAxMEgyLjVaIiBmaWxsPSJ3aGl0ZSIvPgogIDwvZz4KPC9zdmc+IA==');
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8IS0tIOS4reWbvemTtuihjOe6ouiJsuWchuW9ouiDjOaZryAtLT4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMiIgZmlsbD0iI0M4MTAyRSIvPgogIAogIDwhLS0g55m96ImyIuS4rSLlrZcgLSDnroDmtIHnu4/lhbjorr7orqEgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNiwgNSkiIGZpbGw9IndoaXRlIj4KICAgIDwhLS0g5LiK5qiq57q/IC0tPgogICAgPHJlY3QgeD0iMCIgeT0iMSIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEuNSIvPgogICAgCiAgICA8IS0tIOS4remXtOeklue6vyAtLT4KICAgIDxyZWN0IHg9IjUuMjUiIHk9IjAiIHdpZHRoPSIxLjUiIGhlaWdodD0iMTQiLz4KICAgIAogICAgPCEtLSDkuK3pl7TmqKrnur8gLS0+CiAgICA8cmVjdCB4PSIyIiB5PSI2LjUiIHdpZHRoPSI4IiBoZWlnaHQ9IjEuNSIvPgogICAgCiAgICA8IS0tIOS4i+aoque6vyAtLT4KICAgIDxyZWN0IHg9IjEiIHk9IjEyLjUiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxLjUiLz4KICA8L2c+Cjwvc3ZnPiA=');
     background-size: 24px 24px;
     background-repeat: no-repeat;
     background-position: center;
     margin-right: 8px;
-    box-shadow: 0 2px 6px rgba(220, 57, 57, 0.3);
+    box-shadow: 0 2px 6px rgba(200, 16, 46, 0.3);
     border: none;
     transition: all 0.3s ease;
 }
 
-.bank-icon.bjbank:hover {
+.bank-icon.boc:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(220, 57, 57, 0.4);
+    box-shadow: 0 4px 10px rgba(200, 16, 46, 0.4);
 }
 
 /* 银行卡标签 */
