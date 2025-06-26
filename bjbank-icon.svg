@@ -1,0 +1,16 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 红色圆形背景 -->
+  <circle cx="12" cy="12" r="12" fill="#DC3939"/>
+  
+  <!-- 白色"B"字母 - 精确还原图片设计 -->
+  <g transform="translate(4.5, 4.5)">
+    <!-- 垂直主干 -->
+    <rect x="0" y="0" width="2.5" height="15" fill="white"/>
+    
+    <!-- 上半圆弧 -->
+    <path d="M2.5 0H8.5C11 0 13 2 13 4.5C13 7 11 9 8.5 9H2.5V7H8.5C9.9 7 11 5.9 11 4.5C11 3.1 9.9 2 8.5 2H2.5V0Z" fill="white"/>
+    
+    <!-- 下半圆弧 -->
+    <path d="M2.5 8H9.5C12.3 8 14.5 10.2 14.5 13C14.5 15.8 12.3 18 9.5 18H2.5V8ZM2.5 10V16H9.5C11.2 16 12.5 14.7 12.5 13C12.5 11.3 11.2 10 9.5 10H2.5Z" fill="white"/>
+  </g>
+</svg> 

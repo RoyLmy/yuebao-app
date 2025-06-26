@@ -476,7 +476,7 @@ body {
     border: 1px solid #e6e6e6;
 }
 
-/* 北京银行图标 - 按照真实图片设计 */
+/* 北京银行图标 - 精确还原官方图片 */
 .bank-icon.bjbank {
     width: 24px;
     height: 24px;
@@ -486,34 +486,19 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: linear-gradient(135deg, #E53939 0%, #D32F2F 50%, #C62828 100%);
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8IS0tIOe6ouiJsuWchuW9ouiDjOaZryAtLT4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMiIgZmlsbD0iI0RDMzkzOSIvPgogIAogIDwhLS0g55m96ImyIkIi5a2X5q+NIC0g57K+56Gu6L+Y5Y6f5Zu+54mH6K6+6K6hIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQuNSwgNC41KSI+CiAgICA8IS0tIOWeguebtOS4u+W5siAtLT4KICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyLjUiIGhlaWdodD0iMTUiIGZpbGw9IndoaXRlIi8+CiAgICAKICAgIDwhLS0g5LiK5Y2K5ZyG5bynIC0tPgogICAgPHBhdGggZD0iTTIuNSAwSDguNUMxMSAwIDEzIDIgMTMgNC41QzEzIDcgMTEgOSA4LjUgOUgyLjVWN0g4LjVDOS45IDcgMTEgNS45IDExIDQuNUMxMSAzLjEgOS45IDIgOC41IDJIMi41VjBaIiBmaWxsPSJ3aGl0ZSIvPgogICAgCiAgICA8IS0tIOS4i+WNiuWchuW8pyAtLT4KICAgIDxwYXRoIGQ9Ik0yLjUgOEg5LjVDMTIuMyA4IDE0LjUgMTAuMiAxNC41IDEzQzE0LjUgMTUuOCAxMi4zIDE4IDkuNSAxOEgyLjVWOFpNMi41IDEwVjE2SDkuNUMxMS4yIDE2IDEyLjUgMTQuNyAxMi41IDEzQzEyLjUgMTEuMyAxMS4yIDEwIDkuNSAxMEgyLjVaIiBmaWxsPSJ3aGl0ZSIvPgogIDwvZz4KPC9zdmc+IA==');
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    background-position: center;
     margin-right: 8px;
-    box-shadow: 0 2px 6px rgba(198, 40, 40, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 6px rgba(220, 57, 57, 0.3);
+    border: none;
     transition: all 0.3s ease;
 }
 
 .bank-icon.bjbank:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(198, 40, 40, 0.4);
-}
-
-/* 北京银行精美"B"字母 - 参照图片设计 */
-.bank-icon.bjbank::before {
-    content: 'B';
-    position: absolute;
-    font-size: 16px;
-    font-weight: 800;
-    color: #ffffff;
-    text-align: center;
-    line-height: 1;
-    font-family: 'Helvetica Neue', 'Arial Black', sans-serif;
-    text-shadow: 
-        0 1px 3px rgba(0, 0, 0, 0.3),
-        0 0 8px rgba(255, 255, 255, 0.2);
-    letter-spacing: -1px;
-    transform: scale(1.1, 1.2);
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+    box-shadow: 0 4px 10px rgba(220, 57, 57, 0.4);
 }
 
 /* 银行卡标签 */
