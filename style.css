@@ -472,24 +472,19 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: #C7000B;
+    background: #ff3333;
     margin-right: 8px;
+    font-family: 'SimHei', 'Microsoft YaHei', sans-serif;
 }
 
 .bank-icon.icbc::before {
-    content: '';
+    content: '工';
     position: absolute;
-    width: 16px;
-    height: 16px;
-    background: #ffffff;
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M30 35h40v10H30v-10zM30 55h40v10H30v-10zM42 30h16v40H42v-40z' fill='%23ffffff'/%3E%3C/svg%3E");
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: contain;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M30 35h40v10H30v-10zM30 55h40v10H30v-10zM42 30h16v40H42v-40z' fill='%23ffffff'/%3E%3C/svg%3E");
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    -webkit-mask-size: contain;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    line-height: 1;
 }
 
 /* 银行卡标签 */
@@ -1585,16 +1580,19 @@ body {
 }
 
 .coin-small.golden-coin {
-    background: linear-gradient(135deg, #FFD700 0%, #F4D03F 20%, #FFA500 50%, #FF8C00 80%, #B8860B 100%);
-    border: 2px solid #DAA520;
+    background: linear-gradient(135deg, #FFE66D 0%, #FFD23F 15%, #FFC107 30%, #FF9800 50%, #FF6F00 70%, #E65100 85%, #BF360C 100%);
+    border: 3px solid #B8860B;
     box-shadow: 
-        0 0 25px rgba(255, 215, 0, 0.8),
-        0 0 50px rgba(255, 165, 0, 0.4),
-        inset 0 3px 6px rgba(255, 255, 255, 0.4),
-        inset 0 -3px 6px rgba(0, 0, 0, 0.2);
-    animation: golden-shine 3s ease-in-out infinite, golden-rotate 4s linear infinite;
+        0 0 35px rgba(255, 215, 0, 1),
+        0 0 70px rgba(255, 165, 0, 0.7),
+        0 0 105px rgba(255, 140, 0, 0.4),
+        inset 0 4px 8px rgba(255, 255, 255, 0.6),
+        inset 0 -4px 8px rgba(139, 69, 19, 0.4),
+        0 2px 4px rgba(0, 0, 0, 0.3);
+    animation: golden-shine 2.5s ease-in-out infinite, golden-rotate 8s linear infinite;
     position: relative;
     overflow: hidden;
+    transform: scale(1.1);
 }
 
 .coin-small.golden-coin::before {
@@ -1604,16 +1602,23 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.5) 50%, transparent 70%);
-    animation: golden-gleam 3s ease-in-out infinite;
+    background: linear-gradient(45deg, 
+        transparent 25%, 
+        rgba(255,255,255,0.2) 35%, 
+        rgba(255,255,255,0.8) 50%, 
+        rgba(255,255,255,0.2) 65%, 
+        transparent 75%);
+    animation: golden-gleam 4s ease-in-out infinite;
+    border-radius: 50%;
 }
 
 .coin-small.golden-coin::after {
-    content: '💎';
-    font-size: 14px;
+    content: '💰';
+    font-size: 16px;
     position: relative;
-    z-index: 2;
-    filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.8));
+    z-index: 3;
+    filter: drop-shadow(0 0 6px rgba(255, 215, 0, 1)) drop-shadow(0 0 12px rgba(255, 140, 0, 0.8));
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
 }
 
 .daily-item.special-day {
@@ -1654,18 +1659,24 @@ body {
 @keyframes golden-shine {
     0%, 100% {
         box-shadow: 
-            0 0 25px rgba(255, 215, 0, 0.8),
-            0 0 50px rgba(255, 165, 0, 0.4),
-            inset 0 3px 6px rgba(255, 255, 255, 0.4),
-            inset 0 -3px 6px rgba(0, 0, 0, 0.2);
+            0 0 35px rgba(255, 215, 0, 1),
+            0 0 70px rgba(255, 165, 0, 0.7),
+            0 0 105px rgba(255, 140, 0, 0.4),
+            inset 0 4px 8px rgba(255, 255, 255, 0.6),
+            inset 0 -4px 8px rgba(139, 69, 19, 0.4),
+            0 2px 4px rgba(0, 0, 0, 0.3);
+        transform: scale(1.1);
     }
     50% {
         box-shadow: 
-            0 0 35px rgba(255, 215, 0, 1),
-            0 0 70px rgba(255, 165, 0, 0.6),
-            0 0 100px rgba(255, 140, 0, 0.3),
-            inset 0 3px 6px rgba(255, 255, 255, 0.6),
-            inset 0 -3px 6px rgba(0, 0, 0, 0.1);
+            0 0 50px rgba(255, 215, 0, 1),
+            0 0 100px rgba(255, 165, 0, 0.9),
+            0 0 150px rgba(255, 140, 0, 0.6),
+            0 0 200px rgba(255, 111, 0, 0.3),
+            inset 0 6px 12px rgba(255, 255, 255, 0.8),
+            inset 0 -6px 12px rgba(139, 69, 19, 0.6),
+            0 4px 8px rgba(0, 0, 0, 0.4);
+        transform: scale(1.15);
     }
 }
 

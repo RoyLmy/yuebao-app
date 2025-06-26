@@ -1,66 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <!-- 定义渐变 -->
   <defs>
-    <!-- 渐变黑色背景 -->
-    <radialGradient id="bgGradient" cx="0.3" cy="0.3" r="0.8">
-      <stop offset="0%" style="stop-color:#2a2a2a;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#1a1a1a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
-    </radialGradient>
-    
-    <!-- 高级金色渐变 -->
-    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
-      <stop offset="30%" style="stop-color:#FFA500;stop-opacity:1" />
-      <stop offset="70%" style="stop-color:#FF8C00;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#DAA520;stop-opacity:1" />
+    <!-- 工商银行经典红色渐变 -->
+    <linearGradient id="icbcRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D72C2C;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#C62828;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B71C1C;stop-opacity:1" />
     </linearGradient>
     
-    <!-- 金色阴影 -->
-    <filter id="goldShadow" x="-50%" y="-50%" width="200%" height="200%">
-      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#FFD700" flood-opacity="0.3"/>
-      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#FFA500" flood-opacity="0.2"/>
+    <!-- 白色文字渐变（增加立体感） -->
+    <linearGradient id="whiteText" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#F8F8F8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 阴影滤镜 -->
+    <filter id="textShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-opacity="0.2"/>
+    </filter>
+    
+    <!-- 背景阴影 -->
+    <filter id="backgroundShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.3"/>
     </filter>
   </defs>
   
-  <!-- 圆形背景 -->
-  <circle cx="256" cy="256" r="256" fill="url(#bgGradient)" />
+  <!-- 背景圆角矩形 -->
+  <rect x="8" y="8" width="176" height="176" rx="24" ry="24" 
+        fill="url(#icbcRed)" 
+        filter="url(#backgroundShadow)"
+        stroke="#A00000" 
+        stroke-width="1"/>
   
-  <!-- 内层高光 -->
-  <circle cx="256" cy="256" r="240" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="2" />
+  <!-- 内部阴影效果 -->
+  <rect x="12" y="12" width="168" height="168" rx="20" ry="20" 
+        fill="none" 
+        stroke="rgba(255,255,255,0.1)" 
+        stroke-width="1"/>
   
-  <!-- 支付宝"支"字 - 加粗版本 -->
-  <g transform="translate(256,256)" fill="url(#goldGradient)" filter="url(#goldShadow)">
-    <!-- 主体笔画 - 加粗设计 -->
+  <!-- "工"字设计 - 加粗专业版本 -->
+  <g fill="url(#whiteText)" filter="url(#textShadow)">
+    <!-- 上横画 -->
+    <rect x="40" y="58" width="112" height="12" rx="6" ry="6"/>
     
-    <!-- 上横 -->
-    <rect x="-80" y="-120" width="160" height="18" rx="9" />
+    <!-- 中间竖画 -->
+    <rect x="90" y="50" width="12" height="92" rx="6" ry="6"/>
     
-    <!-- 中横 -->
-    <rect x="-90" y="-60" width="120" height="16" rx="8" />
-    
-    <!-- 下横 -->
-    <rect x="-95" y="0" width="130" height="16" rx="8" />
-    
-    <!-- 竖撇 -->
-    <rect x="-25" y="-120" width="16" height="180" rx="8" />
-    
-    <!-- 右竖 -->
-    <rect x="60" y="-102" width="16" height="120" rx="8" />
-    
-    <!-- 撇 -->
-    <path d="M -70 -45 Q -85 -30 -95 10 Q -90 25 -75 20 Q -60 -20 -45 -35 Z" />
-    
-    <!-- 捺 -->
-    <path d="M 15 15 Q 40 25 75 45 Q 85 55 75 65 Q 45 55 10 35 Q 5 25 15 15 Z" />
-    
-    <!-- 点 -->
-    <circle cx="-50" cy="-85" r="8" />
-    
-    <!-- 下方弯钩 -->
-    <path d="M -95 80 Q -85 95 -65 100 Q -40 105 -15 95 Q 10 85 35 70 Q 50 75 45 90 Q 20 105 -20 115 Q -65 125 -100 105 Q -110 95 -95 80 Z" />
+    <!-- 下横画 -->
+    <rect x="32" y="122" width="128" height="12" rx="6" ry="6"/>
   </g>
   
-  <!-- 外层光晕 -->
-  <circle cx="256" cy="256" r="250" fill="none" stroke="rgba(255,215,0,0.1)" stroke-width="4" />
+  <!-- 高光效果 -->
+  <rect x="8" y="8" width="176" height="88" rx="24" ry="24" 
+        fill="url(#whiteHighlight)" 
+        opacity="0.1"/>
+  
+  <defs>
+    <linearGradient id="whiteHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:0" />
+    </linearGradient>
+  </defs>
 </svg> 

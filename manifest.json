@@ -1,11 +1,11 @@
 {
-    "name": "支付宝宝",
-    "short_name": "支付宝宝",
-    "description": "支付宝宝 - 让生活更简单",
+    "name": "工行宝",
+    "short_name": "工行宝",
+    "description": "工行宝 - 工商银行专业理财",
     "start_url": "./",
     "display": "standalone",
-    "background_color": "#000000",
-    "theme_color": "#000000",
+    "background_color": "#C62828",
+    "theme_color": "#C62828",
     "icons": [
         {
             "src": "./icon-192.png",
