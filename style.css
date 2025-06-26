@@ -891,91 +891,63 @@ body {
 }
 
 .bank-select {
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
-    border-radius: 16px;
-    padding: 24px;
-    margin: 0 16px 24px 16px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    background: #f8f8f8;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+    border: 1px solid #e0e0e0;
 }
 
 .bank-info {
     display: flex;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 12px;
-    padding: 16px;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    gap: 12px;
+    margin-bottom: 8px;
 }
 
 .bank-name {
-    font-size: 18px;
-    font-weight: 600;
-    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
 }
 
 .bank-tip {
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.6);
-    padding: 8px 12px;
-    background: rgba(255, 107, 53, 0.1);
-    border-radius: 6px;
-    border-left: 2px solid #ff6b35;
+    font-size: 12px;
+    color: #999;
 }
 
 .amount-input {
-    margin: 24px 16px;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
-    border-radius: 16px;
-    padding: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    margin-bottom: 16px;
 }
 
 .amount-label {
-    font-size: 16px;
-    color: #ffffff;
-    margin-bottom: 16px;
-    font-weight: 600;
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 12px;
 }
 
 .amount-field {
     display: flex;
     align-items: center;
-    gap: 12px;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 12px;
-    padding: 20px;
+    gap: 8px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 8px;
     margin-bottom: 16px;
-    border: 2px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.3s ease;
-}
-
-.amount-field:focus-within {
-    border-color: #ff6b35;
-    background: rgba(255, 107, 53, 0.05);
 }
 
 .currency {
-    font-size: 28px;
-    font-weight: 600;
-    color: #ff6b35;
+    font-size: 24px;
+    font-weight: 500;
+    color: #ffffff;
 }
 
 .amount-value {
-    font-size: 28px;
+    font-size: 24px;
     border: none;
     outline: none;
     width: 100%;
     background: transparent;
     color: #ffffff;
-    font-weight: 600;
     -webkit-appearance: none;
     -moz-appearance: textfield;
 }
@@ -987,56 +959,46 @@ body {
 }
 
 .amount-value::placeholder {
-    color: rgba(255, 255, 255, 0.3);
+    color: #666;
 }
 
 .quick-amounts {
     display: flex;
     gap: 12px;
     margin-bottom: 24px;
-    padding: 0 8px;
 }
 
 .quick-amount {
     flex: 1;
     text-align: center;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
-    padding: 12px 8px;
-    border-radius: 12px;
+    background: linear-gradient(135deg, #080808 0%, #151515 50%, #080808 100%);
+    padding: 8px;
+    border-radius: 20px;
     font-size: 14px;
-    font-weight: 500;
     color: #ffffff;
     cursor: pointer;
     transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     user-select: none;
     box-shadow: 
-        0 4px 16px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.02);
+        0 2px 8px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .quick-amount:active {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+    background: #2a2a2a;
     transform: scale(0.95);
 }
 
 .quick-amount:hover {
     border-color: #ff6b35;
     background: rgba(255, 107, 53, 0.1);
-    box-shadow: 
-        0 6px 20px rgba(0, 0, 0, 0.4),
-        0 0 20px rgba(255, 107, 53, 0.2);
 }
 
 .safe-tip {
     text-align: center;
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.6);
-    padding: 12px;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 8px;
-    border-left: 3px solid #ff6b35;
-    margin: 0 8px;
+    font-size: 12px;
+    color: #999;
 }
 
 /* 数字键盘 */
