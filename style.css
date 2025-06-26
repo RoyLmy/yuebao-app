@@ -14,7 +14,7 @@ html {
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background: linear-gradient(135deg, #FF7B47 0%, #FF6B35 50%, #E85A4F 100%);
+    background: #000000;
     color: #ffffff;
     min-height: 100vh;
     width: 100%;
@@ -380,25 +380,31 @@ body {
 
 /* 余额卡片 */
 .balance-card {
-    background: #ffffff;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
     border-radius: 16px;
     padding: 24px 20px;
     margin: 16px 16px 20px 16px;
     width: calc(100% - 32px);
     box-sizing: border-box;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    color: #333333;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    color: #ffffff;
 }
 
 .earnings-info {
-    background: #ffffff;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
     border-radius: 16px;
     padding: 20px;
     margin: 0 16px 24px 16px;
     width: calc(100% - 32px);
     box-sizing: border-box;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    color: #333333;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    color: #ffffff;
 }
 
 .auto-transfer,
@@ -431,7 +437,7 @@ body {
     font-size: 40px;
     font-weight: 700;
     margin-bottom: 20px;
-    color: #333333;
+    color: #ffffff;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
@@ -440,13 +446,13 @@ body {
 }
 
 .balance-details {
-    background: #f8f8f8;
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
     padding: 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #666;
+    color: rgba(255, 255, 255, 0.7);
     font-size: 14px;
     white-space: nowrap;
 }
@@ -512,7 +518,7 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8IS0tIOWkluWciO+8mua3see6ouiJsuWchuW9ouiDjOaZryAtLT4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMiIgZmlsbD0iI0I5MUM1QyIvPgogIAogIDwhLS0g5YaF5ZyI77ya55m96Imy5ZyG546vIC0tPgogIDxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjkiIGZpbGw9IndoaXRlIi8+CiAgCiAgPCEtLSDkuK3lv4PvvJrnuqLoibLlnIblvaLlupXluqcgLS0+CiAgPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iNi41IiBmaWxsPSIjQjkxQzVDIi8+CiAgCiAgPCEtLSDkuK3lv4Plm77moYjvvJrlrozlhajmjInnhaflm77niYfnmoTlvaLnirYgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTIsIDEyKSI+CiAgICA8IS0tIOS4iuWNiumDqOWIhue8uuWPoyAtLT4KICAgIDxwYXRoIGQ9Ik0tMyAtNi41IEwtMyAtMiBMMyAtMiBMMyAtNi41IEE2LjUgNi41IDAgMCAwIC0zIC02LjUiIGZpbGw9IndoaXRlIi8+CiAgICAKICAgIDwhLS0g5LiL5Y2K6YOo5YiG57y65Y+jIC0tPgogICAgPHBhdGggZD0iTS0zIDYuNSBMLTMgMiBMMyAyIEwzIDYuNSBBNi41IDYuNSAwIDAgMSAtMyA2LjUiIGZpbGw9IndoaXRlIi8+CiAgICAKICAgIDwhLS0g5Lit5aSu55m96Imy55+p5b2iIC0tPgogICAgPHJlY3QgeD0iLTIuNSIgeT0iLTEuNSIgd2lkdGg9IjUiIGhlaWdodD0iMyIgcng9IjAuMyIgZmlsbD0id2hpdGUiLz4KICA8L2c+Cjwvc3ZnPiA=');
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8IS0tIOe6ouiJsuWchuW9ouiDjOaZryAtLT4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMiIgZmlsbD0iI0QyMzQyQyIvPgogIAogIDwhLS0g55m96Imy5Y2B5a2X5Zu+5qGIIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEyLCAxMikiIGZpbGw9IndoaXRlIj4KICAgIDwhLS0g5rC05bmz57q/IC0tPgogICAgPHJlY3QgeD0iLTgiIHk9Ii0xLjUiIHdpZHRoPSIxNiIgaGVpZ2h0PSIzIiByeD0iMS41Ii8+CiAgICAKICAgIDwhLS0g5Z6C55u057q/IC0tPgogICAgPHJlY3QgeD0iLTEuNSIgeT0iLTgiIHdpZHRoPSIzIiBoZWlnaHQ9IjE2IiByeD0iMS41Ii8+CiAgICAKICAgIDwhLS0g5Lit5b+D5ZyG5b2iIC0tPgogICAgPGNpcmNsZSBjeD0iMCIgY3k9IjAiIHI9IjIuNSIgZmlsbD0iI0QyMzQyQyIvPgogICAgPGNpcmNsZSBjeD0iMCIgY3k9IjAiIHI9IjEuNSIgZmlsbD0id2hpdGUiLz4KICA8L2c+Cjwvc3ZnPiA=');
     background-size: 24px 24px;
     background-repeat: no-repeat;
     background-position: center;
@@ -548,50 +554,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cGF0aCBkPSJNMTIgNC41QzcuNTAwMDEgNC41IDMuNzMzMzUgNy42MTE2NSAyIDEyQzMuNzMzMzUgMTYuMzg4NCA3LjUwMDAxIDE5LjUgMTIgMTkuNUMxNi41IDE5LjUgMjAuMjY2NyAxNi4zODg0IDIyIDEyQzIwLjI2NjcgNy42MTE2NSAxNi41IDQuNSAxMiA0LjVaIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIzIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPiA=');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px 24px;
 }
 
-.eye-icon::before {
-    content: '';
-    position: absolute;
-    width: 18px;
-    height: 12px;
-    border: 1.5px solid #ffffff;
-    border-radius: 12px 12px 0 0;
-    border-bottom: none;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 0.3s ease;
-}
-
-.eye-icon::after {
-    content: '';
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background: #ffffff;
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 0.3s ease;
-}
-
-.eye-icon.hidden::before {
-    height: 2px;
-    border-radius: 1px;
-    border: none;
-    background: rgba(255, 255, 255, 0.6);
-    transform: translate(-50%, -50%) rotate(-45deg);
-    width: 20px;
-}
-
-.eye-icon.hidden::after {
-    width: 20px;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.6);
-    transform: translate(-50%, -50%) rotate(45deg);
-    border-radius: 1px;
+.eye-icon.hidden {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cGF0aCBkPSJNOS44OCA5Ljg4TDE0LjEyIDE0LjEyTTYuMDYgNi4wNkwxNy45NCAxNy45NE05LjkgNC4yNEMxMC41OSA0LjA4IDExLjMgNCAxMiA0QzE2LjUgNCAyMC4yNyA3LjExIDIyIDExLjVDMjEuMjcgMTMuNDkgMTkuNjQgMTUuMDkgMTcuNjkgMTYuMDZNNi4zMSA3Ljk0QzQuMzYgOC45MSAyLjczIDEwLjUxIDIgMTIuNUMzLjczIDE2Ljg5IDcuNSAyMCAxMiAyMEMxMy41NSAyMCAxNS4wMyAxOS42MSAxNi4zOCAxOC45IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4g');
 }
 
 .eye-icon:hover {
@@ -651,7 +621,7 @@ body {
 
 .label {
     font-size: 12px;
-    color: #666;
+    color: rgba(255, 255, 255, 0.6);
     margin-bottom: 6px;
     display: flex;
     align-items: center;
@@ -668,7 +638,7 @@ body {
 .value {
     font-size: 15px;
     font-weight: 600;
-    color: #333333;
+    color: #ffffff;
     transition: all 0.3s ease;
     white-space: nowrap;
 }
