@@ -488,34 +488,43 @@ body {
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-/* 绘制标准"工"字 - 上下横线 */
+/* 镂空艺术"工"字 - 上下横线框架 */
 .bank-icon.icbc::before {
     content: '';
     position: absolute;
-    width: 9px;
+    width: 10px;
     height: 2px;
-    background: linear-gradient(90deg, #ffffff 0%, #f8f8f8 50%, #ffffff 100%);
-    top: 6.5px;
+    top: 7px;
     left: 50%;
     transform: translateX(-50%);
+    border: 1px solid #ffffff;
     border-radius: 1px;
+    background: transparent;
     box-shadow: 
-        0 8px 0 0 #ffffff, /* 下横线 */
-        0 1px 2px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+        0 6px 0 0 #ffffff,          /* 下横线（实心） */
+        0 6px 0 1px #ffffff,        /* 下横线边框 */
+        0 0 4px rgba(255, 255, 255, 0.7), /* 发光效果 */
+        0 1px 3px rgba(0, 0, 0, 0.3),     /* 阴影 */
+        inset 0 0 2px rgba(255, 255, 255, 0.8); /* 内发光 */
 }
 
-/* 绘制标准"工"字 - 中间竖线 */
+/* 镂空艺术"工"字 - 中间竖线 */
 .bank-icon.icbc::after {
     content: '';
     position: absolute;
-    width: 2px;
-    height: 7px;
-    background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 50%, #ffffff 100%);
-    top: 8.5px;
+    width: 1px;
+    height: 8px;
+    top: 8px;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 1px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ffffff;
+    border-radius: 0.5px;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 0 3px rgba(255, 255, 255, 0.8), /* 白色光晕 */
+        0 1px 2px rgba(0, 0, 0, 0.4),     /* 外阴影 */
+        inset 0 1px 0 rgba(255, 255, 255, 0.9), /* 内高光 */
+        inset 0 -1px 0 rgba(255, 255, 255, 0.6); /* 底部高光 */
 }
 
 /* 银行卡标签 */
