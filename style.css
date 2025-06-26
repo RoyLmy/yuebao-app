@@ -331,6 +331,20 @@ body {
     background: #ff6b35;
     clip-path: polygon(50% 0%, 0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%);
     margin-right: 2px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shield-icon::after {
+    content: '✓';
+    position: absolute;
+    color: #ffffff;
+    font-size: 7px;
+    font-weight: bold;
+    line-height: 1;
+    text-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.3);
 }
 
 .menu-btn {
@@ -484,18 +498,22 @@ body {
     box-shadow: 0 4px 10px rgba(198, 40, 40, 0.4);
 }
 
-/* 北京银行真实"B"字母 */
+/* 北京银行精美"B"字母 - 参照图片设计 */
 .bank-icon.bjbank::before {
     content: 'B';
     position: absolute;
-    font-size: 15px;
-    font-weight: 900;
+    font-size: 16px;
+    font-weight: 800;
     color: #ffffff;
     text-align: center;
     line-height: 1;
-    font-family: -apple-system, BlinkMacSystemFont, 'Arial', 'Helvetica', sans-serif;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    letter-spacing: -0.5px;
+    font-family: 'Helvetica Neue', 'Arial Black', sans-serif;
+    text-shadow: 
+        0 1px 3px rgba(0, 0, 0, 0.3),
+        0 0 8px rgba(255, 255, 255, 0.2);
+    letter-spacing: -1px;
+    transform: scale(1.1, 1.2);
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
 }
 
 /* 银行卡标签 */
