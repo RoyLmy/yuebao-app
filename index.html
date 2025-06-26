@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" href="./icon-192.png">
     <link rel="manifest" href="./manifest.json">
     <title>支付宝宝</title>
-            <link rel="stylesheet" href="style.css?v=20241219y">
+            <link rel="stylesheet" href="style.css?v=20241219z">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -523,47 +523,52 @@
                 </button>
             </div>
 
-            <div class="scrollable-content">
-                <!-- 转入金额 -->
-                <div class="amount-input">
+            <div class="scheduled-content">
+                <!-- 转入金额区域 -->
+                <div class="scheduled-amount-section">
                     <div class="amount-label">转入金额</div>
-                    <div class="amount-field">
-                        <span class="currency">¥</span>
-                        <input type="number" class="amount-value" placeholder="1000" value="1000" id="scheduledAmount">
+                    <div class="amount-text">千</div>
+                    <div class="amount-display">
+                        <span class="currency-symbol">¥</span>
+                        <span class="amount-number">1000</span>
+                        <div class="clear-btn">×</div>
                     </div>
-                    <div class="amount-tips">若扣款时余额不足，则转入设置金额的一半</div>
+                    <div class="amount-tip">若扣款时余额不足，则转入设置金额的一半</div>
                 </div>
 
                 <!-- 选择扣款方式 -->
-                <div class="bank-select">
-                    <div class="label">选择扣款方式</div>
-                    <div class="bank-info">
-                        <div class="bank-icon boc"></div>
-                        <span class="bank-name">交通银行(9080)</span>
+                <div class="payment-method-section">
+                    <div class="method-item">
+                        <div class="method-left">
+                            <div class="method-label">选择扣款方式</div>
+                            <div class="method-value">交通银行(9080)</div>
+                        </div>
                         <div class="arrow-right"></div>
                     </div>
                 </div>
 
                 <!-- 定时转入时间 -->
-                <div class="scheduled-time">
-                    <div class="label">定时转入时间</div>
-                    <div class="time-info">
-                        <span class="time-setting">每月1日</span>
+                <div class="schedule-time-section">
+                    <div class="time-item">
+                        <div class="time-left">
+                            <div class="time-label">定时转入时间</div>
+                            <div class="time-value">每月1日</div>
+                        </div>
                         <div class="arrow-right"></div>
                     </div>
-                    <div class="next-transfer">下次扣款时间：<span id="nextTransferDate">2025-07-01</span></div>
+                    <div class="next-time">下次扣款时间：<span class="next-date">2025-07-01</span></div>
                 </div>
 
-                <!-- 协议同意 -->
-                <div class="agreement">
-                    <label class="checkbox-label">
-                        <input type="checkbox" checked>
-                        同意《定时转入余额宝相关协议》
+                <!-- 协议区域 -->
+                <div class="agreement-section">
+                    <label class="agreement-label">
+                        <input type="checkbox" checked />
+                        <span>同意 <a href="#" class="agreement-link">《定时转入余额宝相关协议》</a></span>
                     </label>
                 </div>
 
                 <!-- 确认按钮 -->
-                <button class="confirm-btn">同意协议并转入</button>
+                <button class="schedule-confirm-btn">同意协议并转入</button>
             </div>
         </div>
     </div>

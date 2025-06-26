@@ -688,124 +688,196 @@ body {
 }
 
 /* 定时转入页面样式 */
-.amount-tips {
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.6);
-    margin-top: 8px;
-    padding: 12px;
-    background: rgba(255, 107, 53, 0.1);
-    border-radius: 8px;
-    border-left: 3px solid #ff6b35;
+.scheduled-content {
+    background: #000000;
+    padding: 0;
+    min-height: calc(100vh - 44px);
 }
 
-.scheduled-time {
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
-    border-radius: 16px;
-    padding: 24px;
-    margin: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.02);
+/* 转入金额区域 */
+.scheduled-amount-section {
+    padding: 24px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.scheduled-time .label {
+.amount-label {
     font-size: 16px;
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.amount-text {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
     margin-bottom: 16px;
-    font-weight: 600;
 }
 
-.time-info {
+.amount-display {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-    padding: 16px;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 16px;
 }
 
-.time-setting {
-    font-size: 18px;
-    color: #ff6b35;
-    font-weight: 600;
+.currency-symbol {
+    font-size: 48px;
+    color: #333333;
+    font-weight: 300;
+    margin-right: 8px;
 }
 
-.next-transfer {
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.7);
-    padding: 12px;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 8px;
-    text-align: center;
+.amount-number {
+    font-size: 48px;
+    color: #333333;
+    font-weight: 300;
+    flex: 1;
 }
 
-.next-transfer span {
-    color: #ff6b35;
-    font-weight: 600;
-}
-
-.agreement {
-    margin: 32px 16px;
-    padding: 20px;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.checkbox-label {
+.clear-btn {
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+}
+
+.amount-tip {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.4;
+}
+
+/* 选择扣款方式 */
+.payment-method-section {
+    padding: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.method-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+}
+
+.method-left {
+    flex: 1;
+}
+
+.method-label {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 4px;
+}
+
+.method-value {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+
+/* 定时转入时间 */
+.schedule-time-section {
+    padding: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.time-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    margin-bottom: 8px;
+}
+
+.time-left {
+    flex: 1;
+}
+
+.time-label {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 4px;
+}
+
+.time-value {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+
+.next-time {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    padding-left: 0;
+}
+
+.next-date {
+    color: #007AFF;
+    font-weight: 500;
+}
+
+/* 协议区域 */
+.agreement-section {
+    padding: 24px 16px;
+    margin-top: auto;
+}
+
+.agreement-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
     color: rgba(255, 255, 255, 0.9);
     font-size: 14px;
     cursor: pointer;
     line-height: 1.5;
 }
 
-.checkbox-label input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    accent-color: #ff6b35;
+.agreement-label input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #007AFF;
     cursor: pointer;
+    margin-top: 2px;
 }
 
-.checkbox-label a {
-    color: #ff6b35;
+.agreement-link {
+    color: #007AFF;
     text-decoration: none;
-    font-weight: 500;
 }
 
-.checkbox-label a:hover {
+.agreement-link:hover {
     text-decoration: underline;
 }
 
-.confirm-btn {
+/* 确认按钮 */
+.schedule-confirm-btn {
     width: calc(100% - 32px);
-    margin: 0 16px 32px 16px;
-    padding: 18px;
-    background: linear-gradient(135deg, #ff6b35 0%, #e55a30 100%);
+    margin: 0 16px 34px 16px;
+    padding: 16px;
+    background: #007AFF;
     color: #ffffff;
     border: none;
-    border-radius: 24px;
+    border-radius: 12px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
 }
 
-.confirm-btn:hover {
-    background: linear-gradient(135deg, #e55a30 0%, #d14d26 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(255, 107, 53, 0.4);
+.schedule-confirm-btn:hover {
+    background: #0056CC;
 }
 
-.confirm-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 15px rgba(255, 107, 53, 0.3);
+.schedule-confirm-btn:active {
+    background: #0056CC;
+    transform: scale(0.98);
 }
 
 /* 操作按钮 */
@@ -839,7 +911,7 @@ body {
 
 /* 转入转出页面样式 */
 .deposit-content, .withdraw-content {
-    background: transparent;
+    background: #000000;
     padding: 20px 16px;
     min-height: calc(100vh - 44px - 240px); /* 减去header和键盘的高度 */
 }
@@ -891,11 +963,11 @@ body {
 }
 
 .bank-select {
-    background: #f8f8f8;
+    background: #000000;
     border-radius: 12px;
     padding: 16px;
     margin-bottom: 24px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .bank-info {
@@ -908,12 +980,12 @@ body {
 .bank-name {
     font-size: 16px;
     font-weight: 500;
-    color: #333;
+    color: #ffffff;
 }
 
 .bank-tip {
     font-size: 12px;
-    color: #999;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .amount-input {
