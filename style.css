@@ -289,10 +289,15 @@ body {
 .back-btn {
     width: 28px;
     height: 28px;
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+}
+
+/* 主页面的返回按钮隐藏 */
+.back-btn.homepage-back {
+    display: none;
 }
 
 .back-arrow {
