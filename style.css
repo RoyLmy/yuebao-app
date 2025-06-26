@@ -462,8 +462,8 @@ body {
     border: 1px solid #e6e6e6;
 }
 
-/* 工商银行图标 */
-.bank-icon.icbc {
+/* 北京银行图标 */
+.bank-icon.bjbank {
     width: 24px;
     height: 24px;
     border-radius: 50%;
@@ -472,59 +472,57 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: linear-gradient(135deg, #E53935 0%, #D32F2F 30%, #C62828 70%, #B71C1C 100%);
+    background: linear-gradient(135deg, #FF6B35 0%, #FF5722 30%, #E64A19 70%, #D84315 100%);
     margin-right: 8px;
     box-shadow: 
-        0 2px 8px rgba(183, 28, 28, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+        0 2px 8px rgba(216, 67, 21, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     transition: all 0.3s ease;
 }
 
-.bank-icon.icbc:hover {
+.bank-icon.bjbank:hover {
     transform: scale(1.05);
     box-shadow: 
-        0 4px 12px rgba(183, 28, 28, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        0 4px 12px rgba(216, 67, 21, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
-/* 镂空艺术"工"字 - 上下横线框架 */
-.bank-icon.icbc::before {
+/* 北京银行"京"字设计 */
+.bank-icon.bjbank::before {
     content: '';
     position: absolute;
-    width: 10px;
-    height: 2px;
-    top: 7px;
+    width: 8px;
+    height: 1.5px;
+    top: 6px;
     left: 50%;
     transform: translateX(-50%);
-    border: 1px solid #ffffff;
-    border-radius: 1px;
-    background: transparent;
-    box-shadow: 
-        0 6px 0 0 #ffffff,          /* 下横线（实心） */
-        0 6px 0 1px #ffffff,        /* 下横线边框 */
-        0 0 4px rgba(255, 255, 255, 0.7), /* 发光效果 */
-        0 1px 3px rgba(0, 0, 0, 0.3),     /* 阴影 */
-        inset 0 0 2px rgba(255, 255, 255, 0.8); /* 内发光 */
-}
-
-/* 镂空艺术"工"字 - 中间竖线 */
-.bank-icon.icbc::after {
-    content: '';
-    position: absolute;
-    width: 1px;
-    height: 8px;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 1px solid #ffffff;
+    background: #ffffff;
     border-radius: 0.5px;
-    background: rgba(255, 255, 255, 0.3);
     box-shadow: 
-        0 0 3px rgba(255, 255, 255, 0.8), /* 白色光晕 */
+        0 3px 0 0 #ffffff,     /* 第二横线 */
+        0 6px 0 0 #ffffff,     /* 第三横线 */
+        0 9px 0 0 #ffffff,     /* 底横线 */
+        0 0 3px rgba(255, 255, 255, 0.6), /* 发光 */
+        0 1px 2px rgba(0, 0, 0, 0.3); /* 阴影 */
+}
+
+/* 北京银行"京"字 - 中间竖线和点 */
+.bank-icon.bjbank::after {
+    content: '';
+    position: absolute;
+    width: 1.5px;
+    height: 6px;
+    top: 7.5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    border-radius: 0.5px;
+    box-shadow: 
+        0 0 2px rgba(255, 255, 255, 0.8), /* 白色光晕 */
         0 1px 2px rgba(0, 0, 0, 0.4),     /* 外阴影 */
-        inset 0 1px 0 rgba(255, 255, 255, 0.9), /* 内高光 */
-        inset 0 -1px 0 rgba(255, 255, 255, 0.6); /* 底部高光 */
+        3px -1px 0 0 #ffffff,             /* 右上点 */
+        -3px -1px 0 0 #ffffff;            /* 左上点 */
 }
 
 /* 银行卡标签 */
