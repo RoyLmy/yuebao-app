@@ -472,19 +472,36 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: #ff3333;
+    background: linear-gradient(135deg, #D72C2C 0%, #C62828 50%, #B71C1C 100%);
     margin-right: 8px;
-    font-family: 'SimHei', 'Microsoft YaHei', sans-serif;
+    box-shadow: 0 2px 6px rgba(183, 28, 28, 0.3);
 }
 
+/* 绘制标准"工"字 - 上横线 */
 .bank-icon.icbc::before {
-    content: '工';
+    content: '';
     position: absolute;
-    font-size: 16px;
-    font-weight: bold;
-    color: #ffffff;
-    text-align: center;
-    line-height: 1;
+    width: 8px;
+    height: 1.5px;
+    background: #ffffff;
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0.5px;
+    box-shadow: 0 7px 0 #ffffff; /* 下横线 */
+}
+
+/* 绘制标准"工"字 - 中间竖线 */
+.bank-icon.icbc::after {
+    content: '';
+    position: absolute;
+    width: 1.5px;
+    height: 6px;
+    background: #ffffff;
+    top: 8.5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0.5px;
 }
 
 /* 银行卡标签 */
