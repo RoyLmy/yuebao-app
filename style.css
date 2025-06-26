@@ -462,7 +462,7 @@ body {
     border: 1px solid #e6e6e6;
 }
 
-/* 北京银行图标 - 照抄真实设计 */
+/* 北京银行图标 - 按照真实图片设计 */
 .bank-icon.bjbank {
     width: 24px;
     height: 24px;
@@ -472,29 +472,30 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: linear-gradient(135deg, #E53E3E 0%, #DC143C 50%, #B91C1C 100%);
+    background: linear-gradient(135deg, #E53939 0%, #D32F2F 50%, #C62828 100%);
     margin-right: 8px;
-    box-shadow: 0 2px 6px rgba(185, 28, 28, 0.3);
+    box-shadow: 0 2px 6px rgba(198, 40, 40, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
 }
 
 .bank-icon.bjbank:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(185, 28, 28, 0.4);
+    box-shadow: 0 4px 10px rgba(198, 40, 40, 0.4);
 }
 
-/* 北京银行真实"京"字 */
+/* 北京银行真实"B"字母 */
 .bank-icon.bjbank::before {
-    content: '京';
+    content: 'B';
     position: absolute;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 15px;
+    font-weight: 900;
     color: #ffffff;
     text-align: center;
     line-height: 1;
-    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    font-family: -apple-system, BlinkMacSystemFont, 'Arial', 'Helvetica', sans-serif;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    letter-spacing: -0.5px;
 }
 
 /* 银行卡标签 */
