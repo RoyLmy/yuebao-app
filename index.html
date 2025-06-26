@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" href="./icon-192.png">
     <link rel="manifest" href="./manifest.json">
     <title>支付宝宝</title>
-    <link rel="stylesheet" href="style.css?v=20241219t">
+    <link rel="stylesheet" href="style.css?v=20241219u">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -104,9 +104,15 @@
                 </div>
 
                 <!-- 定时转入 -->
-                <div class="auto-transfer">
+                <div class="auto-transfer" onclick="showPage('scheduledTransferPage')">
                     <div class="clock-icon"></div>
                     <span>定时转入</span>
+                    <div class="arrow-right"></div>
+                </div>
+
+                <!-- 立即转入 -->
+                <div class="immediate-transfer">
+                    <span>立即转入</span>
                     <div class="arrow-right"></div>
                 </div>
 
@@ -508,6 +514,64 @@
                 <a href="#" class="other-link">转出给他人</a>
             </div>
         </div>
+
+        <!-- 定时转入页面 -->
+        <div class="page" id="scheduledTransferPage">
+            <div class="header">
+                <button class="back-btn" onclick="showPage('homePage')">
+                    <div class="back-arrow"></div>
+                </button>
+                <div class="title">
+                    <h1>定时转入</h1>
+                </div>
+                <button class="menu-btn">
+                    <div class="menu-dots"></div>
+                </button>
+            </div>
+
+            <div class="scrollable-content">
+                <!-- 转入金额 -->
+                <div class="amount-input">
+                    <div class="amount-label">转入金额</div>
+                    <div class="amount-field">
+                        <span class="currency">¥</span>
+                        <input type="number" class="amount-value" placeholder="1000" value="1000" id="scheduledAmount">
+                    </div>
+                    <div class="amount-tips">若扣款时余额不足，则转入设置金额的一半</div>
+                </div>
+
+                <!-- 选择扣款方式 -->
+                <div class="bank-select">
+                    <div class="label">选择扣款方式</div>
+                    <div class="bank-info">
+                        <div class="bank-icon boc"></div>
+                        <span class="bank-name">交通银行(9080)</span>
+                        <div class="arrow-right"></div>
+                    </div>
+                </div>
+
+                <!-- 定时转入时间 -->
+                <div class="scheduled-time">
+                    <div class="label">定时转入时间</div>
+                    <div class="time-info">
+                        <span class="time-setting">每月1日</span>
+                        <div class="arrow-right"></div>
+                    </div>
+                    <div class="next-transfer">下次扣款时间：<span id="nextTransferDate">2025-07-01</span></div>
+                </div>
+
+                <!-- 协议同意 -->
+                <div class="agreement">
+                    <label class="checkbox-label">
+                        <input type="checkbox" checked>
+                        同意《定时转入余额宝相关协议》
+                    </label>
+                </div>
+
+                <!-- 确认按钮 -->
+                <button class="confirm-btn">同意协议并转入</button>
+            </div>
+        </div>
     </div>
 
     <script src="./main.js?v=20240608"></script>
@@ -831,11 +895,39 @@
         });
     }
 
+    // 更新定时转入下次扣款日期
+    function updateNextTransferDate() {
+        const now = new Date();
+        const nextTransferDate = document.getElementById('nextTransferDate');
+        
+        if (nextTransferDate) {
+            // 获取下个月的1号
+            let nextMonth = now.getMonth() + 1;
+            let nextYear = now.getFullYear();
+            
+            // 如果当前是12月，下个月是次年1月
+            if (nextMonth > 11) {
+                nextMonth = 0;
+                nextYear += 1;
+            }
+            
+            // 如果今天已经是本月1号之后，则显示下个月1号
+            if (now.getDate() >= 1) {
+                const nextDate = new Date(nextYear, nextMonth, 1);
+                const formatDate = nextDate.getFullYear() + '-' + 
+                    String(nextDate.getMonth() + 1).padStart(2, '0') + '-01';
+                nextTransferDate.textContent = formatDate;
+            }
+        }
+    }
+
     // 页面加载完成后初始化数字键盘
     document.addEventListener('DOMContentLoaded', function() {
         setupKeypad();
         updateDynamicTimes();
+        updateNextTransferDate();
         setInterval(updateDynamicTimes, 60000);
+        setInterval(updateNextTransferDate, 60000);
     });
     </script>
 </body>
