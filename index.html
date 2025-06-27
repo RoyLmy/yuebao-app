@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" href="./icon-192.png">
     <link rel="manifest" href="./manifest.json">
     <title>支付宝宝</title>
-            <link rel="stylesheet" href="style.css?v=20241219bl">
+            <link rel="stylesheet" href="style.css?v=20241219bm">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -529,11 +529,10 @@
                 <!-- 转入金额区域 -->
                 <div class="scheduled-amount-section">
                     <div class="amount-label">转入金额</div>
-                    <div class="amount-text">千</div>
-                    <div class="amount-display">
+                    <div class="amount-input-container">
                         <span class="currency-symbol">¥</span>
-                        <span class="amount-number">1000</span>
-                        <div class="clear-btn">×</div>
+                        <input type="number" class="amount-input-field" value="1000" placeholder="请输入转入金额" />
+                        <div class="clear-btn" onclick="clearAmount()">×</div>
                     </div>
                     <div class="amount-tip">若扣款时余额不足，则转入设置金额的一半</div>
                 </div>
@@ -599,6 +598,15 @@
             page.classList.remove('active');
         });
         document.getElementById(pageId).classList.add('active');
+    }
+
+    // 清除金额输入
+    function clearAmount() {
+        const amountInput = document.querySelector('#scheduledTransferPage .amount-input-field');
+        if (amountInput) {
+            amountInput.value = '';
+            amountInput.focus();
+        }
     }
 
     // 眼睛图标切换功能

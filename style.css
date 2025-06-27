@@ -2636,51 +2636,57 @@ body {
     }
 }
 
-/* 定时转入页面 - 30年UI设计师标准 */
+/* 定时转入页面 - 极致美观设计 */
 #scheduledTransferPage {
-    background: #000000 !important;
+    background: linear-gradient(135deg, #000000 0%, #0f0f0f 50%, #000000 100%) !important;
     color: #ffffff !important;
 }
 
-/* 头部完美对齐 */
+/* 头部精美设计 */
 #scheduledTransferPage .header {
-    background: #000000 !important;
-    border-bottom: 1px solid #333333 !important;
+    background: linear-gradient(180deg, #1a1a1a 0%, #000000 100%) !important;
+    border-bottom: 1px solid rgba(255, 107, 53, 0.3) !important;
     padding: 16px 20px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
     position: relative !important;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.8) !important;
 }
 
-/* 返回按钮专业设计 */
+/* 返回按钮美化 */
 #scheduledTransferPage .back-btn {
-    background: transparent !important;
-    border: none !important;
-    color: #ffffff !important;
-    font-size: 20px !important;
-    font-weight: normal !important;
-    padding: 8px !important;
+    background: rgba(255, 107, 53, 0.1) !important;
+    border: 1px solid rgba(255, 107, 53, 0.3) !important;
+    color: #ff6b35 !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
     cursor: pointer !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    width: 40px !important;
-    height: 40px !important;
+    transition: all 0.3s ease !important;
 }
 
 #scheduledTransferPage .back-btn::before {
     content: '<' !important;
-    color: #ffffff !important;
-    font-size: 20px !important;
+    color: #ff6b35 !important;
+    font-size: 18px !important;
     line-height: 1 !important;
+}
+
+#scheduledTransferPage .back-btn:hover {
+    background: rgba(255, 107, 53, 0.2) !important;
+    transform: translateX(-2px) !important;
 }
 
 #scheduledTransferPage .back-arrow {
     display: none !important;
 }
 
-/* 标题居中对齐 */
+/* 标题美化 */
 #scheduledTransferPage .title {
     position: absolute !important;
     left: 50% !important;
@@ -2690,10 +2696,11 @@ body {
 
 #scheduledTransferPage .title h1 {
     color: #ffffff !important;
-    font-size: 18px !important;
+    font-size: 20px !important;
     font-weight: 600 !important;
     margin: 0 !important;
     line-height: 1.2 !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
 }
 
 /* 隐藏右上角菜单 */
@@ -2702,65 +2709,112 @@ body {
     width: 40px !important;
 }
 
-/* 内容区域标准布局 */
+/* 内容区域美化 */
 #scheduledTransferPage .scheduled-content {
-    padding: 20px !important;
+    padding: 24px 20px !important;
 }
 
-/* 统一卡片样式 */
+/* 卡片模块极致美化 */
 #scheduledTransferPage .scheduled-amount-section,
 #scheduledTransferPage .payment-method-section,
 #scheduledTransferPage .schedule-time-section,
 #scheduledTransferPage .agreement-section {
-    background: #1a1a1a !important;
-    border: 1px solid #333333 !important;
-    border-radius: 12px !important;
-    padding: 16px !important;
-    margin-bottom: 16px !important;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%) !important;
+    border: 1px solid rgba(255, 107, 53, 0.2) !important;
+    border-radius: 16px !important;
+    padding: 20px !important;
+    margin-bottom: 20px !important;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+    transition: all 0.3s ease !important;
 }
 
-/* 金额区域特殊设计 */
+#scheduledTransferPage .scheduled-amount-section:hover,
+#scheduledTransferPage .payment-method-section:hover,
+#scheduledTransferPage .schedule-time-section:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.8),
+        0 0 30px rgba(255, 107, 53, 0.15) !important;
+}
+
+/* 金额标签美化 */
 #scheduledTransferPage .amount-label {
     color: #ffffff !important;
-    font-size: 16px !important;
+    font-size: 18px !important;
     font-weight: 600 !important;
-    margin-bottom: 8px !important;
+    margin-bottom: 16px !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
 }
 
-#scheduledTransferPage .amount-text {
-    color: #999999 !important;
-    font-size: 14px !important;
-    margin-bottom: 12px !important;
-}
-
-#scheduledTransferPage .amount-display {
+/* 金额输入容器美化 */
+#scheduledTransferPage .amount-input-container {
     display: flex !important;
     align-items: center !important;
-    justify-content: space-between !important;
-    background: #2a2a2a !important;
-    padding: 16px !important;
-    border-radius: 8px !important;
-    margin-bottom: 8px !important;
+    background: linear-gradient(135deg, #ff6b35 0%, #e55a2e 100%) !important;
+    padding: 20px !important;
+    border-radius: 16px !important;
+    margin-bottom: 16px !important;
+    box-shadow: 
+        0 8px 32px rgba(255, 107, 53, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-#scheduledTransferPage .currency-symbol,
-#scheduledTransferPage .amount-number {
+#scheduledTransferPage .currency-symbol {
     color: #ffffff !important;
-    font-size: 28px !important;
+    font-size: 32px !important;
     font-weight: bold !important;
+    margin-right: 8px !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 金额输入框美化 */
+#scheduledTransferPage .amount-input-field {
+    background: transparent !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-size: 32px !important;
+    font-weight: bold !important;
+    flex: 1 !important;
+    outline: none !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+#scheduledTransferPage .amount-input-field::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 16px !important;
 }
 
 #scheduledTransferPage .clear-btn {
-    color: #999999 !important;
-    font-size: 20px !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 24px !important;
     cursor: pointer !important;
-    padding: 4px !important;
+    padding: 8px !important;
+    border-radius: 50% !important;
+    transition: all 0.3s ease !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    width: 36px !important;
+    height: 36px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+#scheduledTransferPage .clear-btn:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: scale(1.1) !important;
 }
 
 #scheduledTransferPage .amount-tip {
-    color: #999999 !important;
-    font-size: 12px !important;
-    line-height: 1.4 !important;
+    color: #cccccc !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    padding: 12px 16px !important;
+    background: rgba(255, 107, 53, 0.1) !important;
+    border-radius: 8px !important;
+    border-left: 4px solid #ff6b35 !important;
 }
 
 /* 选择项完美对齐 */
