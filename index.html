@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" href="./icon-192.png">
     <link rel="manifest" href="./manifest.json">
     <title>支付宝宝</title>
-            <link rel="stylesheet" href="style.css?v=20241219bk">
+            <link rel="stylesheet" href="style.css?v=20241219bl">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -1186,16 +1186,23 @@
 
     // 更新余额功能
     function updateBalance() {
+        console.log('开始更新余额，当前转账类型:', currentTransferType);
+        
         let amount = 0;
         
         if (currentTransferType === '转出') {
             const withdrawInput = document.getElementById('withdrawAmount');
-            amount = parseFloat(withdrawInput.value.replace(/,/g, '')) || 0;
-            amount = -amount; // 转出是减法
+            if (withdrawInput) {
+                amount = parseFloat(withdrawInput.value.replace(/,/g, '')) || 0;
+                amount = -amount; // 转出是减法
+                console.log('转出金额:', Math.abs(amount));
+            }
         } else if (currentTransferType === '转入') {
             const depositInput = document.getElementById('depositAmount');
-            amount = parseFloat(depositInput.value.replace(/,/g, '')) || 0;
-            // 转入是加法，保持正数
+            if (depositInput) {
+                amount = parseFloat(depositInput.value.replace(/,/g, '')) || 0;
+                console.log('转入金额:', amount);
+            }
         }
         
         if (amount !== 0) {
@@ -1203,9 +1210,22 @@
             const balanceElement = document.querySelector('#balanceAmount .number');
             const availableElement = document.querySelector('#availableAmount .number');
             
+            console.log('找到的元素:', {
+                balanceElement: balanceElement,
+                availableElement: availableElement,
+                balanceText: balanceElement ? balanceElement.textContent : 'null',
+                availableText: availableElement ? availableElement.textContent : 'null'
+            });
+            
             if (balanceElement && availableElement) {
                 let currentBalance = parseFloat(balanceElement.textContent.replace(/,/g, ''));
                 let newBalance = currentBalance + amount;
+                
+                console.log('余额计算:', {
+                    原始余额: currentBalance,
+                    变动金额: amount,
+                    新余额: newBalance
+                });
                 
                 // 确保余额不为负数
                 if (newBalance < 0) {
@@ -1214,21 +1234,31 @@
                 }
                 
                 // 更新余额显示
-                balanceElement.textContent = formatNumber(newBalance);
-                // 可用金额显示完整格式（不带"可用"文字）
-                availableElement.textContent = formatNumber(newBalance);
+                const formattedBalance = formatNumber(newBalance);
+                balanceElement.textContent = formattedBalance;
+                availableElement.textContent = formattedBalance;
                 
-                console.log(`${currentTransferType}操作完成: ${amount > 0 ? '+' : ''}${amount}, 新余额: ${newBalance}`);
+                console.log('余额更新完成，新显示值:', formattedBalance);
+                alert(`${currentTransferType}成功！金额: ${Math.abs(amount)}, 新余额: ${formattedBalance}`);
             } else {
-                console.error('无法找到余额显示元素');
+                console.error('无法找到余额显示元素', {
+                    balanceElement: balanceElement,
+                    availableElement: availableElement
+                });
+                alert('余额更新失败：无法找到显示元素');
             }
             
             // 清空输入框
             if (currentTransferType === '转出') {
-                document.getElementById('withdrawAmount').value = '';
+                const withdrawInput = document.getElementById('withdrawAmount');
+                if (withdrawInput) withdrawInput.value = '';
             } else {
-                document.getElementById('depositAmount').value = '';
+                const depositInput = document.getElementById('depositAmount');
+                if (depositInput) depositInput.value = '';
             }
+        } else {
+            console.log('金额为0，不执行更新');
+            alert('请输入有效金额');
         }
     }
 

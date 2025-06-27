@@ -1,7 +1,7 @@
-/* 强制刷新样式 - 版本 20241219bk */
-/* 最后更新时间: 2025-01-27 16:00:00 - 修复密码显示和金额更新问题 */
+/* 强制刷新样式 - 版本 20241219bl */
+/* 最后更新时间: 2025-01-27 16:15:00 - 修复白色圆点显示和金额更新调试 */
 
-/* CSS版本: v=20241219bk - 强制刷新 */
+/* CSS版本: v=20241219bl - 强制刷新 */
 * {
     margin: 0;
     padding: 0;
@@ -3009,8 +3009,10 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     color: #ffffff;
-    font-size: 20px;
+    font-size: 24px;
+    font-weight: bold;
     pointer-events: none;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
 }
 
 /* 转入转出密码输入框样式 */
@@ -3059,8 +3061,10 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     color: #ffffff;
-    font-size: 20px;
+    font-size: 24px;
+    font-weight: bold;
     pointer-events: none;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
 }
 
 .password-buttons {
