@@ -2640,9 +2640,6 @@ body {
 #scheduledTransferPage {
     background: #000000 !important;
     color: #ffffff !important;
-    min-height: 100vh !important;
-    display: flex !important;
-    flex-direction: column !important;
 }
 
 /* 头部完美对齐 */
@@ -2707,11 +2704,7 @@ body {
 
 /* 内容区域标准布局 */
 #scheduledTransferPage .scheduled-content {
-    flex: 1 !important;
     padding: 20px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 16px !important;
 }
 
 /* 统一卡片样式 */
@@ -2723,7 +2716,7 @@ body {
     border: 1px solid #333333 !important;
     border-radius: 12px !important;
     padding: 16px !important;
-    margin: 0 !important;
+    margin-bottom: 16px !important;
 }
 
 /* 金额区域特殊设计 */
