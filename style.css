@@ -624,29 +624,21 @@ body {
     border: 1px solid #e6e6e6;
 }
 
-/* 银行图标 - 使用用户上传的logo */
+/* 银行图标 - 直接使用用户上传的图标文件 */
 .bank-icon.boc {
-    width: 32px;
-    height: 32px;
-    border-radius: 6px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTUiIGZpbGw9IiNEQzI2MjYiIHN0cm9rZT0iI0E5MUQxRCIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxwYXRoIGQ9Ik0xMiA5SDIwVjEySDEyVjlaTTEwIDEzVjIzSDEyVjEzSDEwWk0yMCAxM1YyM0gyMlYxM0gyMFpNMTIgMTNIMjBWMjFIMTJWMTNaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K');
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+    background-image: url('./user-bank-icon.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    margin-right: 8px;
-    box-shadow: 0 3px 12px rgba(220, 38, 38, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
 }
 
 .bank-icon.boc:hover {
     transform: scale(1.08);
-    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.5);
+    box-shadow: 0 6px 20px rgba(229, 62, 62, 0.5);
 }
 
 /* 银行卡标签 */
@@ -2636,33 +2628,32 @@ body {
     }
 }
 
-/* 定时转入页面 - 极致美观设计 */
+/* 定时转入页面 - 黑色主题设计 */
 #scheduledTransferPage {
-    background: linear-gradient(135deg, #000000 0%, #0f0f0f 50%, #000000 100%) !important;
+    background: #000000 !important;
     color: #ffffff !important;
+    min-height: 100vh !important;
 }
 
-/* 头部精美设计 */
+/* 头部黑色主题 */
 #scheduledTransferPage .header {
-    background: linear-gradient(180deg, #1a1a1a 0%, #000000 100%) !important;
-    border-bottom: 1px solid rgba(255, 107, 53, 0.3) !important;
+    background: #000000 !important;
+    border-bottom: 1px solid #333333 !important;
     padding: 16px 20px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
     position: relative !important;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.8) !important;
 }
 
-/* 返回按钮美化 */
+/* 返回按钮黑色主题 */
 #scheduledTransferPage .back-btn {
-    background: rgba(255, 107, 53, 0.1) !important;
-    border: 1px solid rgba(255, 107, 53, 0.3) !important;
-    color: #ff6b35 !important;
+    background: transparent !important;
+    border: none !important;
+    color: #ffffff !important;
     font-size: 18px !important;
-    font-weight: bold !important;
-    padding: 8px 12px !important;
-    border-radius: 8px !important;
+    font-weight: normal !important;
+    padding: 8px !important;
     cursor: pointer !important;
     display: flex !important;
     align-items: center !important;
@@ -2672,14 +2663,13 @@ body {
 
 #scheduledTransferPage .back-btn::before {
     content: '<' !important;
-    color: #ff6b35 !important;
+    color: #ffffff !important;
     font-size: 18px !important;
     line-height: 1 !important;
 }
 
 #scheduledTransferPage .back-btn:hover {
-    background: rgba(255, 107, 53, 0.2) !important;
-    transform: translateX(-2px) !important;
+    color: #cccccc !important;
 }
 
 #scheduledTransferPage .back-arrow {
@@ -2696,11 +2686,10 @@ body {
 
 #scheduledTransferPage .title h1 {
     color: #ffffff !important;
-    font-size: 20px !important;
+    font-size: 18px !important;
     font-weight: 600 !important;
     margin: 0 !important;
     line-height: 1.2 !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
 }
 
 /* 隐藏右上角菜单 */
@@ -2709,112 +2698,88 @@ body {
     width: 40px !important;
 }
 
-/* 内容区域美化 */
+/* 内容区域 */
 #scheduledTransferPage .scheduled-content {
-    padding: 24px 20px !important;
+    padding: 20px 16px !important;
+    background: #000000 !important;
 }
 
-/* 卡片模块极致美化 */
+/* 卡片模块统一设计 */
 #scheduledTransferPage .scheduled-amount-section,
 #scheduledTransferPage .payment-method-section,
 #scheduledTransferPage .schedule-time-section,
 #scheduledTransferPage .agreement-section {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%) !important;
-    border: 1px solid rgba(255, 107, 53, 0.2) !important;
-    border-radius: 16px !important;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%) !important;
+    border: 1px solid #333333 !important;
+    border-radius: 12px !important;
     padding: 20px !important;
-    margin-bottom: 20px !important;
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.6),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
-    transition: all 0.3s ease !important;
+    margin-bottom: 16px !important;
+    min-height: 100px !important;
 }
 
-#scheduledTransferPage .scheduled-amount-section:hover,
-#scheduledTransferPage .payment-method-section:hover,
-#scheduledTransferPage .schedule-time-section:hover {
-    transform: translateY(-3px) !important;
-    box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.8),
-        0 0 30px rgba(255, 107, 53, 0.15) !important;
-}
-
-/* 金额标签美化 */
+/* 金额标签 */
 #scheduledTransferPage .amount-label {
     color: #ffffff !important;
-    font-size: 18px !important;
+    font-size: 16px !important;
     font-weight: 600 !important;
-    margin-bottom: 16px !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+    margin-bottom: 12px !important;
 }
 
-/* 金额输入容器美化 */
+/* 金额输入容器黑色主题 */
 #scheduledTransferPage .amount-input-container {
     display: flex !important;
     align-items: center !important;
-    background: linear-gradient(135deg, #ff6b35 0%, #e55a2e 100%) !important;
-    padding: 20px !important;
-    border-radius: 16px !important;
-    margin-bottom: 16px !important;
-    box-shadow: 
-        0 8px 32px rgba(255, 107, 53, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
-    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    background: #2a2a2a !important;
+    padding: 16px !important;
+    border-radius: 8px !important;
+    margin-bottom: 12px !important;
+    border: 1px solid #444444 !important;
 }
 
 #scheduledTransferPage .currency-symbol {
     color: #ffffff !important;
-    font-size: 32px !important;
+    font-size: 20px !important;
     font-weight: bold !important;
     margin-right: 8px !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* 金额输入框美化 */
+/* 金额输入框黑色主题 */
 #scheduledTransferPage .amount-input-field {
     background: transparent !important;
     border: none !important;
     color: #ffffff !important;
-    font-size: 32px !important;
+    font-size: 20px !important;
     font-weight: bold !important;
     flex: 1 !important;
     outline: none !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
 }
 
 #scheduledTransferPage .amount-input-field::placeholder {
-    color: rgba(255, 255, 255, 0.6) !important;
-    font-size: 16px !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+    font-size: 14px !important;
 }
 
 #scheduledTransferPage .clear-btn {
-    color: rgba(255, 255, 255, 0.8) !important;
-    font-size: 24px !important;
+    color: #999999 !important;
+    font-size: 18px !important;
     cursor: pointer !important;
-    padding: 8px !important;
-    border-radius: 50% !important;
-    transition: all 0.3s ease !important;
-    background: rgba(255, 255, 255, 0.1) !important;
-    width: 36px !important;
-    height: 36px !important;
+    padding: 4px !important;
+    width: 24px !important;
+    height: 24px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
 }
 
 #scheduledTransferPage .clear-btn:hover {
-    background: rgba(255, 255, 255, 0.2) !important;
-    transform: scale(1.1) !important;
+    color: #ffffff !important;
 }
 
 #scheduledTransferPage .amount-tip {
-    color: #cccccc !important;
-    font-size: 13px !important;
-    line-height: 1.5 !important;
-    padding: 12px 16px !important;
-    background: rgba(255, 107, 53, 0.1) !important;
-    border-radius: 8px !important;
-    border-left: 4px solid #ff6b35 !important;
+    color: #999999 !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    margin-top: 8px !important;
 }
 
 /* 选择项完美对齐 */
@@ -2886,7 +2851,7 @@ body {
     text-decoration: none !important;
 }
 
-/* 确认按钮专业设计 */
+/* 确认按钮橙色设计 */
 #scheduledTransferPage .schedule-confirm-btn {
     background: #ff6b35 !important;
     color: #ffffff !important;
@@ -2896,19 +2861,111 @@ body {
     font-size: 16px !important;
     font-weight: 600 !important;
     cursor: pointer !important;
-    margin-top: 24px !important;
+    margin-top: 20px !important;
+    width: 100% !important;
     transition: all 0.2s ease !important;
-    box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3) !important;
 }
 
 #scheduledTransferPage .schedule-confirm-btn:hover {
     background: #e55a2e !important;
-    transform: translateY(-1px) !important;
-    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4) !important;
 }
 
 #scheduledTransferPage .schedule-confirm-btn:active {
     background: #d14a25 !important;
-    transform: translateY(0) !important;
-    box-shadow: 0 1px 4px rgba(255, 107, 53, 0.3) !important;
+}
+
+/* 密码输入弹窗 */
+.password-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-modal.show {
+    display: flex;
+}
+
+.password-dialog {
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 24px;
+    width: 300px;
+    max-width: 90%;
+    border: 1px solid #333333;
+}
+
+.password-title {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.password-input-group {
+    margin-bottom: 20px;
+}
+
+.password-label {
+    color: #ffffff;
+    font-size: 14px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.password-input {
+    width: 100%;
+    background: #2a2a2a;
+    border: 1px solid #444444;
+    border-radius: 8px;
+    padding: 12px;
+    color: #ffffff;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.password-input:focus {
+    border-color: #ff6b35;
+}
+
+.password-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.password-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.password-btn.cancel {
+    background: #444444;
+    color: #ffffff;
+}
+
+.password-btn.cancel:hover {
+    background: #555555;
+}
+
+.password-btn.confirm {
+    background: #ff6b35;
+    color: #ffffff;
+}
+
+.password-btn.confirm:hover {
+    background: #e55a2e;
 }
