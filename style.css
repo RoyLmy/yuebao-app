@@ -2725,15 +2725,17 @@ body {
     margin-bottom: 12px !important;
 }
 
-/* 金额输入容器黑色主题 */
+/* 金额输入容器统一模块样式 */
 #scheduledTransferPage .amount-input-container {
     display: flex !important;
     align-items: center !important;
-    background: #2a2a2a !important;
-    padding: 16px !important;
-    border-radius: 8px !important;
-    margin-bottom: 12px !important;
-    border: 1px solid #444444 !important;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%) !important;
+    border: 1px solid #333333 !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    margin-bottom: 16px !important;
+    min-height: 100px !important;
+    box-sizing: border-box !important;
 }
 
 #scheduledTransferPage .currency-symbol {
@@ -2920,20 +2922,37 @@ body {
     display: block;
 }
 
-.password-input {
-    width: 100%;
+.password-input-grid {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.password-digit {
+    width: 40px;
+    height: 50px;
     background: #2a2a2a;
     border: 1px solid #444444;
     border-radius: 8px;
-    padding: 12px;
+    text-align: center;
     color: #ffffff;
-    font-size: 16px;
+    font-size: 20px;
+    font-weight: bold;
     outline: none;
     box-sizing: border-box;
+    transition: all 0.2s ease;
 }
 
-.password-input:focus {
+.password-digit:focus {
     border-color: #ff6b35;
+    background: #333333;
+}
+
+.password-digit::-webkit-outer-spin-button,
+.password-digit::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .password-buttons {
