@@ -10,10 +10,12 @@
     <link rel="apple-touch-icon" href="./icon-192.png">
     <link rel="manifest" href="./manifest.json">
     <title>支付宝宝</title>
-            <link rel="stylesheet" href="style.css?v=20241219bd">
+            <link rel="stylesheet" href="style.css?v=20241219be">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+    <meta name="cache-control" content="max-age=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta property="og:title" content="支付宝宝" />
     <meta property="og:description" content="支付宝宝 - 让生活更简单，余额、签到、理财一站式体验。" />
     <meta property="og:image" content="./icon-512.png" />
@@ -575,6 +577,22 @@
 
     <script src="./main.js?v=20240608"></script>
     <script>
+    // 强制刷新样式缓存
+    function forceRefreshCSS() {
+        const link = document.querySelector('link[rel="stylesheet"]');
+        if (link) {
+            const newLink = link.cloneNode();
+            newLink.href = link.href.split('?')[0] + '?v=' + new Date().getTime();
+            link.parentNode.replaceChild(newLink, link);
+            console.log('CSS样式已强制刷新');
+        }
+    }
+    
+    // 页面加载时强制刷新样式
+    document.addEventListener('DOMContentLoaded', function() {
+        forceRefreshCSS();
+    });
+    
     // 页面切换函数
     function showPage(pageId) {
         document.querySelectorAll('.page').forEach(page => {
