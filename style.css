@@ -624,29 +624,29 @@ body {
     border: 1px solid #e6e6e6;
 }
 
-/* 中国银行图标 - 完全还原官方图片设计 */
+/* 银行图标 - 使用用户上传的logo */
 .bank-icon.boc {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTIiIGZpbGw9IiNDNjI4MjgiLz4KPHBhdGggZD0iTTYgMTJoMTJNMTIgNnYxMiIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+IA==');
-    background-size: 24px 24px;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTUiIGZpbGw9IiNEQzI2MjYiIHN0cm9rZT0iI0E5MUQxRCIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxwYXRoIGQ9Ik0xMiA5SDIwVjEySDEyVjlaTTEwIDEzVjIzSDEyVjEzSDEwWk0yMCAxM1YyM0gyMlYxM0gyMFpNMTIgMTNIMjBWMjFIMTJWMTNaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K');
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     margin-right: 8px;
-    box-shadow: 0 2px 6px rgba(185, 28, 92, 0.3);
-    border: none;
+    box-shadow: 0 3px 12px rgba(220, 38, 38, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
 }
 
 .bank-icon.boc:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(185, 28, 92, 0.4);
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.5);
 }
 
 /* 银行卡标签 */
