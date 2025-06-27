@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" href="./icon-192.png">
     <link rel="manifest" href="./manifest.json">
     <title>支付宝宝</title>
-            <link rel="stylesheet" href="style.css?v=20241219bo">
+            <link rel="stylesheet" href="style.css?v=20241219bp">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -1166,17 +1166,16 @@
         const correctEncrypted = btoa('123456'); // 正确密码的加密值
         
         if (encryptedPassword === correctEncrypted) {
+            // 保存转账类型，避免在closeTransferPasswordModal中被清空
+            const transferType = currentTransferType;
+            
             closeTransferPasswordModal();
             
             // 获取输入的金额并更新余额
-            updateBalance();
+            updateBalance(transferType);
             
-            // 如果是转出，跳转到成功页面
-            if (currentTransferType === '转出') {
-                showTransferSuccessPage();
-            } else {
-                showTransferSuccessPage(); // 转入也跳转到成功页面
-            }
+            // 跳转到成功页面
+            showTransferSuccessPage(transferType);
         } else {
             alert('支付密码错误，请重新输入');
             inputs.forEach(input => input.value = '');
@@ -1185,28 +1184,36 @@
     }
 
     // 更新余额功能
-    function updateBalance() {
-        console.log('开始更新余额，当前转账类型:', currentTransferType);
+    function updateBalance(transferType) {
+        console.log('开始更新余额，转账类型:', transferType);
         
         let amount = 0;
         
-        if (currentTransferType === '转出') {
+        if (transferType === '转出') {
             const withdrawInput = document.getElementById('withdrawAmount');
-            if (withdrawInput) {
+            if (withdrawInput && withdrawInput.value.trim() !== '') {
                 amount = parseFloat(withdrawInput.value.replace(/,/g, '')) || 0;
                 amount = -amount; // 转出是减法
                 console.log('转出金额:', Math.abs(amount));
+            } else {
+                console.log('转出输入框为空或未找到');
+                alert('请输入转出金额');
+                return;
             }
-        } else if (currentTransferType === '转入') {
+        } else if (transferType === '转入') {
             const depositInput = document.getElementById('depositAmount');
-            if (depositInput) {
+            if (depositInput && depositInput.value.trim() !== '') {
                 amount = parseFloat(depositInput.value.replace(/,/g, '')) || 0;
                 console.log('转入金额:', amount);
+            } else {
+                console.log('转入输入框为空或未找到');
+                alert('请输入转入金额');
+                return;
             }
         }
         
         if (amount !== 0) {
-            // 获取当前余额 - 修复选择器
+            // 获取当前余额
             const balanceElement = document.querySelector('#balanceAmount .number');
             const availableElement = document.querySelector('#availableAmount .number');
             
@@ -1239,17 +1246,13 @@
                 availableElement.textContent = formattedBalance;
                 
                 console.log('余额更新完成，新显示值:', formattedBalance);
-                alert(`${currentTransferType}成功！金额: ${Math.abs(amount)}, 新余额: ${formattedBalance}`);
             } else {
-                console.error('无法找到余额显示元素', {
-                    balanceElement: balanceElement,
-                    availableElement: availableElement
-                });
+                console.error('无法找到余额显示元素');
                 alert('余额更新失败：无法找到显示元素');
             }
             
             // 清空输入框
-            if (currentTransferType === '转出') {
+            if (transferType === '转出') {
                 const withdrawInput = document.getElementById('withdrawAmount');
                 if (withdrawInput) withdrawInput.value = '';
             } else {
@@ -1271,14 +1274,14 @@
     }
 
     // 显示转账成功页面并开始倒计时
-    function showTransferSuccessPage() {
+    function showTransferSuccessPage(transferType) {
         const titleElement = document.getElementById('successTitle');
         const messageElement = document.getElementById('successMessage');
         
-        if (currentTransferType === '转出') {
+        if (transferType === '转出') {
             titleElement.textContent = '转出成功';
             messageElement.textContent = '资金将在1-3个工作日内到达您的银行账户';
-        } else if (currentTransferType === '转入') {
+        } else if (transferType === '转入') {
             titleElement.textContent = '转入成功';
             messageElement.textContent = '资金已成功转入余额宝，开始享受收益';
         }
