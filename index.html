@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" href="./icon-192.png">
     <link rel="manifest" href="./manifest.json">
     <title>支付宝宝</title>
-            <link rel="stylesheet" href="style.css?v=20241219bj">
+            <link rel="stylesheet" href="style.css?v=20241219bk">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -62,7 +62,7 @@
                     </div>
                     <div class="balance-details">
                         <div class="available">
-                            <span id="availableAmount">可用 <span class="number">4247586.88</span></span>
+                            <span id="availableAmount">可用 <span class="number">4,247,586.88</span></span>
                         </div>
                         <div class="frozen">
                             <span>攒着 <span class="number">0.00</span></span>
@@ -1199,21 +1199,29 @@
         }
         
         if (amount !== 0) {
-            // 获取当前余额
+            // 获取当前余额 - 修复选择器
             const balanceElement = document.querySelector('#balanceAmount .number');
             const availableElement = document.querySelector('#availableAmount .number');
             
-            let currentBalance = parseFloat(balanceElement.textContent.replace(/,/g, ''));
-            let newBalance = currentBalance + amount;
-            
-            // 确保余额不为负数
-            if (newBalance < 0) {
-                newBalance = 0;
+            if (balanceElement && availableElement) {
+                let currentBalance = parseFloat(balanceElement.textContent.replace(/,/g, ''));
+                let newBalance = currentBalance + amount;
+                
+                // 确保余额不为负数
+                if (newBalance < 0) {
+                    alert('余额不足，无法完成转出操作');
+                    return;
+                }
+                
+                // 更新余额显示
+                balanceElement.textContent = formatNumber(newBalance);
+                // 可用金额显示完整格式（不带"可用"文字）
+                availableElement.textContent = formatNumber(newBalance);
+                
+                console.log(`${currentTransferType}操作完成: ${amount > 0 ? '+' : ''}${amount}, 新余额: ${newBalance}`);
+            } else {
+                console.error('无法找到余额显示元素');
             }
-            
-            // 更新余额显示
-            balanceElement.textContent = formatNumber(newBalance);
-            availableElement.textContent = formatNumber(newBalance);
             
             // 清空输入框
             if (currentTransferType === '转出') {

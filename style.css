@@ -1,7 +1,7 @@
-/* 强制刷新样式 - 版本 20241219bj */
-/* 最后更新时间: 2025-01-27 15:30:00 - 添加转账成功页面和金额更新功能 */
+/* 强制刷新样式 - 版本 20241219bk */
+/* 最后更新时间: 2025-01-27 16:00:00 - 修复密码显示和金额更新问题 */
 
-/* CSS版本: v=20241219bj - 强制刷新 */
+/* CSS版本: v=20241219bk - 强制刷新 */
 * {
     margin: 0;
     padding: 0;
@@ -2971,12 +2971,15 @@ body {
     border: 2px solid #444444;
     border-radius: 12px;
     text-align: center;
-    color: #ffffff;
+    color: transparent;
     font-size: 24px;
     font-weight: bold;
     outline: none;
     box-sizing: border-box;
     transition: all 0.3s ease;
+    text-security: disc;
+    -webkit-text-security: disc;
+    -moz-text-security: disc;
 }
 
 .password-digit:focus {
@@ -2990,6 +2993,26 @@ body {
     margin: 0;
 }
 
+/* 密码输入框圆点显示 */
+.password-digit::placeholder {
+    color: transparent;
+}
+
+.password-digit {
+    position: relative;
+}
+
+.password-digit:not(:placeholder-shown)::after {
+    content: '●';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 20px;
+    pointer-events: none;
+}
+
 /* 转入转出密码输入框样式 */
 .transfer-password-digit {
     width: 45px;
@@ -2998,12 +3021,15 @@ body {
     border: 2px solid #444444;
     border-radius: 12px;
     text-align: center;
-    color: #ffffff;
+    color: transparent;
     font-size: 24px;
     font-weight: bold;
     outline: none;
     box-sizing: border-box;
     transition: all 0.3s ease;
+    text-security: disc;
+    -webkit-text-security: disc;
+    -moz-text-security: disc;
 }
 
 .transfer-password-digit:focus {
@@ -3015,6 +3041,26 @@ body {
 .transfer-password-digit::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+/* 转入转出密码输入框圆点显示 */
+.transfer-password-digit::placeholder {
+    color: transparent;
+}
+
+.transfer-password-digit {
+    position: relative;
+}
+
+.transfer-password-digit:not(:placeholder-shown)::after {
+    content: '●';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 20px;
+    pointer-events: none;
 }
 
 .password-buttons {
