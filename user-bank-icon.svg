@@ -3,15 +3,15 @@
 <circle cx="14" cy="14" r="14" fill="none" stroke="#E31E24" stroke-width="3"/>
 <!-- 内部黑色背景 -->
 <circle cx="14" cy="14" r="11" fill="#000000"/>
-<!-- 红色"口"字 - 上下出头 -->
-<!-- 上横线（上出头） -->
-<rect x="9" y="6" width="10" height="2" fill="#E31E24"/>
-<!-- 下横线（下出头） -->
-<rect x="9" y="20" width="10" height="2" fill="#E31E24"/>
+<!-- 圆滑的红色"中"字 -->
+<!-- 上横线 -->
+<rect x="8" y="8" width="12" height="2" rx="1" fill="#E31E24"/>
+<!-- 下横线 -->
+<rect x="8" y="18" width="12" height="2" rx="1" fill="#E31E24"/>
 <!-- 左竖线 -->
-<rect x="9" y="8" width="2" height="12" fill="#E31E24"/>
+<rect x="10" y="10" width="2" height="8" rx="1" fill="#E31E24"/>
 <!-- 右竖线 -->
-<rect x="17" y="8" width="2" height="12" fill="#E31E24"/>
-<!-- 中间横线（口字内部） -->
-<rect x="11" y="13" width="6" height="2" fill="#E31E24"/>
+<rect x="16" y="10" width="2" height="8" rx="1" fill="#E31E24"/>
+<!-- 中间横线 -->
+<rect x="10" y="13" width="8" height="2" rx="1" fill="#E31E24"/>
 </svg> 
