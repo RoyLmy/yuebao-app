@@ -624,21 +624,22 @@ body {
     border: 1px solid #e6e6e6;
 }
 
-/* 银行图标 - 直接使用用户上传的图标文件 */
+/* 银行图标 - 中国银行古钱币设计 */
 .bank-icon.boc {
-    width: 28px;
-    height: 28px;
-    margin-right: 8px;
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
     background-image: url('./user-bank-icon.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(196, 30, 58, 0.3));
 }
 
 .bank-icon.boc:hover {
-    transform: scale(1.08);
-    box-shadow: 0 6px 20px rgba(229, 62, 62, 0.5);
+    transform: scale(1.1);
+    filter: drop-shadow(0 4px 8px rgba(196, 30, 58, 0.5));
 }
 
 /* 银行卡标签 */

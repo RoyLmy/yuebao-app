@@ -1,7 +1,17 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="12" cy="12" r="12" fill="#E53E3E"/>
-<circle cx="12" cy="12" r="8" fill="white"/>
-<circle cx="12" cy="12" r="4" fill="#E53E3E"/>
-<path d="M8 12H16" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-<path d="M12 8V16" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- 黑色背景 -->
+<circle cx="14" cy="14" r="14" fill="#000000"/>
+<!-- 红色圆圈 -->
+<circle cx="14" cy="14" r="11" fill="#E31E24"/>
+<!-- 红色"中"字 - 左右出头，不穿过中间 -->
+<!-- 上横线（左右出头） -->
+<rect x="6" y="9" width="16" height="2" fill="#E31E24"/>
+<!-- 下横线（左右出头） -->
+<rect x="6" y="17" width="16" height="2" fill="#E31E24"/>
+<!-- 左竖线 -->
+<rect x="10" y="11" width="2" height="6" fill="#E31E24"/>
+<!-- 右竖线 -->
+<rect x="16" y="11" width="2" height="6" fill="#E31E24"/>
+<!-- 中间横线 -->
+<rect x="10" y="13" width="8" height="2" fill="#E31E24"/>
 </svg> 
