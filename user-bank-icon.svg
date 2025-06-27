@@ -1,8 +1,8 @@
 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-<!-- 黑色背景 -->
-<circle cx="14" cy="14" r="14" fill="#000000"/>
-<!-- 红色圆圈 -->
-<circle cx="14" cy="14" r="11" fill="#E31E24"/>
+<!-- 红色空心圆圈 -->
+<circle cx="14" cy="14" r="14" fill="none" stroke="#E31E24" stroke-width="3"/>
+<!-- 内部黑色背景 -->
+<circle cx="14" cy="14" r="11" fill="#000000"/>
 <!-- 红色"中"字 - 左右出头，不穿过中间 -->
 <!-- 上横线（左右出头） -->
 <rect x="6" y="9" width="16" height="2" fill="#E31E24"/>
