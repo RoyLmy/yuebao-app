@@ -1,7 +1,7 @@
-/* 强制刷新样式 - 版本 20241219bg */
-/* 最后更新时间: 2025-06-27 09:40:00 - 更新闭眼图标 */
+/* 强制刷新样式 - 版本 20241219bj */
+/* 最后更新时间: 2025-01-27 15:30:00 - 添加转账成功页面和金额更新功能 */
 
-/* CSS版本: v=20241219bi - 强制刷新 */
+/* CSS版本: v=20241219bj - 强制刷新 */
 * {
     margin: 0;
     padding: 0;
@@ -3052,4 +3052,226 @@ body {
 
 .password-btn.confirm:hover {
     background: #e55a2e;
+}
+
+/* 转出成功页面样式 */
+#transferSuccessPage {
+    background: #000000;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.success-content {
+    text-align: center;
+    max-width: 300px;
+    width: 100%;
+}
+
+.success-icon {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 40px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clock-success-icon {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        0 8px 32px rgba(255, 107, 53, 0.4),
+        0 0 40px rgba(255, 107, 53, 0.2);
+    animation: success-pulse 2s ease-in-out infinite;
+}
+
+.clock-face {
+    width: 60px;
+    height: 60px;
+    background: #ffffff;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.clock-face::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: #333;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.clock-hands {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hour-hand {
+    width: 2px;
+    height: 18px;
+    background: #333;
+    position: absolute;
+    top: -18px;
+    left: -1px;
+    transform-origin: bottom center;
+    border-radius: 1px;
+    animation: clock-hour-hand 4s linear infinite;
+}
+
+.minute-hand {
+    width: 1.5px;
+    height: 24px;
+    background: #333;
+    position: absolute;
+    top: -24px;
+    left: -0.75px;
+    transform-origin: bottom center;
+    border-radius: 0.75px;
+    animation: clock-minute-hand 2s linear infinite;
+}
+
+.success-checkmark {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 40px;
+    height: 40px;
+    background: #4CAF50;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    border: 3px solid #000000;
+    box-shadow: 0 4px 16px rgba(76, 175, 80, 0.4);
+    animation: checkmark-bounce 1.5s ease-out infinite;
+}
+
+.success-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+.success-message {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+    margin-bottom: 40px;
+}
+
+.countdown-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 16px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.countdown-text {
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+#countdownNumber {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ff6b35;
+    margin: 0 4px;
+    display: inline-block;
+    min-width: 20px;
+    text-align: center;
+}
+
+/* 动画效果 */
+@keyframes success-pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 
+            0 8px 32px rgba(255, 107, 53, 0.4),
+            0 0 40px rgba(255, 107, 53, 0.2);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 
+            0 12px 40px rgba(255, 107, 53, 0.6),
+            0 0 60px rgba(255, 107, 53, 0.3);
+    }
+}
+
+@keyframes checkmark-bounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes clock-hour-hand {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes clock-minute-hand {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 393px) {
+    .success-icon {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 30px;
+    }
+    
+    .clock-success-icon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .clock-face {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .success-checkmark {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+        top: -8px;
+        right: -8px;
+    }
+    
+    .success-title {
+        font-size: 24px;
+    }
+    
+    .success-message {
+        font-size: 14px;
+    }
 }

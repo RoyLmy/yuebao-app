@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" href="./icon-192.png">
     <link rel="manifest" href="./manifest.json">
     <title>支付宝宝</title>
-            <link rel="stylesheet" href="style.css?v=20241219bl">
+            <link rel="stylesheet" href="style.css?v=20241219bj">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -611,6 +611,31 @@
         </div>
     </div>
 
+    <!-- 转出成功页面 -->
+    <div id="transferSuccessPage" class="page">
+        <div class="success-content">
+            <div class="success-icon">
+                <div class="clock-success-icon">
+                    <div class="clock-face"></div>
+                    <div class="clock-hands">
+                        <div class="hour-hand"></div>
+                        <div class="minute-hand"></div>
+                    </div>
+                </div>
+                <div class="success-checkmark">✓</div>
+            </div>
+            
+            <div class="success-title" id="successTitle">转账成功</div>
+            <div class="success-message" id="successMessage">操作已完成，请关注资金变动</div>
+            
+            <div class="countdown-container">
+                <div class="countdown-text">
+                    <span id="countdownNumber">5</span>秒后自动返回首页
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="./main.js?v=20240608"></script>
     <script>
     // 强制刷新样式缓存
@@ -1136,15 +1161,108 @@
             return;
         }
         
-        // 模拟密码验证
-        if (password === '123456') {
+        // 简单密码加密验证（MD5模拟）
+        const encryptedPassword = btoa(password); // Base64加密作为示例
+        const correctEncrypted = btoa('123456'); // 正确密码的加密值
+        
+        if (encryptedPassword === correctEncrypted) {
             closeTransferPasswordModal();
-            showSuccessToast(`${currentTransferType}成功！预计1-3个工作日到账`);
+            
+            // 获取输入的金额并更新余额
+            updateBalance();
+            
+            // 如果是转出，跳转到成功页面
+            if (currentTransferType === '转出') {
+                showTransferSuccessPage();
+            } else {
+                showTransferSuccessPage(); // 转入也跳转到成功页面
+            }
         } else {
             alert('支付密码错误，请重新输入');
             inputs.forEach(input => input.value = '');
             inputs[0].focus();
         }
+    }
+
+    // 更新余额功能
+    function updateBalance() {
+        let amount = 0;
+        
+        if (currentTransferType === '转出') {
+            const withdrawInput = document.getElementById('withdrawAmount');
+            amount = parseFloat(withdrawInput.value.replace(/,/g, '')) || 0;
+            amount = -amount; // 转出是减法
+        } else if (currentTransferType === '转入') {
+            const depositInput = document.getElementById('depositAmount');
+            amount = parseFloat(depositInput.value.replace(/,/g, '')) || 0;
+            // 转入是加法，保持正数
+        }
+        
+        if (amount !== 0) {
+            // 获取当前余额
+            const balanceElement = document.querySelector('#balanceAmount .number');
+            const availableElement = document.querySelector('#availableAmount .number');
+            
+            let currentBalance = parseFloat(balanceElement.textContent.replace(/,/g, ''));
+            let newBalance = currentBalance + amount;
+            
+            // 确保余额不为负数
+            if (newBalance < 0) {
+                newBalance = 0;
+            }
+            
+            // 更新余额显示
+            balanceElement.textContent = formatNumber(newBalance);
+            availableElement.textContent = formatNumber(newBalance);
+            
+            // 清空输入框
+            if (currentTransferType === '转出') {
+                document.getElementById('withdrawAmount').value = '';
+            } else {
+                document.getElementById('depositAmount').value = '';
+            }
+        }
+    }
+
+    // 格式化数字显示
+    function formatNumber(num) {
+        return num.toLocaleString('zh-CN', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+    }
+
+    // 显示转账成功页面并开始倒计时
+    function showTransferSuccessPage() {
+        const titleElement = document.getElementById('successTitle');
+        const messageElement = document.getElementById('successMessage');
+        
+        if (currentTransferType === '转出') {
+            titleElement.textContent = '转出成功';
+            messageElement.textContent = '资金将在1-3个工作日内到达您的银行账户';
+        } else if (currentTransferType === '转入') {
+            titleElement.textContent = '转入成功';
+            messageElement.textContent = '资金已成功转入余额宝，开始享受收益';
+        }
+        
+        showPage('transferSuccessPage');
+        startCountdown();
+    }
+
+    // 倒计时功能
+    function startCountdown() {
+        let countdown = 5;
+        const countdownElement = document.getElementById('countdownNumber');
+        
+        const timer = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown;
+            
+            if (countdown <= 0) {
+                clearInterval(timer);
+                showPage('homePage');
+            }
+        }, 1000);
     }
 
     // 修改确认按钮点击事件
