@@ -411,7 +411,9 @@ body {
 .weekly-section,
 .stable-finance-section,
 .money-upgrade-section,
-.experience-section {
+.experience-section,
+.promo-card,
+.zero-money-section {
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
     border-radius: 16px;
     padding: 20px;
@@ -422,6 +424,7 @@ body {
     box-shadow: 
         0 8px 32px rgba(0, 0, 0, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    color: #ffffff;
 }
 
 .balance-header {
@@ -878,6 +881,91 @@ body {
 .schedule-confirm-btn:active {
     background: #0056CC;
     transform: scale(0.98);
+}
+
+/* 推广卡片样式 */
+.promo-card {
+    position: relative;
+}
+
+.promo-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.promo-text h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: #ffffff;
+}
+
+.promo-text p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 12px 0;
+}
+
+.promo-tags {
+    display: flex;
+    gap: 8px;
+}
+
+.tag {
+    background: rgba(255, 107, 53, 0.1);
+    color: #ff6b35;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    border: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+.promo-btn {
+    width: 100%;
+    padding: 12px;
+    background: #ff6b35;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.promo-btn:hover {
+    background: #e55a30;
+}
+
+.close-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 零钱通模块样式 */
+.zero-money-section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: #ffffff;
+}
+
+.zero-money-section p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 16px 0;
 }
 
 /* 操作按钮 */
