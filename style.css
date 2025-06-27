@@ -166,6 +166,15 @@ body {
         padding: 16px;
     }
     
+    .weekly-section,
+    .stable-finance-section {
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    }
+    
     .action-buttons {
         margin: 0 6px 12px 6px;
         width: calc(100% - 12px);
@@ -524,6 +533,15 @@ body {
         margin: 0 8px 16px 8px;
         width: calc(100% - 16px);
         padding: 24px;
+    }
+    
+    .weekly-section,
+    .stable-finance-section {
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.02);
     }
     
     .action-buttons {
@@ -1399,7 +1417,17 @@ body {
 
 .weekly-section,
 .stable-finance-section {
-    margin: 0 0 24px 0;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+    border-radius: 16px;
+    padding: 20px;
+    margin: 0 12px 16px 12px;
+    width: calc(100% - 24px);
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    color: #ffffff;
 }
 
 .section-header {
