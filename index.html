@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" href="./icon-192.png">
     <link rel="manifest" href="./manifest.json">
     <title>支付宝宝</title>
-            <link rel="stylesheet" href="style.css?v=20241219bj">
+            <link rel="stylesheet" href="style.css?v=20241219bk">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -383,7 +383,7 @@
                     <div class="key">4</div>
                     <div class="key">5</div>
                     <div class="key">6</div>
-                    <div class="key confirm">转入</div>
+                    <div class="key confirm" onclick="showTransferPasswordModal('转入')">转入</div>
                 </div>
                 <div class="keypad-row">
                     <div class="key">7</div>
@@ -487,7 +487,7 @@
                     <div class="key">4</div>
                     <div class="key">5</div>
                     <div class="key">6</div>
-                    <div class="key confirm">转出</div>
+                    <div class="key confirm" onclick="showTransferPasswordModal('转出')">转出</div>
                 </div>
                 <div class="keypad-row">
                     <div class="key">7</div>
@@ -536,8 +536,8 @@
                     <div class="amount-tip">若扣款时余额不足，则转入设置金额的一半</div>
                 </div>
 
-                <!-- 选择扣款方式 -->
-                <div class="payment-method-section">
+                <!-- 银行和时间合并模块 -->
+                <div class="bank-time-section">
                     <div class="method-item">
                         <div class="method-left">
                             <div class="method-label">选择扣款方式</div>
@@ -545,10 +545,6 @@
                         </div>
                         <div class="arrow-right"></div>
                     </div>
-                </div>
-
-                <!-- 定时转入时间 -->
-                <div class="schedule-time-section">
                     <div class="time-item">
                         <div class="time-left">
                             <div class="time-label">定时转入时间</div>
@@ -560,7 +556,7 @@
                 </div>
 
                 <!-- 协议区域 -->
-                <div class="agreement-section">
+                <div class="agreement-simple">
                     <label class="agreement-label">
                         <input type="checkbox" checked />
                         <span>同意 <a href="#" class="agreement-link">《定时转入余额宝相关协议》</a></span>
@@ -573,7 +569,7 @@
         </div>
     </div>
 
-    <!-- 密码输入弹窗 -->
+    <!-- 定时转入密码输入弹窗 -->
     <div class="password-modal" id="passwordModal">
         <div class="password-dialog">
             <div class="password-title">请输入支付密码</div>
@@ -591,6 +587,28 @@
             <div class="password-buttons">
                 <button class="password-btn cancel" onclick="closePasswordModal()">取消</button>
                 <button class="password-btn confirm" onclick="confirmPassword()">确定</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 转入转出密码输入弹窗 -->
+    <div class="password-modal" id="transferPasswordModal">
+        <div class="password-dialog">
+            <div class="password-title" id="transferPasswordTitle">请输入支付密码</div>
+            <div class="password-input-group">
+                <label class="password-label">支付密码</label>
+                <div class="password-input-grid">
+                    <input type="number" class="transfer-password-digit" maxlength="1" oninput="handleTransferPasswordInput(this, 0)">
+                    <input type="number" class="transfer-password-digit" maxlength="1" oninput="handleTransferPasswordInput(this, 1)">
+                    <input type="number" class="transfer-password-digit" maxlength="1" oninput="handleTransferPasswordInput(this, 2)">
+                    <input type="number" class="transfer-password-digit" maxlength="1" oninput="handleTransferPasswordInput(this, 3)">
+                    <input type="number" class="transfer-password-digit" maxlength="1" oninput="handleTransferPasswordInput(this, 4)">
+                    <input type="number" class="transfer-password-digit" maxlength="1" oninput="handleTransferPasswordInput(this, 5)">
+                </div>
+            </div>
+            <div class="password-buttons">
+                <button class="password-btn cancel" onclick="closeTransferPasswordModal()">取消</button>
+                <button class="password-btn confirm" onclick="confirmTransferPassword()">确定</button>
             </div>
         </div>
     </div>
@@ -1055,6 +1073,80 @@
         setTimeout(() => {
             document.body.removeChild(toast);
         }, 2000);
+    }
+
+    // 转入转出密码弹窗功能
+    let currentTransferType = '';
+
+    function showTransferPasswordModal(type) {
+        const modal = document.getElementById('transferPasswordModal');
+        const title = document.getElementById('transferPasswordTitle');
+        const inputs = modal.querySelectorAll('.transfer-password-digit');
+        
+        currentTransferType = type;
+        title.textContent = `请输入支付密码 - ${type}`;
+        modal.classList.add('show');
+        setTimeout(() => inputs[0].focus(), 100);
+    }
+
+    function closeTransferPasswordModal() {
+        const modal = document.getElementById('transferPasswordModal');
+        const inputs = modal.querySelectorAll('.transfer-password-digit');
+        modal.classList.remove('show');
+        inputs.forEach(input => input.value = '');
+        currentTransferType = '';
+    }
+
+    function handleTransferPasswordInput(input, index) {
+        const inputs = document.querySelectorAll('.transfer-password-digit');
+        
+        // 限制只能输入一位数字
+        if (input.value.length > 1) {
+            input.value = input.value.slice(0, 1);
+        }
+        
+        // 只允许数字0-9
+        if (!/^\d$/.test(input.value) && input.value !== '') {
+            input.value = '';
+            return;
+        }
+        
+        // 自动跳转到下一个输入框
+        if (input.value && index < 5) {
+            inputs[index + 1].focus();
+        }
+        
+        // 支持退格键跳转到上一个输入框
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'Backspace' && !input.value && index > 0) {
+                inputs[index - 1].focus();
+            }
+        });
+    }
+
+    function confirmTransferPassword() {
+        const inputs = document.querySelectorAll('.transfer-password-digit');
+        const password = Array.from(inputs).map(input => input.value).join('');
+        
+        if (password.length !== 6) {
+            alert('请输入6位数字密码');
+            return;
+        }
+        
+        if (!/^\d{6}$/.test(password)) {
+            alert('密码只能包含数字');
+            return;
+        }
+        
+        // 模拟密码验证
+        if (password === '123456') {
+            closeTransferPasswordModal();
+            showSuccessToast(`${currentTransferType}成功！预计1-3个工作日到账`);
+        } else {
+            alert('支付密码错误，请重新输入');
+            inputs.forEach(input => input.value = '');
+            inputs[0].focus();
+        }
     }
 
     // 修改确认按钮点击事件
