@@ -2999,7 +2999,8 @@ body {
 }
 
 .password-digit {
-    position: relative;
+    position: relative !important;
+    overflow: visible !important;
 }
 
 .password-digit:not(:placeholder-shown)::after {
@@ -3012,8 +3013,9 @@ body {
     font-size: 30px;
     font-weight: bold;
     pointer-events: none;
-    z-index: 999;
+    z-index: 9999 !important;
     line-height: 1;
+    display: block !important;
 }
 
 /* 转入转出密码输入框样式 */
@@ -3033,6 +3035,7 @@ body {
     text-security: disc;
     -webkit-text-security: disc;
     -moz-text-security: disc;
+    position: relative !important;
 }
 
 .transfer-password-digit:focus {
@@ -3052,7 +3055,8 @@ body {
 }
 
 .transfer-password-digit {
-    position: relative;
+    position: relative !important;
+    overflow: visible !important;
 }
 
 .transfer-password-digit:not(:placeholder-shown)::after {
@@ -3065,8 +3069,9 @@ body {
     font-size: 30px;
     font-weight: bold;
     pointer-events: none;
-    z-index: 999;
+    z-index: 9999 !important;
     line-height: 1;
+    display: block !important;
 }
 
 .password-buttons {
