@@ -1,7 +1,7 @@
-/* 强制刷新样式 - 版本 20241219bl */
-/* 最后更新时间: 2025-01-27 16:15:00 - 修复白色圆点显示和金额更新调试 */
+/* 强制刷新样式 - 版本 20241219bm */
+/* 最后更新时间: 2025-01-27 16:30:00 - 统一银行为交通银行 */
 
-/* CSS版本: v=20241219bl - 强制刷新 */
+/* CSS版本: v=20241219bm - 强制刷新 */
 * {
     margin: 0;
     padding: 0;
@@ -624,8 +624,8 @@ body {
     border: 1px solid #e6e6e6;
 }
 
-/* 银行图标 - 中国银行古钱币设计 */
-.bank-icon.boc {
+/* 银行图标 - 交通银行设计 */
+.bank-icon.ccb {
     width: 32px;
     height: 32px;
     margin-right: 10px;
@@ -634,12 +634,12 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     transition: all 0.3s ease;
-    filter: drop-shadow(0 2px 4px rgba(196, 30, 58, 0.3));
+    filter: drop-shadow(0 2px 4px rgba(0, 123, 191, 0.3));
 }
 
-.bank-icon.boc:hover {
+.bank-icon.ccb:hover {
     transform: scale(1.1);
-    filter: drop-shadow(0 4px 8px rgba(196, 30, 58, 0.5));
+    filter: drop-shadow(0 4px 8px rgba(0, 123, 191, 0.5));
 }
 
 /* 银行卡标签 */
