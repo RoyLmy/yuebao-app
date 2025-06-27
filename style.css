@@ -2636,206 +2636,232 @@ body {
     }
 }
 
-/* 定时转入页面 - 极致美观设计 */
+/* 定时转入页面 - 30年UI设计师标准 */
 #scheduledTransferPage {
-    background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%) !important;
-    color: white !important;
-    min-height: 100vh !important;
-}
-
-/* 头部区域精美设计 */
-#scheduledTransferPage .header {
-    background: linear-gradient(180deg, #1a1a1a 0%, #000000 100%) !important;
-    border-bottom: 1px solid rgba(255, 107, 53, 0.2) !important;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.8) !important;
-    padding: 16px 20px !important;
-}
-
-/* 精美返回按钮 */
-#scheduledTransferPage .back-btn {
-    background: rgba(255, 107, 53, 0.1) !important;
-    border: 1px solid rgba(255, 107, 53, 0.3) !important;
+    background: #000000 !important;
     color: #ffffff !important;
-    font-size: 18px !important;
-    font-weight: bold !important;
-    padding: 8px 12px !important;
-    border-radius: 8px !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* 头部完美对齐 */
+#scheduledTransferPage .header {
+    background: #000000 !important;
+    border-bottom: 1px solid #333333 !important;
+    padding: 16px 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    position: relative !important;
+}
+
+/* 返回按钮专业设计 */
+#scheduledTransferPage .back-btn {
+    background: transparent !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-size: 20px !important;
+    font-weight: normal !important;
+    padding: 8px !important;
     cursor: pointer !important;
-    transition: all 0.3s ease !important;
-    box-shadow: 0 2px 10px rgba(255, 107, 53, 0.2) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 40px !important;
+    height: 40px !important;
 }
 
 #scheduledTransferPage .back-btn::before {
     content: '<' !important;
-    color: #ff6b35 !important;
-    font-size: 18px !important;
-    font-weight: bold !important;
-}
-
-#scheduledTransferPage .back-btn:hover {
-    background: rgba(255, 107, 53, 0.2) !important;
-    transform: translateX(-2px) !important;
-    box-shadow: 0 4px 20px rgba(255, 107, 53, 0.4) !important;
+    color: #ffffff !important;
+    font-size: 20px !important;
+    line-height: 1 !important;
 }
 
 #scheduledTransferPage .back-arrow {
     display: none !important;
 }
 
-/* 标题美化 */
+/* 标题居中对齐 */
+#scheduledTransferPage .title {
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    text-align: center !important;
+}
+
 #scheduledTransferPage .title h1 {
     color: #ffffff !important;
-    font-size: 20px !important;
+    font-size: 18px !important;
     font-weight: 600 !important;
-    letter-spacing: 0.5px !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
 }
 
-/* 隐藏右上角菜单按钮 */
+/* 隐藏右上角菜单 */
 #scheduledTransferPage .menu-btn {
-    display: none !important;
+    visibility: hidden !important;
+    width: 40px !important;
 }
 
-/* 内容区域精美设计 */
+/* 内容区域标准布局 */
 #scheduledTransferPage .scheduled-content {
-    background: transparent !important;
-    padding: 24px 20px !important;
+    flex: 1 !important;
+    padding: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
 }
 
-/* 所有卡片模块美化 */
+/* 统一卡片样式 */
 #scheduledTransferPage .scheduled-amount-section,
 #scheduledTransferPage .payment-method-section,
 #scheduledTransferPage .schedule-time-section,
 #scheduledTransferPage .agreement-section {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%) !important;
-    border: 1px solid rgba(255, 107, 53, 0.2) !important;
-    border-radius: 16px !important;
-    padding: 20px !important;
-    margin-bottom: 20px !important;
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.6),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
-    transition: all 0.3s ease !important;
-}
-
-#scheduledTransferPage .scheduled-amount-section:hover,
-#scheduledTransferPage .payment-method-section:hover,
-#scheduledTransferPage .schedule-time-section:hover {
-    transform: translateY(-2px) !important;
-    box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.8),
-        0 0 30px rgba(255, 107, 53, 0.1) !important;
-}
-
-/* 金额显示区域特殊美化 */
-#scheduledTransferPage .amount-display {
-    background: linear-gradient(135deg, #ff6b35 0%, #e55a2e 100%) !important;
-    padding: 16px 20px !important;
+    background: #1a1a1a !important;
+    border: 1px solid #333333 !important;
     border-radius: 12px !important;
-    margin: 12px 0 !important;
-    box-shadow: 0 4px 20px rgba(255, 107, 53, 0.4) !important;
+    padding: 16px !important;
+    margin: 0 !important;
+}
+
+/* 金额区域特殊设计 */
+#scheduledTransferPage .amount-label {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    margin-bottom: 8px !important;
+}
+
+#scheduledTransferPage .amount-text {
+    color: #999999 !important;
+    font-size: 14px !important;
+    margin-bottom: 12px !important;
+}
+
+#scheduledTransferPage .amount-display {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: #2a2a2a !important;
+    padding: 16px !important;
+    border-radius: 8px !important;
+    margin-bottom: 8px !important;
 }
 
 #scheduledTransferPage .currency-symbol,
 #scheduledTransferPage .amount-number {
     color: #ffffff !important;
+    font-size: 28px !important;
     font-weight: bold !important;
-    font-size: 24px !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* 标签文字美化 */
-#scheduledTransferPage .amount-label,
-#scheduledTransferPage .method-label,
-#scheduledTransferPage .time-label {
-    color: #ffffff !important;
-    font-weight: 600 !important;
-    font-size: 16px !important;
-    margin-bottom: 8px !important;
-}
-
-#scheduledTransferPage .amount-text {
-    color: #ff6b35 !important;
-    font-size: 14px !important;
-    font-weight: 500 !important;
-}
-
-/* 值文字美化 */
-#scheduledTransferPage .method-value,
-#scheduledTransferPage .time-value {
-    color: #cccccc !important;
-    font-size: 15px !important;
-    font-weight: 500 !important;
-}
-
-#scheduledTransferPage .next-date {
-    color: #ff6b35 !important;
-    font-weight: bold !important;
+#scheduledTransferPage .clear-btn {
+    color: #999999 !important;
+    font-size: 20px !important;
+    cursor: pointer !important;
+    padding: 4px !important;
 }
 
 #scheduledTransferPage .amount-tip {
     color: #999999 !important;
     font-size: 12px !important;
-    margin-top: 8px !important;
-    padding: 8px 12px !important;
-    background: rgba(255, 107, 53, 0.05) !important;
-    border-radius: 6px !important;
-    border-left: 3px solid #ff6b35 !important;
+    line-height: 1.4 !important;
 }
 
-/* 协议区域美化 */
-#scheduledTransferPage .agreement-label {
-    color: #ffffff !important;
-    font-size: 14px !important;
+/* 选择项完美对齐 */
+#scheduledTransferPage .method-item,
+#scheduledTransferPage .time-item {
     display: flex !important;
     align-items: center !important;
+    justify-content: space-between !important;
+}
+
+#scheduledTransferPage .method-left,
+#scheduledTransferPage .time-left {
+    flex: 1 !important;
+}
+
+#scheduledTransferPage .method-label,
+#scheduledTransferPage .time-label {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    margin-bottom: 4px !important;
+}
+
+#scheduledTransferPage .method-value,
+#scheduledTransferPage .time-value {
+    color: #999999 !important;
+    font-size: 14px !important;
+}
+
+/* 箭头统一样式 */
+#scheduledTransferPage .arrow-right {
+    width: 8px !important;
+    height: 8px !important;
+    border-top: 2px solid #666666 !important;
+    border-right: 2px solid #666666 !important;
+    transform: rotate(45deg) !important;
+}
+
+/* 下次扣款时间 */
+#scheduledTransferPage .next-time {
+    color: #999999 !important;
+    font-size: 12px !important;
+    margin-top: 12px !important;
+}
+
+#scheduledTransferPage .next-date {
+    color: #ff6b35 !important;
+    font-weight: 600 !important;
+}
+
+/* 协议区域对齐 */
+#scheduledTransferPage .agreement-label {
+    display: flex !important;
+    align-items: flex-start !important;
+    color: #ffffff !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    cursor: pointer !important;
+}
+
+#scheduledTransferPage .agreement-label input[type="checkbox"] {
+    margin-right: 8px !important;
+    margin-top: 2px !important;
+    flex-shrink: 0 !important;
 }
 
 #scheduledTransferPage .agreement-link {
     color: #ff6b35 !important;
     text-decoration: none !important;
-    font-weight: 500 !important;
 }
 
-#scheduledTransferPage .agreement-link:hover {
-    text-decoration: underline !important;
-}
-
-/* 确认按钮极致美化 */
+/* 确认按钮专业设计 */
 #scheduledTransferPage .schedule-confirm-btn {
-    background: linear-gradient(135deg, #ff6b35 0%, #e55a2e 50%, #d14a25 100%) !important;
+    background: #ff6b35 !important;
     color: #ffffff !important;
     border: none !important;
-    width: 100% !important;
-    padding: 18px !important;
-    font-size: 18px !important;
-    font-weight: bold !important;
-    border-radius: 16px !important;
-    margin-top: 32px !important;
+    border-radius: 12px !important;
+    padding: 16px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
     cursor: pointer !important;
-    transition: all 0.3s ease !important;
-    box-shadow: 
-        0 8px 32px rgba(255, 107, 53, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    margin-top: 24px !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3) !important;
 }
 
 #scheduledTransferPage .schedule-confirm-btn:hover {
-    transform: translateY(-2px) !important;
-    box-shadow: 
-        0 12px 40px rgba(255, 107, 53, 0.7),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+    background: #e55a2e !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4) !important;
 }
 
 #scheduledTransferPage .schedule-confirm-btn:active {
+    background: #d14a25 !important;
     transform: translateY(0) !important;
-    box-shadow: 
-        0 4px 20px rgba(255, 107, 53, 0.4),
-        inset 0 2px 4px rgba(0, 0, 0, 0.2) !important;
-}
-
-/* 箭头图标美化 */
-#scheduledTransferPage .arrow-right {
-    border-top: 2px solid #ff6b35 !important;
-    border-right: 2px solid #ff6b35 !important;
-    opacity: 0.8 !important;
+    box-shadow: 0 1px 4px rgba(255, 107, 53, 0.3) !important;
 }
