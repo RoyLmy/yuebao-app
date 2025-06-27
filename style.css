@@ -3008,11 +3008,11 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #ff6b35;
+    color: #ffffff;
     font-size: 24px;
     font-weight: bold;
     pointer-events: none;
-    text-shadow: 0 0 3px rgba(255, 107, 53, 0.8);
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
 }
 
 /* 转入转出密码输入框样式 */
@@ -3060,11 +3060,11 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #ff6b35;
+    color: #ffffff;
     font-size: 24px;
     font-weight: bold;
     pointer-events: none;
-    text-shadow: 0 0 3px rgba(255, 107, 53, 0.8);
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
 }
 
 .password-buttons {
@@ -3108,11 +3108,15 @@ body {
 #transferSuccessPage {
     background: #000000;
     color: #ffffff;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
     padding: 20px;
+}
+
+#transferSuccessPage.active {
+    display: flex;
 }
 
 .success-content {
