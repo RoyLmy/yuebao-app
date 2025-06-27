@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" href="./icon-192.png">
     <link rel="manifest" href="./manifest.json">
     <title>支付宝宝</title>
-            <link rel="stylesheet" href="style.css?v=20241219br">
+            <link rel="stylesheet" href="style.css?v=20241219bs">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -1245,6 +1245,9 @@
                 balanceElement.textContent = formattedBalance;
                 availableElement.textContent = formattedBalance;
                 
+                // 同步更新转出页面的placeholder
+                updateWithdrawPlaceholder();
+                
                 console.log('余额更新完成，新显示值:', formattedBalance);
             } else {
                 console.error('无法找到余额显示元素');
@@ -1317,11 +1320,23 @@
         }
     });
 
+    // 更新转出页面的余额placeholder
+    function updateWithdrawPlaceholder() {
+        const withdrawInput = document.getElementById('withdrawAmount');
+        const balanceElement = document.querySelector('#balanceAmount .number');
+        
+        if (withdrawInput && balanceElement) {
+            const currentBalance = balanceElement.textContent;
+            withdrawInput.placeholder = `可转出到卡 ${currentBalance} 元`;
+        }
+    }
+
     // 页面加载完成后初始化数字键盘
     document.addEventListener('DOMContentLoaded', function() {
         setupKeypad();
         updateDynamicTimes();
         updateNextTransferDate();
+        updateWithdrawPlaceholder(); // 初始化转出页面placeholder
         setInterval(updateDynamicTimes, 60000);
         setInterval(updateNextTransferDate, 60000);
     });
